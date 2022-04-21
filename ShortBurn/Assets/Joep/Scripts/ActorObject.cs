@@ -29,8 +29,8 @@ public class ActorObject : MonoBehaviour
     {
         Playing,
         Playback,
-        Reset
-
+        Reset,
+        None
     }
     public state currentState;
 
@@ -49,8 +49,6 @@ public class ActorObject : MonoBehaviour
         playerInput = GetComponent<PlayerRecorder>();
         objectController = GetComponent<CharacterController>();
         inputRec = GetComponent<InputRecorder>();
-        //Player starts as idle until their clicked on, prob change this later
-        currentState = state.Reset;
         timer = 0;
         playbackTimer = 0;
     }
@@ -65,6 +63,14 @@ public class ActorObject : MonoBehaviour
     }
     void FixedUpdate()
     {
+        if ((int)currentState == 3) //Use when the player isnt recording
+        {
+            playerInput.GetInputs();
+            PlayerInputStruct userInput = playerInput.GetInputStruct();
+            objectController.GivenInputs(userInput);
+            objectController.Move();
+            playerInput.ResetInput();
+        }
 
         if ((int)currentState == 0)
         {
@@ -104,9 +110,6 @@ public class ActorObject : MonoBehaviour
         {
             timer = 0;
             timerText.text = "0.00";
-
-
-
         }
     }
 

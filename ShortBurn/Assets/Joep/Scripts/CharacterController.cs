@@ -39,7 +39,6 @@ public class CharacterController : MonoBehaviour
         {
             float targetAngle = Mathf.Atan2(motion.x, motion.z) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
-
         }
         //Actual Character Movement
         charCont.Move(motion * moveSpeed);
@@ -62,8 +61,8 @@ public class CharacterController : MonoBehaviour
     {
         ResetInputs();
         charCont.enabled = false;
-        charCont.transform.position = initialPosition;
-        charCont.transform.eulerAngles = initialRotation;
+        /*charCont.transform.position = initialPosition;
+        charCont.transform.eulerAngles = initialRotation;*/
         charCont.enabled = true;
     }
 }

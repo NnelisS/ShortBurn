@@ -1014,7 +1014,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newController: {fileID: 1695219631}
-  currentState: 0
+  currentState: 3
   timerText: {fileID: 545876081}
 --- !u!143 &1324964509
 CharacterController:
@@ -1546,7 +1546,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newController: {fileID: 1695219631}
-  currentState: 0
+  currentState: 2
   timerText: {fileID: 545876081}
 --- !u!114 &1695219631
 MonoBehaviour:
