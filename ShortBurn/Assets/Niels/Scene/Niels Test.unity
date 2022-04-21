@@ -961,6 +961,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 787421381}
+  rotation: {x: 0, y: 0}
   speed: 3
 --- !u!136 &1408290338
 CapsuleCollider:

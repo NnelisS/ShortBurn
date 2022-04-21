@@ -17,6 +17,9 @@ public class Pickup : MonoBehaviour
 
     void Update()
     {
+        Vector3 moveDiretion = (holdParent.position - heldObject.transform.position);
+        heldObject.GetComponent<Rigidbody>().AddForce(moveDiretion * moveForce);
+
         if (heldObject != null && rotateEnabled == false)
         {
             if (Input.GetKeyUp(KeyCode.R))
