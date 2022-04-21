@@ -5,12 +5,22 @@ using Cinemachine;
 
 public class Pickup : MonoBehaviour
 {
+    [Header("Pickup Settings")]
     public float pickupRange = 5;
     public float moveForce = 1;
     public Transform holdParent;
-    private GameObject heldObject;
-
+    public Transform middlePos;
     public float rotationSpeed = 5;
+
+    [Header("Pickup Info")]
+    public PlayerLook playerL;
+
+    [Header("Throw Settings")]
+    public float timer = 1;
+    public bool throwIt = false;
+
+    public GameObject heldObject;
+
     private Vector3 turn;
     private bool rotateEnabled = false;
 
@@ -18,7 +28,11 @@ public class Pickup : MonoBehaviour
     {
         if (heldObject != null && rotateEnabled == false)
         {
-            if (Input.GetKeyUp(KeyCode.R))
+/*            heldObject.transform.position = Vector3.Lerp(heldObject.transform.position, middlePos.transform.position, 0.5f * Time.deltaTime);
+*/
+            heldObject.transform.position = Vector3.MoveTowards(heldObject.transform.position, middlePos.transform.position, 1f * Time.deltaTime);
+
+            if (Input.GetKeyDown(KeyCode.R))
             {
                 rotateEnabled = true;
                 heldObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
@@ -27,11 +41,17 @@ public class Pickup : MonoBehaviour
 
         if (rotateEnabled)
         {
+            playerL.mouseSensitivity = 0;
+
+            if (Input.GetKeyUp(KeyCode.R))
+                rotateEnabled = false;
+
             if (Input.GetKeyDown(KeyCode.E))
             {
                 rotateEnabled = false;
                 MoveObject();
             }
+
             turn.x += Input.GetAxis("Mouse X") * rotationSpeed;
             turn.y += Input.GetAxis("Mouse Y") * rotationSpeed;
             heldObject.transform.rotation = Quaternion.Euler(-turn.y, turn.x, heldObject.transform.rotation.z);
@@ -40,6 +60,10 @@ public class Pickup : MonoBehaviour
                         float x = Input.GetAxis("Mouse X") * rotationSpeed * Mathf.Rad2Deg;
                         heldObject.transform.Rotate(Vector3.forward, y);
                         heldObject.transform.Rotate(Vector3.up, x);*/
+        }
+        else
+        {
+            playerL.mouseSensitivity = 100;
         }
 
         if (Input.GetKeyDown(KeyCode.E))
@@ -60,14 +84,13 @@ public class Pickup : MonoBehaviour
 
         if (heldObject != null)
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            if (Input.GetKey(KeyCode.Mouse0))
             {
+                timer -= 0.90f * Time.deltaTime;
+                heldObject.GetComponent<Rigidbody>().mass = timer;
+
+                throwIt = true;
                 rotateEnabled = false;
-                if (Input.GetKeyDown(KeyCode.Mouse0))
-                {
-                    ThrowObject();
-                    heldObject = null;
-                }
             }
             if (Input.GetKeyDown(KeyCode.E))
             {
@@ -75,6 +98,20 @@ public class Pickup : MonoBehaviour
                 MoveObject();
             }
         }
+
+        if (throwIt)
+        {
+            if (Input.GetKeyUp(KeyCode.Mouse0))
+            {
+                timer = 5;
+                ThrowObject();
+                heldObject = null;
+                throwIt = false;
+            }
+        }
+
+        if (timer <= 0.30f)
+            timer = 0.30f;
     }
 
     private void MoveObject()
@@ -84,14 +121,10 @@ public class Pickup : MonoBehaviour
             Vector3 moveDiretion = (holdParent.position - heldObject.transform.position);
             heldObject.GetComponent<Rigidbody>().AddForce(moveDiretion * moveForce);
         }
-        Vector3 moverDiretion = (holdParent.position - heldObject.transform.position);
-        heldObject.GetComponent<Rigidbody>().AddForce(moverDiretion * moveForce);
     }
 
     private void PickupUpObject(GameObject pickObj)
     {
-        pickObj.transform.localPosition = Vector3.Lerp(pickObj.transform.localPosition, holdParent.transform.localPosition, 1 * Time.deltaTime);
-
         if (pickObj.GetComponent<Rigidbody>())
         {
             pickObj.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
