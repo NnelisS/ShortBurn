@@ -9,7 +9,6 @@ public class Pickup : MonoBehaviour
     public float moveForce = 1;
     public Transform holdParent;
     private GameObject heldObject;
-    public CinemachineVirtualCamera vcam;
 
     public float rotationSpeed = 5;
     private Vector3 turn;
@@ -17,16 +16,11 @@ public class Pickup : MonoBehaviour
 
     void Update()
     {
-        Vector3 moveDiretion = (holdParent.position - heldObject.transform.position);
-        heldObject.GetComponent<Rigidbody>().AddForce(moveDiretion * moveForce);
-
         if (heldObject != null && rotateEnabled == false)
         {
             if (Input.GetKeyUp(KeyCode.R))
             {
                 rotateEnabled = true;
-                vcam.GetCinemachineComponent<CinemachinePOV>().m_HorizontalAxis.m_MaxSpeed = 0;
-                vcam.GetCinemachineComponent<CinemachinePOV>().m_VerticalAxis.m_MaxSpeed = 0;
                 heldObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
             }
         }
@@ -90,6 +84,8 @@ public class Pickup : MonoBehaviour
             Vector3 moveDiretion = (holdParent.position - heldObject.transform.position);
             heldObject.GetComponent<Rigidbody>().AddForce(moveDiretion * moveForce);
         }
+        Vector3 moverDiretion = (holdParent.position - heldObject.transform.position);
+        heldObject.GetComponent<Rigidbody>().AddForce(moverDiretion * moveForce);
     }
 
     private void PickupUpObject(GameObject pickObj)
@@ -114,9 +110,6 @@ public class Pickup : MonoBehaviour
         heldObject.GetComponent<Rigidbody>().useGravity = true;
         heldRig.drag = 1;
 
-        vcam.GetCinemachineComponent<CinemachinePOV>().m_HorizontalAxis.m_MaxSpeed = 800;
-        vcam.GetCinemachineComponent<CinemachinePOV>().m_VerticalAxis.m_MaxSpeed = 800;
-
         heldObject.transform.parent = null;
         heldObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
         heldObject.GetComponent<Rigidbody>().AddForce(transform.forward * 1000);
@@ -128,9 +121,6 @@ public class Pickup : MonoBehaviour
         Rigidbody heldRig = heldObject.GetComponent<Rigidbody>();
         heldObject.GetComponent<Rigidbody>().useGravity = true;
         heldRig.drag = 1;
-
-        vcam.GetCinemachineComponent<CinemachinePOV>().m_HorizontalAxis.m_MaxSpeed = 800;
-        vcam.GetCinemachineComponent<CinemachinePOV>().m_VerticalAxis.m_MaxSpeed = 800;
 
         heldObject.transform.parent = null;
         heldObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
