@@ -35,14 +35,14 @@ public class Pickup : MonoBehaviour
                 rotateEnabled = false;
                 MoveObject();
             }
-/*            turn.x = Input.GetAxis("Mouse X") * rotationSpeed;
-            turn.y = Input.GetAxis("Mouse Y") * rotationSpeed;
-            heldObject.transform.rotation = Quaternion.Euler(-turn.y, turn.x, 0);*/
+            turn.x += Input.GetAxis("Mouse X") * rotationSpeed;
+            turn.y += Input.GetAxis("Mouse Y") * rotationSpeed;
+            heldObject.transform.rotation = Quaternion.Euler(-turn.y, turn.x, heldObject.transform.rotation.z);
 
-            float y = Input.GetAxis("Mouse Y") * rotationSpeed * Mathf.Rad2Deg;
-            float x = Input.GetAxis("Mouse X") * rotationSpeed * Mathf.Rad2Deg;
-            heldObject.transform.Rotate(Vector3.forward, y);
-            heldObject.transform.Rotate(Vector3.up, x);
+            /*            float y = Input.GetAxis("Mouse Y") * rotationSpeed * Mathf.Rad2Deg;
+                        float x = Input.GetAxis("Mouse X") * rotationSpeed * Mathf.Rad2Deg;
+                        heldObject.transform.Rotate(Vector3.forward, y);
+                        heldObject.transform.Rotate(Vector3.up, x);*/
         }
 
         if (Input.GetKeyDown(KeyCode.E))
