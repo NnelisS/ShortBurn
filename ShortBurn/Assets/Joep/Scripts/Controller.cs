@@ -8,13 +8,13 @@ public class Controller : MonoBehaviour
 
     public void startRecording()
     {
-        //resetPlayer();
+        resetPlayer();
         selectedPlayer.GetComponent<ActorObject>().recording();
     }
 
     public void startPlayback()
     {
-        //resetPlayer();
+        resetPlayer();
         selectedPlayer.GetComponent<ActorObject>().playback();
     }
 
