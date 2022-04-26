@@ -82,7 +82,7 @@ public class Pickup : MonoBehaviour
                     PickupUpObject(hit.transform.gameObject);
                 }
             }
-            else
+            else if(throwIt == false)
             {
                 DropObject();
             }
