@@ -58,8 +58,9 @@ public class PickupTest : MonoBehaviour
 
             turn.x += Input.GetAxis("Mouse X") * rotationSpeed;
             turn.y += Input.GetAxis("Mouse Y") * rotationSpeed;
-            heldObject.transform.rotation = Quaternion.Euler(-turn.y, turn.x, heldObject.transform.rotation.z);
 
+            heldObject.transform.rotation = Quaternion.Euler(-turn.y, turn.x, heldObject.transform.rotation.z);
+            
             /*            float y = Input.GetAxis("Mouse Y") * rotationSpeed * Mathf.Rad2Deg;
                         float x = Input.GetAxis("Mouse X") * rotationSpeed * Mathf.Rad2Deg;
                         heldObject.transform.Rotate(Vector3.forward, y);
