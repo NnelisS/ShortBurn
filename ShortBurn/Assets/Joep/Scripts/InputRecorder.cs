@@ -22,6 +22,9 @@ public class InputRecorder : MonoBehaviour
         playerInputRecord.Add(time, inputs);
     }
 
+    /// <summary>
+    /// Make a new dictionary and replace the old one
+    /// </summary>
     public void ClearHistory()
     {
         playerInputRecord = new Dictionary<float, PlayerInputStruct>();

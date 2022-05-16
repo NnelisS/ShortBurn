@@ -82,9 +82,9 @@ public class ActorObject : MonoBehaviour
     {
         timer = timer + Time.deltaTime;
         playerInput.GetInputs();
-        PlayerInputStruct userInput = playerInput.GetInputStruct();
-        inputRec.AddToDictionary(timer, userInput);
-        objectController.GivenInputs(userInput);
+        PlayerInputStruct _userInput = playerInput.GetInputStruct();
+        inputRec.AddToDictionary(timer, _userInput);
+        objectController.GivenInputs(_userInput);
         objectController.Move();
         playerInput.ResetInput();
     }
@@ -141,8 +141,8 @@ public class ActorObject : MonoBehaviour
     private void MoveAgent()
     {
         playerInput.GetInputs();
-        PlayerInputStruct userInput = playerInput.GetInputStruct();
-        objectController.GivenInputs(userInput);
+        PlayerInputStruct _userInput = playerInput.GetInputStruct();
+        objectController.GivenInputs(_userInput);
         objectController.Move();
         playerInput.ResetInput();
     }
