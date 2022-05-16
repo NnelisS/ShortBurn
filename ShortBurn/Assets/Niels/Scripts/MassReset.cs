@@ -14,8 +14,6 @@ public class MassReset : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
-        {
             rb.mass = 1;
-        }
     }
 }
