@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -41,9 +39,6 @@ public class ActorObject : MonoBehaviour
     private float timer;
     private float playbackTimer;
 
-    //UI Timer
-    public Text TimerText;
-
     void Start()
     {
         //initialize the variables
@@ -80,18 +75,23 @@ public class ActorObject : MonoBehaviour
 
     #region States
 
+    /// <summary>
+    /// Increase timer and adds the time to the dictionary and moves the agent
+    /// </summary>
     private void PlayingState()
     {
         timer = timer + Time.deltaTime;
-        TimerText.text = timer.ToString("F2");
         playerInput.GetInputs();
-        PlayerInputStruct userInput = playerInput.GetInputStruct();
-        inputRec.AddToDictionary(timer, userInput);
-        objectController.GivenInputs(userInput);
+        PlayerInputStruct _userInput = playerInput.GetInputStruct();
+        inputRec.AddToDictionary(timer, _userInput);
+        objectController.GivenInputs(_userInput);
         objectController.Move();
         playerInput.ResetInput();
     }
 
+    /// <summary>
+    /// Get the player input and give it to the clone
+    /// </summary>
     private void PlaybackState()
     {
         if (!IsClone)
@@ -104,44 +104,54 @@ public class ActorObject : MonoBehaviour
         }
 
         playbackTimer = playbackTimer + Time.deltaTime;
-        TimerText.text = playbackTimer.ToString("F2");
         if (inputRec.KeyExists(playbackTimer))
         {
             PlayerInputStruct recordedInputs = inputRec.getRecordedInputs(playbackTimer);
-            if (recordedInputs.buttonPressed == true)
+            if (recordedInputs.ButtonPressed == true)
             {
-                Debug.Log("At" + playbackTimer + "the value of the button press is" + recordedInputs.buttonPressed);
+                Debug.Log("At" + playbackTimer + "the value of the button press is" + recordedInputs.ButtonPressed);
             }
             NewController.GivenInputs(recordedInputs);
             NewController.Move();
         }
     }
 
+    /// <summary>
+    /// Resets the timer
+    /// </summary>
     private void ResetState()
     {
         if (!IsClone)
             MoveAgent();
         timer = 0;
-        TimerText.text = "0.00";
     }
 
+    /// <summary>
+    /// Do nothing unless its the player
+    /// </summary>
     private void NoneState()
     {
         if (!IsClone)
         MoveAgent();
     }
 
+    /// <summary>
+    /// Move the agent 
+    /// </summary>
     private void MoveAgent()
     {
         playerInput.GetInputs();
-        PlayerInputStruct userInput = playerInput.GetInputStruct();
-        objectController.GivenInputs(userInput);
+        PlayerInputStruct _userInput = playerInput.GetInputStruct();
+        objectController.GivenInputs(_userInput);
         objectController.Move();
         playerInput.ResetInput();
     }
 
     #endregion
 
+    /// <summary>
+    /// Clear the recordings and start recording
+    /// </summary>
     public void Recording()
     {
         timer = 0;
@@ -149,13 +159,18 @@ public class ActorObject : MonoBehaviour
         CurrentState = State.Playing;
     }
 
-
+    /// <summary>
+    /// Set boolean true and change state
+    /// </summary>
     public void Playback()
     {
         newPlayback = true;
         CurrentState = State.Playback;
     }
 
+    /// <summary>
+    /// Resets input, calls objectController.Reset and change state
+    /// </summary>
     public void Reset()
     {
         objectController.Reset();

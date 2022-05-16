@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
-    public bool jump;
+    //Character Stats
+    public float MoveSpeed = .05f;
+    public bool Jump;
+
+    [Header("Private")]
+    private UnityEngine.CharacterController charCont;
+
     private Vector3 initialPosition;
     private Vector3 initialRotation;
     private float horizontalValue;
     private float verticalValue;
     private bool buttonValue;
     private GameObject characterGameObject;
-
-    //Character Stats
-    public float moveSpeed = .05f;
-
-    private UnityEngine.CharacterController charCont;
 
     void Start()
     {
@@ -25,44 +26,53 @@ public class CharacterController : MonoBehaviour
         charCont = GetComponent<UnityEngine.CharacterController>();
     }
 
+    /// <summary>
+    /// Use the character controller to move the player by getting the rotation and motion
+    /// </summary>
     public void Move()
     {
-        Vector3 motion = new Vector3(horizontalValue, -2, verticalValue);
-        Vector3 rotation = new Vector3(horizontalValue, 0, verticalValue);
+        Vector3 _motion = new Vector3(horizontalValue, -2, verticalValue);
+        Vector3 _rotation = new Vector3(horizontalValue, 0, verticalValue);
 
         if (buttonValue == true)
         {
             Debug.Log("The button press has been received, do additional functionality here");
         }
 
-        if (rotation.magnitude > 0.1f)
+        if (_rotation.magnitude > 0.1f)
         {
-            float targetAngle = Mathf.Atan2(motion.x, motion.z) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
+            float _targetAngle = Mathf.Atan2(_motion.x, _motion.z) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0f, _targetAngle, 0f);
         }
         //Actual Character Movement
-        charCont.Move(motion * moveSpeed);
+        charCont.Move(_motion * MoveSpeed);
     }
 
-    public void GivenInputs(PlayerInputStruct inputs)
+    /// <summary>
+    /// Set the horizontal and vertical values 
+    /// </summary>
+    public void GivenInputs(PlayerInputStruct _inputs)
     {
-        horizontalValue = inputs.horizontalInput;
-        verticalValue = inputs.verticalInput;
-        buttonValue = inputs.buttonPressed;
+        horizontalValue = _inputs.HorizontalInput;
+        verticalValue = _inputs.VerticalInput;
+        buttonValue = _inputs.ButtonPressed;
     }
 
+    /// <summary>
+    /// put the horizontal and vertical values on 0
+    /// </summary>
     public void ResetInputs()
     {
         horizontalValue = 0;
         verticalValue = 0;
     }
 
+    /// <summary>
+    /// Reset input and enable charactercontroller
+    /// </summary>
     public void Reset()
     {
         ResetInputs();
-        charCont.enabled = false;
-        /*charCont.transform.position = initialPosition;
-        charCont.transform.eulerAngles = initialRotation;*/
         charCont.enabled = true;
     }
 }

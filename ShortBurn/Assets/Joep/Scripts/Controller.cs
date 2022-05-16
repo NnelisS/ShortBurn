@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class Controller : MonoBehaviour
 {
-    public GameObject selectedPlayer;
+    public GameObject SelectedPlayer;
 
     public void startRecording()
     {
         //resetPlayer();
-        selectedPlayer.GetComponent<ActorObject>().Recording();
+        SelectedPlayer.GetComponent<ActorObject>().Recording();
     }
 
     public void startPlayback()
     {
         //resetPlayer();
-        selectedPlayer.GetComponent<ActorObject>().Playback();
+        SelectedPlayer.GetComponent<ActorObject>().Playback();
     }
 
     public void resetPlayer()
     {
-        selectedPlayer.GetComponent<ActorObject>().Reset();
+        SelectedPlayer.GetComponent<ActorObject>().Reset();
     }
 }
