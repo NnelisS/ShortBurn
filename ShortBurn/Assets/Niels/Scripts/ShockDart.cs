@@ -12,11 +12,6 @@ public class ShockDart : MonoBehaviour
     public GameObject BulletPref;
     public Transform ShootPoint;
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         Shoot();
@@ -32,6 +27,7 @@ public class ShockDart : MonoBehaviour
         }
     }
 
+    // shoot bullet and ignore player collision
     private IEnumerator BulletShoot(GameObject bullet)
     {
         Physics.IgnoreCollision(bullet.GetComponent<CapsuleCollider>(), GetComponentInParent<CapsuleCollider>());

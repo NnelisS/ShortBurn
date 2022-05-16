@@ -7,14 +7,14 @@ public class PlayerMovement : MonoBehaviour
     private UnityEngine.CharacterController controller;
 
     [Header("Settings")]
-    public float speed = 12;
-    public float gravity = -9.81f;
-    public float jumpHeight = 3f;
+    public float Speed = 12;
+    public float Gravity = -9.81f;
+    public float JumpHeight = 3f;
 
     [Header("ground Info")]
-    public Transform groundCheck;
-    public float groundDistance = 0.4f;
-    public LayerMask groundMask;
+    public Transform GroundCheck;
+    public float GroundDistance = 0.4f;
+    public LayerMask GroundMask;
 
     private Vector3 velocity;
     private bool isGrounded;
@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Jump();
         Running();
-        GroundCheck();
+        GroundChecker();
 
         // get input axis
         float x = Input.GetAxis("Horizontal");
@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 move = transform.right * x + transform.forward * z;
 
         // use character controller to move around
-        controller.Move(move * speed * Time.deltaTime);
+        controller.Move(move * Speed * Time.deltaTime);
     }
 
     #region Running
@@ -45,19 +45,19 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            speed = 12;
+            Speed = 12;
         }
         else
         {
-            speed = 5;
+            Speed = 5;
         }
     }
     #endregion
 
     #region GroundCheck
-    private void GroundCheck()
+    private void GroundChecker()
     {
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        isGrounded = Physics.CheckSphere(GroundCheck.position, GroundDistance, GroundMask);
 
         if (isGrounded && velocity.y < 0)
         {
@@ -69,13 +69,13 @@ public class PlayerMovement : MonoBehaviour
     #region Jump
     private void Jump()
     {
-        velocity.y += gravity * Time.deltaTime;
+        velocity.y += Gravity * Time.deltaTime;
 
         controller.Move(velocity * Time.deltaTime);
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            velocity.y = Mathf.Sqrt(JumpHeight * -2f * Gravity);
         }
     }
     #endregion

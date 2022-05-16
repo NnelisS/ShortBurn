@@ -4,26 +4,23 @@ using UnityEngine;
 
 public class Clone : MonoBehaviour
 {
-    public bool enableClone = false;
-    public PlayerMovement playerMov;
+    public bool EnableClone = false;
+    public PlayerMovement PlayerMov;
 
     private void Update()
     {
-        if (enableClone)
+        // let clone move forward
+        if (EnableClone)
         {
-            Debug.Log("clone Is Active");
-            playerMov.enabled = true;
+            PlayerMov.enabled = true;
             /*MoveForward();*/
         }
     }
 
     private void OnMouseEnter()
     {
-        Debug.Log("On Clone"); 
         if (Input.GetKeyDown(KeyCode.E))
-        {
-            enableClone = true;
-        }
+            EnableClone = true;
     }
 
     private void MoveForward()

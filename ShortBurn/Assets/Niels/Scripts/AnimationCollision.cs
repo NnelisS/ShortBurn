@@ -22,6 +22,7 @@ public class AnimationCollision : MonoBehaviour
         AnimationUpdater();
     }
 
+    // check if player is on collider
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -34,6 +35,7 @@ public class AnimationCollision : MonoBehaviour
             IsActive = false;
     }
 
+    // wait for the animation to finish before it goes back to the default animation
     private void AnimationUpdater()
     {
         animationState = Animator.GetCurrentAnimatorStateInfo(0);
