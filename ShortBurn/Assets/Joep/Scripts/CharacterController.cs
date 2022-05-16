@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
-    public bool jump;
+    //Character Stats
+    public float MoveSpeed = .05f;
+    public bool Jump;
+
+    [Header("Private")]
+    private UnityEngine.CharacterController charCont;
+
     private Vector3 initialPosition;
     private Vector3 initialRotation;
     private float horizontalValue;
     private float verticalValue;
     private bool buttonValue;
     private GameObject characterGameObject;
-
-    //Character Stats
-    public float moveSpeed = .05f;
-
-    private UnityEngine.CharacterController charCont;
 
     void Start()
     {
@@ -41,7 +42,7 @@ public class CharacterController : MonoBehaviour
             transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
         }
         //Actual Character Movement
-        charCont.Move(motion * moveSpeed);
+        charCont.Move(motion * MoveSpeed);
     }
 
     public void GivenInputs(PlayerInputStruct inputs)
