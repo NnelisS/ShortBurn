@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public enum State
 {
@@ -42,6 +41,11 @@ public class ActorObject : MonoBehaviour
     void Start()
     {
         //initialize the variables
+        if (IsClone)
+            CurrentState = State.Reset;
+        else
+            CurrentState = State.None;
+
         playerInput = GetComponent<PlayerRecorder>();
         objectController = GetComponent<CharacterController>();
         inputRec = GetComponent<InputRecorder>();

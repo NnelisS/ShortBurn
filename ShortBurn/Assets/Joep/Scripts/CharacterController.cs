@@ -11,18 +11,12 @@ public class CharacterController : MonoBehaviour
     [Header("Private")]
     private UnityEngine.CharacterController charCont;
 
-    private Vector3 initialPosition;
-    private Vector3 initialRotation;
     private float horizontalValue;
     private float verticalValue;
     private bool buttonValue;
-    private GameObject characterGameObject;
 
     void Start()
     {
-        characterGameObject = gameObject;
-        initialPosition = GetComponent<Transform>().position;
-        initialRotation = GetComponent<Transform>().rotation.eulerAngles;
         charCont = GetComponent<UnityEngine.CharacterController>();
     }
 
