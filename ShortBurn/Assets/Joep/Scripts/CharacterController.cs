@@ -51,11 +51,11 @@ public class CharacterController : MonoBehaviour
     /// <summary>
     /// Set the horizontal and vertical values 
     /// </summary>
-    public void GivenInputs(PlayerInputStruct _inputs)
+    public void GivenInputs(PlayerInputStruct inputs)
     {
-        horizontalValue = _inputs.HorizontalInput;
-        verticalValue = _inputs.VerticalInput;
-        buttonValue = _inputs.ButtonPressed;
+        horizontalValue = inputs.horizontalInput;
+        verticalValue = inputs.verticalInput;
+        buttonValue = inputs.buttonPressed;
     }
 
     /// <summary>

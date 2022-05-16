@@ -17,9 +17,9 @@ public class InputRecorder : MonoBehaviour
     //The timeStamp is the key
     //The inputStruct (inputs) is the value of the key
     //This function is used by the actorObject script as the dictionary is private
-    public void AddToDictionary(float _time, PlayerInputStruct _inputs)
+    public void AddToDictionary(float time, PlayerInputStruct inputs)
     {
-        playerInputRecord.Add(_time, _inputs);
+        playerInputRecord.Add(time, inputs);
     }
 
     /// <summary>
@@ -30,19 +30,15 @@ public class InputRecorder : MonoBehaviour
         playerInputRecord = new Dictionary<float, PlayerInputStruct>();
     }
 
-    /// <summary>
-    /// Check if key exists
-    /// </summary>
-    public bool KeyExists(float _key)
+    //Check if key exists
+    public bool KeyExists(float key)
     {
-        return playerInputRecord.ContainsKey(_key);
+        return playerInputRecord.ContainsKey(key);
     }
 
-    /// <summary>
-    /// Returns the inputStruct at current timeStamp(in)
-    /// </summary>
-    public PlayerInputStruct getRecordedInputs(float _timeStamp)
+    //Returns the inputStruct at current timeStamp(in)
+    public PlayerInputStruct getRecordedInputs(float timeStamp)
     {
-        return playerInputRecord[_timeStamp];
+        return playerInputRecord[timeStamp];
     }
 }

@@ -112,9 +112,9 @@ public class ActorObject : MonoBehaviour
         if (inputRec.KeyExists(playbackTimer))
         {
             PlayerInputStruct recordedInputs = inputRec.getRecordedInputs(playbackTimer);
-            if (recordedInputs.ButtonPressed == true)
+            if (recordedInputs.buttonPressed == true)
             {
-                Debug.Log("At" + playbackTimer + "the value of the button press is" + recordedInputs.ButtonPressed);
+                Debug.Log("At" + playbackTimer + "the value of the button press is" + recordedInputs.buttonPressed);
             }
             NewController.GivenInputs(recordedInputs);
             NewController.Move();
