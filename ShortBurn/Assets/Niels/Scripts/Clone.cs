@@ -12,15 +12,22 @@ public class Clone : MonoBehaviour
         // let clone move forward
         if (EnableClone)
         {
-            PlayerMov.enabled = true;
-            /*MoveForward();*/
+            /*PlayerMov.enabled = true;*/
+            MoveForward();
         }
     }
 
     private void OnMouseEnter()
     {
         if (Input.GetKeyDown(KeyCode.E))
+        {
             EnableClone = true;
+            Debug.Log("Touch");
+        }
+    }
+    private void OnMouseDown()
+    {
+        EnableClone = true;
     }
 
     private void MoveForward()
