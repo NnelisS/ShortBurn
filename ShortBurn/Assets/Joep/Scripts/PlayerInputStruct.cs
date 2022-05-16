@@ -4,15 +4,15 @@ using UnityEngine;
 
 public struct PlayerInputStruct
 {
-    public float verticalInput;
-    public float horizontalInput;
+    public float VerticalInput;
+    public float HorizontalInput;
 
-    public bool buttonPressed;
+    public bool ButtonPressed;
 
-    public PlayerInputStruct(float horizontalValue, float verticalValue, bool buttonvalue)
+    public PlayerInputStruct(float _horizontalValue, float _verticalValue, bool _buttonvalue)
     {
-        verticalInput = verticalValue;
-        horizontalInput = horizontalValue;
-        buttonPressed = buttonvalue;
+        VerticalInput = _verticalValue;
+        HorizontalInput = _horizontalValue;
+        ButtonPressed = _buttonvalue;
     }
 }
