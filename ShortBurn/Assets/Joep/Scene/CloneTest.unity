@@ -787,6 +787,22 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5950536606275422371, guid: 8bb3fb81b77006646b76ec0a190f7a83, type: 3}
   m_PrefabInstance: {fileID: 5950536607600218679}
   m_PrefabAsset: {fileID: 0}
+--- !u!143 &1324964501 stripped
+CharacterController:
+  m_CorrespondingSourceObject: {fileID: 5950536606275422378, guid: 8bb3fb81b77006646b76ec0a190f7a83, type: 3}
+  m_PrefabInstance: {fileID: 5950536607600218679}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1324964502 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5950536606275422379, guid: 8bb3fb81b77006646b76ec0a190f7a83, type: 3}
+  m_PrefabInstance: {fileID: 5950536607600218679}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1324964500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc7c0c4e3d040b949bcdc2e339355b82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1324964503 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5950536606275422370, guid: 8bb3fb81b77006646b76ec0a190f7a83, type: 3}
@@ -1007,6 +1023,22 @@ MonoBehaviour:
       data1: 0
       data2: 0
   defaultFrameSettings: 0
+--- !u!143 &1479040434 stripped
+CharacterController:
+  m_CorrespondingSourceObject: {fileID: 2301122431747471955, guid: e74dbb5edba2ac146883b3fcb98cc8bf, type: 3}
+  m_PrefabInstance: {fileID: 2301122430220322302}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1479040436 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2301122431747471953, guid: e74dbb5edba2ac146883b3fcb98cc8bf, type: 3}
+  m_PrefabInstance: {fileID: 2301122430220322302}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c2a0ac800c919242ac3a0ae77418c78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1632682724
 GameObject:
   m_ObjectHideFlags: 0
@@ -1520,6 +1552,10 @@ PrefabInstance:
       value: Controller
       objectReference: {fileID: 0}
     - target: {fileID: 481531763250708981, guid: 0e25bf1b180aac347a56d7251a813b1a, type: 3}
+      propertyPath: SelectedPlayer
+      value: 
+      objectReference: {fileID: 1324964502}
+    - target: {fileID: 481531763250708981, guid: 0e25bf1b180aac347a56d7251a813b1a, type: 3}
       propertyPath: selectedPlayer
       value: 
       objectReference: {fileID: 1324964500}
@@ -1612,6 +1648,10 @@ PrefabInstance:
       propertyPath: TimerText
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2301122431747471953, guid: e74dbb5edba2ac146883b3fcb98cc8bf, type: 3}
+      propertyPath: charCont
+      value: 
+      objectReference: {fileID: 1479040434}
     - target: {fileID: 2301122431747471954, guid: e74dbb5edba2ac146883b3fcb98cc8bf, type: 3}
       propertyPath: m_Name
       value: Clone
@@ -1689,6 +1729,10 @@ PrefabInstance:
       propertyPath: m_Coefficients.Array.data[3].collisionSphereDistance
       value: 0.05
       objectReference: {fileID: 0}
+    - target: {fileID: 5950536606275422369, guid: 8bb3fb81b77006646b76ec0a190f7a83, type: 3}
+      propertyPath: charCont
+      value: 
+      objectReference: {fileID: 1324964501}
     - target: {fileID: 5950536606275422371, guid: 8bb3fb81b77006646b76ec0a190f7a83, type: 3}
       propertyPath: m_Name
       value: ActorObject
@@ -1705,6 +1749,10 @@ PrefabInstance:
       propertyPath: CurrentState
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 5950536606275422379, guid: 8bb3fb81b77006646b76ec0a190f7a83, type: 3}
+      propertyPath: NewController
+      value: 
+      objectReference: {fileID: 1479040436}
     - target: {fileID: 5950536606275422380, guid: 8bb3fb81b77006646b76ec0a190f7a83, type: 3}
       propertyPath: m_RootOrder
       value: 3
