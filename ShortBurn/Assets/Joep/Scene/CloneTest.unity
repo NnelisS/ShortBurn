@@ -1013,9 +1013,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc7c0c4e3d040b949bcdc2e339355b82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newController: {fileID: 1695219631}
-  currentState: 3
-  timerText: {fileID: 545876081}
+  NewController: {fileID: 1695219631}
+  CurrentState: 3
+  IsClone: 0
+  TimerText: {fileID: 545876081}
 --- !u!143 &1324964509
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1545,9 +1546,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc7c0c4e3d040b949bcdc2e339355b82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newController: {fileID: 1695219631}
-  currentState: 2
-  timerText: {fileID: 545876081}
+  NewController: {fileID: 1695219631}
+  CurrentState: 2
+  IsClone: 1
+  TimerText: {fileID: 545876081}
 --- !u!114 &1695219631
 MonoBehaviour:
   m_ObjectHideFlags: 0

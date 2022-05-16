@@ -3,6 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum State
+{
+    Playing,
+    Playback,
+    Reset,
+    None
+}
+
 public class ActorObject : MonoBehaviour
 {
     //What do actor objects need?
@@ -20,29 +28,22 @@ public class ActorObject : MonoBehaviour
 
     //2
     private CharacterController objectController;
-    public CharacterController newController;
+    public CharacterController NewController;
 
     //3
     private InputRecorder inputRec;
 
-    public enum state
-    {
-        Playing,
-        Playback,
-        Reset,
-        None
-    }
-    public state currentState;
-
+    public State CurrentState;
 
     //Booleans to check initial state changes
+    public bool IsClone;
     private bool newPlayback = false;
     private float timer;
     private float playbackTimer;
 
     //UI Timer
-    public Text timerText;
-    // Start is called before the first frame update
+    public Text TimerText;
+
     void Start()
     {
         //initialize the variables
@@ -53,84 +54,112 @@ public class ActorObject : MonoBehaviour
         playbackTimer = 0;
     }
 
-    // Update is called once per frame
-    // For button presses I noticed that if they're listened for in the fixed update they are somtimes missed
-    // With this listening in a normal update loop, the button press is set to true. Then when the fixed update
-    // goes over it, it will record the value as true, and then clear it for the next time the button is true.
     void Update()
     {
         playerInput.ListenForKeyPresses();
     }
+
     void FixedUpdate()
     {
-        if ((int)currentState == 3) //Use when the player isnt recording
+        switch (CurrentState)
         {
-            playerInput.GetInputs();
-            PlayerInputStruct userInput = playerInput.GetInputStruct();
-            objectController.GivenInputs(userInput);
-            objectController.Move();
-            playerInput.ResetInput();
-        }
-
-        if ((int)currentState == 0)
-        {
-            timer = timer + Time.deltaTime;
-            timerText.text = timer.ToString("F2");
-            playerInput.GetInputs();
-            PlayerInputStruct userInput = playerInput.GetInputStruct();
-            inputRec.AddToDictionary(timer, userInput);
-            objectController.GivenInputs(userInput);
-            objectController.Move();
-            playerInput.ResetInput();
-        }
-
-        if ((int)currentState == 1)
-        {
-            if (newPlayback == true)
-            {
-                playbackTimer = 0;
-                newPlayback = false;
-            }
-
-            playbackTimer = playbackTimer + Time.deltaTime;
-            timerText.text = playbackTimer.ToString("F2");
-            if (inputRec.KeyExists(playbackTimer))
-            {
-                PlayerInputStruct recordedInputs = inputRec.getRecordedInputs(playbackTimer);
-                if (recordedInputs.buttonPressed == true)
-                {
-                    Debug.Log("At" + playbackTimer + "the value of the button press is" + recordedInputs.buttonPressed);
-                }
-                newController.GivenInputs(recordedInputs);
-                newController.Move();
-            }
-        }
-
-        if ((int)currentState == 2)
-        {
-            timer = 0;
-            timerText.text = "0.00";
+            case State.Playing:
+                PlayingState();
+                break;
+            case State.Playback:
+                PlaybackState();
+                break;
+            case State.Reset:
+                ResetState();
+                break;
+            case State.None:
+                NoneState();
+                break;
         }
     }
 
-    public void recording()
+    #region States
+
+    private void PlayingState()
+    {
+        timer = timer + Time.deltaTime;
+        TimerText.text = timer.ToString("F2");
+        playerInput.GetInputs();
+        PlayerInputStruct userInput = playerInput.GetInputStruct();
+        inputRec.AddToDictionary(timer, userInput);
+        objectController.GivenInputs(userInput);
+        objectController.Move();
+        playerInput.ResetInput();
+    }
+
+    private void PlaybackState()
+    {
+        if (!IsClone)
+            MoveAgent();
+
+        if (newPlayback == true)
+        {
+            playbackTimer = 0;
+            newPlayback = false;
+        }
+
+        playbackTimer = playbackTimer + Time.deltaTime;
+        TimerText.text = playbackTimer.ToString("F2");
+        if (inputRec.KeyExists(playbackTimer))
+        {
+            PlayerInputStruct recordedInputs = inputRec.getRecordedInputs(playbackTimer);
+            if (recordedInputs.buttonPressed == true)
+            {
+                Debug.Log("At" + playbackTimer + "the value of the button press is" + recordedInputs.buttonPressed);
+            }
+            NewController.GivenInputs(recordedInputs);
+            NewController.Move();
+        }
+    }
+
+    private void ResetState()
+    {
+        if (!IsClone)
+            MoveAgent();
+        timer = 0;
+        TimerText.text = "0.00";
+    }
+
+    private void NoneState()
+    {
+        if (!IsClone)
+        MoveAgent();
+    }
+
+    private void MoveAgent()
+    {
+        playerInput.GetInputs();
+        PlayerInputStruct userInput = playerInput.GetInputStruct();
+        objectController.GivenInputs(userInput);
+        objectController.Move();
+        playerInput.ResetInput();
+    }
+
+    #endregion
+
+    public void Recording()
     {
         timer = 0;
         inputRec.ClearHistory();
-        currentState = state.Playing;
+        CurrentState = State.Playing;
     }
 
 
-    public void playback()
+    public void Playback()
     {
         newPlayback = true;
-        currentState = state.Playback;
+        CurrentState = State.Playback;
     }
 
-    public void reset()
+    public void Reset()
     {
         objectController.Reset();
-        currentState = state.Reset;
+        CurrentState = State.Reset;
         playerInput.ResetInput();
     }
 }
