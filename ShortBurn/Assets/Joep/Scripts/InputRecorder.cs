@@ -12,6 +12,7 @@ public class InputRecorder : MonoBehaviour
         //Intialize the queue that will be used to record inputs
         playerInputRecord = new Dictionary<float, PlayerInputStruct>();
     }
+
     //Adds the timeStamp and playerInputs into the dictionary
     //The timeStamp is the key
     //The inputStruct (inputs) is the value of the key
