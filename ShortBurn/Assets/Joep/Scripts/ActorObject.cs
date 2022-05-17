@@ -98,8 +98,7 @@ public class ActorObject : MonoBehaviour
     /// </summary>
     private void PlaybackState()
     {
-        if (!IsClone)
-            MoveAgent();
+        MoveAgent();
 
         if (newPlayback == true)
         {
@@ -131,12 +130,12 @@ public class ActorObject : MonoBehaviour
     }
 
     /// <summary>
-    /// Do nothing unless its the player
+    /// Do nothing 
     /// </summary>
     private void NoneState()
     {
         if (!IsClone)
-        MoveAgent();
+            MoveAgent();
     }
 
     /// <summary>

@@ -8,7 +8,18 @@ public class PlayerRecorder : MonoBehaviour
     //These two are the movement inputs in both horizontal and vertical movement
     private float horizontalValue;
     private float verticalValue;
+
+    private float horizontalRotationValue;
+    private float verticalRotationValue;
+
     private bool keyPressed;
+
+    private Camera cam;
+
+    private void Awake()
+    {
+        cam = Camera.main;
+    }
 
     /// <summary>
     /// Turns bool on if jump key pressed
@@ -28,6 +39,9 @@ public class PlayerRecorder : MonoBehaviour
     {
         horizontalValue = Input.GetAxis("Horizontal");
         verticalValue = Input.GetAxis("Vertical");
+        
+        horizontalRotationValue = transform.rotation.y;
+        verticalRotationValue = cam.transform.rotation.x;
     }
 
     /// <summary>
@@ -35,7 +49,7 @@ public class PlayerRecorder : MonoBehaviour
     /// </summary>
     public PlayerInputStruct GetInputStruct()
     {
-        PlayerInputStruct _playerInputs = new PlayerInputStruct(horizontalValue, verticalValue, keyPressed);
+        PlayerInputStruct _playerInputs = new PlayerInputStruct(horizontalValue, verticalValue, horizontalRotationValue, verticalRotationValue, keyPressed);
         return _playerInputs;
     }
 

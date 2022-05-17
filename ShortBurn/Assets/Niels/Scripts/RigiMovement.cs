@@ -5,8 +5,6 @@ using Cinemachine;
 
 public class RigiMovement : MonoBehaviour
 {
-    public Rigidbody Rigid;
-
     [Header("Movement Settings")]
     [SerializeField] private float mouseSensitivity;
     [SerializeField] private float moveSpeed;
@@ -26,16 +24,18 @@ public class RigiMovement : MonoBehaviour
     public bool IsCrouched = false;
     private Vector3 velocity;
     private bool isGrounded;
+    private Rigidbody Rigid;
 
     private void Start()
     {
-        pickupScript = GetComponentInChildren<Pickup>();
+        Rigid = GetComponent<Rigidbody>();
+        //pickupScript = GetComponentInChildren<Pickup>();
         vCam = GetComponentInChildren<CinemachineVirtualCamera>();
     }
 
     void Update()
     {
-        Crouch();
+        //Crouch();
         Jump();
         GroundCheck();
 
