@@ -1301,9 +1301,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46a3c40eac93d2b479fd09e39492e87d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GoTo: {fileID: 578568172}
-  GoToBack: {fileID: 1578350646}
-  Plate: {fileID: 1449632802}
+  goTo: {fileID: 578568172}
+  goToBack: {fileID: 1578350646}
+  plate: {fileID: 1449632802}
 --- !u!1 &1060537490
 GameObject:
   m_ObjectHideFlags: 0
@@ -1825,16 +1825,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Rigid: {fileID: 1279596297}
-  MouseSensitivity: 0
-  MoveSpeed: 0.1
-  JumpForce: 10
-  GroundChecker: {fileID: 566031439}
-  GroundDistance: 0.4
-  GroundMask:
+  mouseSensitivity: 0
+  moveSpeed: 0
+  jumpForce: 0
+  groundChecker: {fileID: 566031439}
+  groundDistance: 0.4
+  groundMask:
     serializedVersion: 2
     m_Bits: 1024
-  PlayerHeight: {fileID: 1060537491}
-  PlayerCapsule: {fileID: 362463132}
+  playerHeight: {fileID: 1060537491}
+  playerCapsule: {fileID: 362463132}
+  IsCrouched: 0
 --- !u!114 &1279596299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2146,16 +2147,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08d175c5d4cb7f24983c765a50887af2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WhatIsGrappleAble:
+  whatIsGrappleAble:
     serializedVersion: 2
     m_Bits: 2048
-  MaxDistance: 10
-  Spring: 2
-  Damper: 2
-  Mass: 10
-  GunTip: {fileID: 778875951}
-  Camera: {fileID: 1950495123}
-  Player: {fileID: 1279596305}
+  maxDistance: 100
+  spring: 0
+  damper: 0
+  mass: 0
+  gunTip: {fileID: 778875951}
+  cam: {fileID: 1950495123}
+  player: {fileID: 1279596305}
 --- !u!1 &1420710150
 GameObject:
   m_ObjectHideFlags: 0
@@ -2186,11 +2187,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2e56af8baf7aa4458e8a2a60990f39d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Animator: {fileID: 1487874070}
-  AnimationName: Door
-  AnimationNameBack: DoorClose
-  AnimationDuration: 1
-  AnimationDurationBack: 1
+  animator: {fileID: 1487874070}
+  animationName: Door
+  animationNameBack: DoorClose
+  animationDuration: 2
+  animationDurationBack: 2
 --- !u!65 &1420710152
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2635,14 +2636,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9a55297910a5664e9a0218fda0c80d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PickupRange: 50
-  MoveForce: 500
-  MiddlePos: {fileID: 1233634655}
-  PlayerMove: {fileID: 1279596298}
-  PlayerL: {fileID: 1060537493}
-  VCam: {fileID: 1060537492}
-  GunPoint: {fileID: 778875951}
-  GrapplePoint: {fileID: 860492955}
+  pickupRange: 50
+  middlePos: {fileID: 1233634655}
+  playerMove: {fileID: 1279596298}
+  playerL: {fileID: 1060537493}
+  vCam: {fileID: 1060537492}
+  gunPoint: {fileID: 778875951}
+  grapplePoint: {fileID: 860492955}
+  lr: {fileID: 1392932677}
+  HasObj: 0
 --- !u!114 &1950495125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2820,13 +2822,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79d0663fbc8572d408ed8fa372e72d62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PickupRange: 5
-  MoveForce: 250
-  MiddlePos: {fileID: 1233634655}
-  RotationSpeed: 5
-  PlayerL: {fileID: 1060537493}
-  VCam: {fileID: 1060537492}
-  Timer: 1
+  pickupRange: 5
+  moveForce: 250
+  middlePos: {fileID: 1233634655}
+  rotationSpeed: 5
+  playerL: {fileID: 1060537493}
+  vCam: {fileID: 1060537492}
+  timer: 1
+  IsThrowing: 0
 --- !u!114 &1950495129
 MonoBehaviour:
   m_ObjectHideFlags: 0

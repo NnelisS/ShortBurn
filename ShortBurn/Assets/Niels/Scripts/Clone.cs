@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Clone : MonoBehaviour
 {
-    public bool EnableClone = false;
-    public PlayerMovement PlayerMov;
+    [SerializeField] private bool enableClone = false;
+    [SerializeField] private PlayerMovement playerMov;
 
     private void Update()
     {
         // let clone move forward
-        if (EnableClone)
+        if (enableClone)
         {
             /*PlayerMov.enabled = true;*/
             MoveForward();
@@ -20,14 +20,11 @@ public class Clone : MonoBehaviour
     private void OnMouseEnter()
     {
         if (Input.GetKeyDown(KeyCode.E))
-        {
-            EnableClone = true;
-            Debug.Log("Touch");
-        }
+            enableClone = true;
     }
     private void OnMouseDown()
     {
-        EnableClone = true;
+        enableClone = true;
     }
 
     private void MoveForward()

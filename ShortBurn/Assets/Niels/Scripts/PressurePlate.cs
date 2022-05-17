@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class PressurePlate : MonoBehaviour
 {
-    public Transform GoTo;
-    public Transform GoToBack;
-    public Transform Plate;
+    [SerializeField] private Transform goTo;
+    [SerializeField] private Transform goToBack;
+    [SerializeField] private Transform plate;
 
     private bool onCol = true;
 
     void Update()
     {
         //ignore plate collision with pressureplate
-        Physics.IgnoreCollision(this.GetComponent<BoxCollider>(), Plate.GetComponent<BoxCollider>());
+        Physics.IgnoreCollision(this.GetComponent<BoxCollider>(), plate.GetComponent<BoxCollider>());
 
         //move pressure plat down
         if (onCol)
-            transform.localPosition = Vector3.Lerp(transform.localPosition, GoTo.localPosition, 5 * Time.deltaTime);
+            transform.localPosition = Vector3.Lerp(transform.localPosition, goTo.localPosition, 5 * Time.deltaTime);
         else if (onCol == false)
-            transform.localPosition = Vector3.Lerp(transform.localPosition, GoToBack.localPosition, 5 * Time.deltaTime);
+            transform.localPosition = Vector3.Lerp(transform.localPosition, goToBack.localPosition, 5 * Time.deltaTime);
     }
 
     // check for player and block collision

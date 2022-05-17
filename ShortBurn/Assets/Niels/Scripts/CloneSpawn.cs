@@ -5,19 +5,15 @@ using UnityEngine;
 public class CloneSpawn : MonoBehaviour
 {
     [Header("Clone Info")]
-    public int maxClones = 1;
-    public int currentClones;
-    public GameObject clonePrefab;
+    [SerializeField] private int maxClones = 1;
+    [SerializeField] private int currentClones;
+    [SerializeField] private GameObject clonePrefab;
 
     void Update()
     {
         if (currentClones < maxClones)
-        {
             if (Input.GetKeyDown(KeyCode.C))
-            {
                 MakeClone(clonePrefab);
-            }
-        }
     }
 
     private void MakeClone(GameObject clone)

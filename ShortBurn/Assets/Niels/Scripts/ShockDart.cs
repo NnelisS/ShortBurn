@@ -5,24 +5,27 @@ using UnityEngine;
 public class ShockDart : MonoBehaviour
 {
     [Header("Gun Settings")]
-    public float BulletSpeed;
-    public float Cooldown;
+    [SerializeField] private float bulletSpeed;
+    [SerializeField] private float cooldown;
 
     [Header("Gun Info")]
-    public GameObject BulletPref;
-    public Transform ShootPoint;
+    [SerializeField] private GameObject bulletPref;
+    [SerializeField] private Transform shootPoint;
 
     void Update()
     {
         Shoot();
     }
 
+    /// <summary>
+    /// shoots shock bullet forward
+    /// /// </summary>
     private void Shoot()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            GameObject Bullet = Instantiate(BulletPref, ShootPoint.position, ShootPoint.rotation);
-            Bullet.GetComponent<Rigidbody>().AddForce(ShootPoint.transform.up * BulletSpeed);
+            GameObject Bullet = Instantiate(bulletPref, shootPoint.position, shootPoint.rotation);
+            Bullet.GetComponent<Rigidbody>().AddForce(shootPoint.transform.up * bulletSpeed);
             StartCoroutine(BulletShoot(Bullet));
         }
     }
