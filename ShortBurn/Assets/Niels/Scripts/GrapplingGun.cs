@@ -5,14 +5,14 @@ using UnityEngine;
 public class GrapplingGun : MonoBehaviour
 {
     [Header("GrappleGun Settings")]
-    public LayerMask WhatIsGrappleAble;
-    public float MaxDistance = 100f;
-    public float Spring;
-    public float Damper;
-    public float Mass;
+    [SerializeField] private LayerMask whatIsGrappleAble;
+    [SerializeField] private float maxDistance = 100f;
+    [SerializeField] private float spring;
+    [SerializeField] private float damper;
+    [SerializeField] private float mass;
 
     [Header("GrappleGun Info")]
-    public Transform GunTip, Camera, Player;
+    [SerializeField] private Transform gunTip, cam, player;
 
     private SpringJoint joint;
     private LineRenderer lr;
@@ -40,21 +40,21 @@ public class GrapplingGun : MonoBehaviour
     private void StartGrapple()
     {
         RaycastHit hit;
-        if (Physics.Raycast(Camera.position, Camera.forward, out hit, MaxDistance, WhatIsGrappleAble))
+        if (Physics.Raycast(cam.position, cam.forward, out hit, maxDistance, whatIsGrappleAble))
         {
             lr.positionCount = 2;
             grapplePoint = hit.point;
-            joint = Player.gameObject.AddComponent<SpringJoint>();
+            joint = player.gameObject.AddComponent<SpringJoint>();
             joint.autoConfigureConnectedAnchor = false;
             joint.connectedAnchor = grapplePoint;
 
-            float distanceFromPoint = Vector3.Distance(Player.position, grapplePoint);
+            float distanceFromPoint = Vector3.Distance(player.position, grapplePoint);
             joint.maxDistance = distanceFromPoint * 0.5f;
             joint.minDistance = distanceFromPoint * 0.25f;
 
-            joint.spring = Spring;
-            joint.damper = Damper;
-            joint.massScale = Mass;
+            joint.spring = spring;
+            joint.damper = damper;
+            joint.massScale = mass;
         }
     }
     
@@ -62,7 +62,7 @@ public class GrapplingGun : MonoBehaviour
     {
         if (!joint) return;
 
-        lr.SetPosition(0, GunTip.position);
+        lr.SetPosition(0, gunTip.position);
         lr.SetPosition(1, grapplePoint);
     }
 
@@ -74,6 +74,6 @@ public class GrapplingGun : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawRay(Camera.transform.position, Camera.transform.forward);
+        Gizmos.DrawRay(cam.transform.position, cam.transform.forward);
     }
 }

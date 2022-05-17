@@ -5,13 +5,13 @@ using UnityEngine;
 public class AnimationCollision : MonoBehaviour
 {
     [Header("Animation Settings")]
-    public Animator Animator;
-    public string AnimationName;
-    public string AnimationNameBack;
+    [SerializeField] private Animator animator;
+    [SerializeField] private string animationName;
+    [SerializeField] private string animationNameBack;
 
     [Header("Animation Info")]
-    public float AnimationDuration;
-    public float AnimationDurationBack;
+    [SerializeField] private float animationDuration;
+    [SerializeField] private float animationDurationBack;
     private AnimatorStateInfo animationState;
     private float animTime;
 
@@ -38,12 +38,12 @@ public class AnimationCollision : MonoBehaviour
     // wait for the animation to finish before it goes back to the default animation
     private void AnimationUpdater()
     {
-        animationState = Animator.GetCurrentAnimatorStateInfo(0);
+        animationState = animator.GetCurrentAnimatorStateInfo(0);
         animTime = animationState.normalizedTime;
 
-        if (IsActive && animTime > AnimationDuration)
-            Animator.Play(AnimationName);
-        else if (IsActive == false && animTime > AnimationDurationBack)
-            Animator.Play(AnimationNameBack);
+        if (IsActive && animTime > animationDuration)
+            animator.Play(animationName);
+        else if (IsActive == false && animTime > animationDurationBack)
+            animator.Play(animationNameBack);
     }
 }

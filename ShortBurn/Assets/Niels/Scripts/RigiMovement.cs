@@ -8,18 +8,18 @@ public class RigiMovement : MonoBehaviour
     public Rigidbody Rigid;
 
     [Header("Movement Settings")]
-    public float MouseSensitivity;
-    public float MoveSpeed;
-    public float JumpForce;
+    [SerializeField] private float mouseSensitivity;
+    [SerializeField] private float moveSpeed;
+    [SerializeField] private float jumpForce;
 
     [Header("ground Info")]
-    public Transform GroundChecker;
-    public float GroundDistance = 0.4f;
-    public LayerMask GroundMask;
+    [SerializeField] private Transform groundChecker;
+    [SerializeField] private float groundDistance = 0.4f;
+    [SerializeField] private LayerMask groundMask;
 
     [Header("Player Info")]
-    public Transform PlayerHeight;
-    public GameObject PlayerCapsule;
+    [SerializeField] private Transform playerHeight;
+    [SerializeField] private GameObject playerCapsule;
     private CinemachineVirtualCamera vCam;
     private Pickup pickupScript;
 
@@ -39,12 +39,13 @@ public class RigiMovement : MonoBehaviour
         Jump();
         GroundCheck();
 
-        Rigid.MoveRotation(Rigid.rotation * Quaternion.Euler(new Vector3(0, Input.GetAxis("Mouse X") * MouseSensitivity, 0)));
-        Rigid.MovePosition(transform.position + (transform.forward * Input.GetAxis("Vertical") * MoveSpeed) + (transform.right * Input.GetAxis("Horizontal") * MoveSpeed));
-        if (Input.GetKeyDown("space"))
-            Rigid.AddForce(transform.up * JumpForce);
+        Rigid.MoveRotation(Rigid.rotation * Quaternion.Euler(new Vector3(0, Input.GetAxis("Mouse X") * mouseSensitivity, 0)));
+        Rigid.MovePosition(transform.position + (transform.forward * Input.GetAxis("Vertical") * moveSpeed) + (transform.right * Input.GetAxis("Horizontal") * moveSpeed));
     }
 
+    /// <summary>
+    /// if pressing crouch button move player down and scale down movement speed and fov
+    /// </summary>
     private void Crouch()
     {
         if (Input.GetKey(KeyCode.LeftControl))
@@ -53,39 +54,39 @@ public class RigiMovement : MonoBehaviour
             if (pickupScript.IsThrowing == false)
                 vCam.m_Lens.FieldOfView = Mathf.MoveTowards(vCam.m_Lens.FieldOfView, 52, 4 * Time.maximumDeltaTime);
 
-            PlayerHeight.transform.localPosition = new Vector3(PlayerHeight.transform.localPosition.x, Mathf.MoveTowards(PlayerHeight.transform.localPosition.y, 0, 0.5f * Time.maximumDeltaTime), PlayerHeight.transform.localPosition.z);
-            PlayerCapsule.transform.localScale = new Vector3(PlayerCapsule.transform.localScale.x, Mathf.Lerp(PlayerCapsule.transform.localScale.y, 0.5f, 0.5f * Time.maximumDeltaTime), PlayerCapsule.transform.localScale.z);
-            MoveSpeed = 0.03f;
+            playerHeight.transform.localPosition = new Vector3(playerHeight.transform.localPosition.x, Mathf.MoveTowards(playerHeight.transform.localPosition.y, 0, 0.5f * Time.maximumDeltaTime), playerHeight.transform.localPosition.z);
+            playerCapsule.transform.localScale = new Vector3(playerCapsule.transform.localScale.x, Mathf.Lerp(playerCapsule.transform.localScale.y, 0.5f, 0.5f * Time.maximumDeltaTime), playerCapsule.transform.localScale.z);
+            moveSpeed = 0.03f;
         }
         else
         {
             IsCrouched = false;
-            PlayerHeight.transform.localPosition = new Vector3(PlayerHeight.transform.localPosition.x, Mathf.MoveTowards(PlayerHeight.transform.localPosition.y, 0.75f, 0.5f * Time.maximumDeltaTime), PlayerHeight.transform.localPosition.z);
-            PlayerCapsule.transform.localScale = new Vector3(PlayerCapsule.transform.localScale.x, Mathf.Lerp(PlayerCapsule.transform.localScale.y, 1, 0.5f * Time.maximumDeltaTime), PlayerCapsule.transform.localScale.z);
+            playerHeight.transform.localPosition = new Vector3(playerHeight.transform.localPosition.x, Mathf.MoveTowards(playerHeight.transform.localPosition.y, 0.75f, 0.5f * Time.maximumDeltaTime), playerHeight.transform.localPosition.z);
+            playerCapsule.transform.localScale = new Vector3(playerCapsule.transform.localScale.x, Mathf.Lerp(playerCapsule.transform.localScale.y, 1, 0.5f * Time.maximumDeltaTime), playerCapsule.transform.localScale.z);
             if (pickupScript.IsThrowing == false)
             {
                 vCam.m_Lens.FieldOfView = Mathf.MoveTowards(vCam.m_Lens.FieldOfView, 60, 4 * Time.maximumDeltaTime);
-                MoveSpeed = 0.1f;
+                moveSpeed = 0.1f;
             }
         }
     }
 
+    /// <summary>
+    /// check if player interacts with ground
+    /// </summary>
     private void GroundCheck()
     {
-        isGrounded = Physics.CheckSphere(GroundChecker.position, GroundDistance, GroundMask);
+        isGrounded = Physics.CheckSphere(groundChecker.position, groundDistance, groundMask);
 
         if (isGrounded && velocity.y < 0)
-        {
             velocity.y = -0.5f;
-        }
     }
 
+    // when pressing jump button player goes up with force 
     private void Jump()
     {
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
-        {
-            Rigid.AddForce(Vector3.up * JumpForce, ForceMode.Impulse);
-        }
+            Rigid.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
     }
 
 }

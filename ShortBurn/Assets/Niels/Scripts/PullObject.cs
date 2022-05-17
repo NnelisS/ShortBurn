@@ -6,17 +6,16 @@ using Cinemachine;
 public class PullObject : MonoBehaviour
 {
     [Header("Pull Object Settings")]
-    public float PickupRange = 50;
-    public float MoveForce = 100;
-    public Transform MiddlePos;
+    [SerializeField] private float pickupRange = 50;
+    [SerializeField] private Transform middlePos;
 
     [Header("Pull Object Info")]
-    public RigiMovement PlayerMove;
-    public PlayerLook PlayerL;
-    public CinemachineVirtualCamera VCam;
-    public Transform GunPoint;
-    public Transform GrapplePoint;
-    private LineRenderer lr;
+    [SerializeField] private RigiMovement playerMove;
+    [SerializeField] private PlayerLook playerL;
+    [SerializeField] private CinemachineVirtualCamera vCam;
+    [SerializeField] private Transform gunPoint;
+    [SerializeField] private Transform grapplePoint;
+    [SerializeField] private LineRenderer lr;
     private Pickup pickupScript;
     public bool HasObj = false;
 
@@ -30,37 +29,39 @@ public class PullObject : MonoBehaviour
 
     void Update()
     {
+        // get picked object and render two lines between them smoothly
         if (heldObject != null && pickupScript.IsThrowing == false)
         {
             HasObj = true;
             lr.positionCount = 2;
-            lr.SetPosition(0, GunPoint.position);
-            lr.SetPosition(1, GrapplePoint.position = Vector3.MoveTowards(GrapplePoint.position, heldObject.transform.position, 5 * Time.maximumDeltaTime));
-            VCam.GetCinemachineComponent<CinemachinePOV>().m_VerticalAxis.m_MaxSpeed = 0;
-            PlayerL.enabled = false;
-            PlayerMove.enabled = false;
+            lr.SetPosition(0, gunPoint.position);
+            lr.SetPosition(1, grapplePoint.position = Vector3.MoveTowards(grapplePoint.position, heldObject.transform.position, 5 * Time.maximumDeltaTime));
+            vCam.GetCinemachineComponent<CinemachinePOV>().m_VerticalAxis.m_MaxSpeed = 0;
+            playerL.enabled = false;
+            playerMove.enabled = false;
 
-            if (Vector3.Distance(GrapplePoint.transform.position, heldObject.transform.position) <= 1.0f)
+            // when line renderer reached picked object object is being pulled towards the player
+            if (Vector3.Distance(grapplePoint.transform.position, heldObject.transform.position) <= 1.0f)
             {
-                heldObject.transform.position = Vector3.MoveTowards(heldObject.transform.position, MiddlePos.transform.position, 3 * Time.maximumDeltaTime);
-                if (Vector3.Distance(heldObject.transform.position, MiddlePos.position) <= 0.0f)
+                heldObject.transform.position = Vector3.MoveTowards(heldObject.transform.position, middlePos.transform.position, 3 * Time.maximumDeltaTime);
+                if (Vector3.Distance(heldObject.transform.position, middlePos.position) <= 0.0f)
                     DropObject();
             }
         }
         else
         {
             HasObj = false;
-            VCam.GetCinemachineComponent<CinemachinePOV>().m_VerticalAxis.m_MaxSpeed = 150;
-            PlayerL.enabled = true;
-            PlayerMove.enabled = true;
+            vCam.GetCinemachineComponent<CinemachinePOV>().m_VerticalAxis.m_MaxSpeed = 150;
+            playerL.enabled = true;
+            playerMove.enabled = true;
         }
 
         if (Input.GetKeyDown(KeyCode.E))
             if (heldObject == null)
             {
                 RaycastHit hit;
-                if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, PickupRange))
-                    if (Vector3.Distance(GunPoint.transform.position, hit.point) > 5.0f)
+                if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickupRange))
+                    if (Vector3.Distance(gunPoint.transform.position, hit.point) > 5.0f)
                     PickupUpObject(hit.transform.gameObject);
             }
 
@@ -69,10 +70,12 @@ public class PullObject : MonoBehaviour
                 MoveObject();
     }
 
-    //when press E on object it goes to the position it's suppose to be your pickup range
+    /// <summary>
+    /// when press E on object it goes to the position it's suppose to be your pickup range
+    /// </summary>
     private void MoveObject()
     {
-        if (Vector3.Distance(heldObject.transform.position, MiddlePos.position) > 0.1f)
+        if (Vector3.Distance(heldObject.transform.position, middlePos.position) > 0.1f)
         {
             /*Vector3 moveDiretion = (MiddlePos.position - heldObject.transform.position);
             heldObject.GetComponent<Rigidbody>().AddForce(moveDiretion * MoveForce);*/
@@ -91,11 +94,13 @@ public class PullObject : MonoBehaviour
         }
     }
 
-    // when holding the object press e and it drops normal on the ground
+    /// <summary>
+    /// when holding the object press e and it drops normal on the ground
+    /// </summary>
     private void DropObject()
     {
         lr.positionCount = 0;
-        GrapplePoint.transform.position = GunPoint.transform.position;
+        grapplePoint.transform.position = gunPoint.transform.position;
         Rigidbody heldRig = heldObject.GetComponent<Rigidbody>();
         heldObject.GetComponent<Rigidbody>().useGravity = true;
         heldRig.drag = 1;
