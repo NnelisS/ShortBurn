@@ -17,21 +17,18 @@ public class Controller : MonoBehaviour
 
     public void startRecording()
     {
-        //resetPlayer();
-        print("Recording");
+        resetPlayer();
         SelectedPlayer.Recording();
     }
 
     public void startPlayback()
     {
-        //resetPlayer();
-        print("PlayBack");
+        resetPlayer();
         SelectedPlayer.Playback();
     }
 
     public void resetPlayer()
     {
-        print("Reset");
         SelectedPlayer.Reset();
     }
 }
