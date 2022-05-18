@@ -86,6 +86,7 @@ public class ActorObject : MonoBehaviour
         inputRec.AddToDictionary(timer, _userInput);
         objectController.GivenInputs(_userInput);
         objectController.Move();
+        playerInput.ResetInput();
     }
 
     /// <summary>
@@ -104,7 +105,7 @@ public class ActorObject : MonoBehaviour
         playbackTimer = playbackTimer + Time.deltaTime;
         if (inputRec.KeyExists(playbackTimer))
         {
-            PlayerInputStruct recordedInputs = inputRec.getRecordedInputs(playbackTimer);
+            PlayerInputStruct recordedInputs = inputRec.GetRecordedInputs(playbackTimer);
             if (recordedInputs.ButtonPressed == true)
             {
                 Debug.Log("At" + playbackTimer + "the value of the button press is" + recordedInputs.ButtonPressed);
@@ -140,6 +141,7 @@ public class ActorObject : MonoBehaviour
         PlayerInputStruct _userInput = playerInput.GetInputStruct();
         objectController.GivenInputs(_userInput);
         objectController.Move();
+        playerInput.ResetInput();
     }
 
     #endregion

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class InputRecorder : MonoBehaviour
 {
-    private PlayerRecorder playerInputs;
     private Dictionary<float, PlayerInputStruct> playerInputRecord;
 
     void Start()
@@ -40,7 +39,7 @@ public class InputRecorder : MonoBehaviour
     /// <summary>
     /// Returns the inputStruct at current timeStamp(in)
     /// </summary>
-    public PlayerInputStruct getRecordedInputs(float _timeStamp)
+    public PlayerInputStruct GetRecordedInputs(float _timeStamp)
     {
         return playerInputRecord[_timeStamp];
     }
