@@ -34,18 +34,14 @@ public class CharacterController : MonoBehaviour
         Quaternion _rotation = Quaternion.Euler(verticalRotationValue, horizontalRotationValue, 0);
         //Vector3 _rotation = new Vector3(horizontalValue, 0, verticalValue);
 
+
+
         if (buttonValue == true)
         {
-            Debug.Log("The button press has been received, do additional functionality here");
+            Debug.Log("The button press has been received");
         }
 
-        /*if (_rotation.magnitude > 0.1f)
-        {
-            float _targetAngle = Mathf.Atan2(_motion.x, _motion.z) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0f, _targetAngle, 0f);
-        }*/
         //Actual Character Movement
-
         if (IsClone)
             charCont.gameObject.transform.rotation = _rotation;
         charCont.Move(_motion * MoveSpeed);
