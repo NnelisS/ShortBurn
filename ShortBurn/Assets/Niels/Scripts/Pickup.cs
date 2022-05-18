@@ -44,7 +44,7 @@ public class Pickup : MonoBehaviour
             }
 
             if (Input.GetKeyDown(KeyCode.R))
-            { 
+            {
                 rotateEnabled = true;
                 heldObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
             }
@@ -56,22 +56,9 @@ public class Pickup : MonoBehaviour
             playerL.MouseSensitivity = 0;
             vCam.GetCinemachineComponent<CinemachinePOV>().m_VerticalAxis.m_MaxSpeed = 0;
 
-            if (Input.GetKeyUp(KeyCode.R))
-                rotateEnabled = false;
-
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                rotateEnabled = false;
-                MoveObject();
-            }
-
-            // rotate object with mouse movement
-            turn.x += Input.GetAxis("Mouse X") * rotationSpeed;
-            turn.y += Input.GetAxis("Mouse Y") * rotationSpeed;
-
-            heldObject.transform.rotation = Quaternion.Euler(-turn.y, turn.x, heldObject.transform.rotation.z);
+            RotateObject();
         }
-        else if (rotateEnabled == false && PullObjScript.HasObj == false) 
+        else if (rotateEnabled == false && PullObjScript.HasObj == false)
         {
             playerL.MouseSensitivity = 100;
             vCam.GetCinemachineComponent<CinemachinePOV>().m_VerticalAxis.m_MaxSpeed = 150;
@@ -86,7 +73,7 @@ public class Pickup : MonoBehaviour
                 if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickupRange))
                     PickupUpObject(hit.transform.gameObject);
             }
-            else if(throwIt == false)
+            else if (throwIt == false)
             {
                 DropObject();
             }
@@ -144,6 +131,31 @@ public class Pickup : MonoBehaviour
             vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = 10;
             vCam.m_Lens.FieldOfView = 86.6f;
         }
+    }
+
+    private void RotateObject()
+    {
+        if (Input.GetKeyUp(KeyCode.R))
+            rotateEnabled = false;
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            rotateEnabled = false;
+            MoveObject();
+        }
+
+        // rotate object with mouse movement
+        float xInput = Input.GetAxis("Mouse X");
+        float yInput = Input.GetAxis("Mouse Y");
+        turn.x += xInput * rotationSpeed;
+        turn.y += yInput * rotationSpeed;
+
+        Transform cameraTransform = Camera.main.transform;
+
+#pragma warning disable CS0618 // Type or member is obsolete
+        heldObject.transform.RotateAround(cameraTransform.up, xInput * Time.deltaTime * rotationSpeed);
+        heldObject.transform.RotateAround(cameraTransform.right, -yInput * Time.deltaTime * rotationSpeed);
+#pragma warning restore CS0618 // Type or member is obsolete
     }
 
     /// <summary>
