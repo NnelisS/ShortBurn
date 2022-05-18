@@ -44,7 +44,7 @@ public class Pickup : MonoBehaviour
             }
 
             if (Input.GetKeyDown(KeyCode.R))
-            {
+            { 
                 rotateEnabled = true;
                 heldObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
             }
