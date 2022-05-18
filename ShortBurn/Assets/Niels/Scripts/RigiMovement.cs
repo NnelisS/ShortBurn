@@ -8,7 +8,6 @@ public class RigiMovement : MonoBehaviour
     public Rigidbody Rigid;
 
     [Header("Movement Settings")]
-    [SerializeField] private float mouseSensitivity;
     [SerializeField] private float moveSpeed;
     [SerializeField] private float jumpForce;
 
@@ -39,7 +38,6 @@ public class RigiMovement : MonoBehaviour
         Jump();
         GroundCheck();
 
-        Rigid.MoveRotation(Rigid.rotation * Quaternion.Euler(new Vector3(0, Input.GetAxis("Mouse X") * mouseSensitivity, 0)));
         Rigid.MovePosition(transform.position + (transform.forward * Input.GetAxis("Vertical") * moveSpeed) + (transform.right * Input.GetAxis("Horizontal") * moveSpeed));
     }
 

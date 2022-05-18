@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1481.7754, g: 1835.8867, b: 2430.4492, a: 1}
+  m_IndirectSpecularColor: {r: 1481.9727, g: 1836.0449, b: 2430.713, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 48132510}
   - component: {fileID: 48132509}
   m_Layer: 0
-  m_Name: Cube (2)
+  m_Name: Pickups
   m_TagString: CubeNormal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -643,7 +643,7 @@ GameObject:
   - component: {fileID: 475877231}
   - component: {fileID: 475877230}
   m_Layer: 0
-  m_Name: Cube (4)
+  m_Name: Pickups
   m_TagString: CubeNormal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -751,7 +751,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &483700094
 GameObject:
@@ -785,7 +785,7 @@ Transform:
   - {fileID: 578568172}
   - {fileID: 1578350646}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &566031438
 GameObject:
@@ -941,7 +941,7 @@ Transform:
   m_LocalScale: {x: 2.1942, y: 2.1942, z: 2.1942}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &778875950
 GameObject:
@@ -1068,6 +1068,135 @@ Transform:
   m_Father: {fileID: 1487874071}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &858855915
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 858855921}
+  - component: {fileID: 858855920}
+  - component: {fileID: 858855919}
+  - component: {fileID: 858855918}
+  - component: {fileID: 858855917}
+  - component: {fileID: 858855916}
+  m_Layer: 0
+  m_Name: Animation Rotater
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &858855916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 858855915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 956d7b4f0cba0f1439d9fd030b09be8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotaterValue: 0
+--- !u!95 &858855917
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 858855915}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c1f1fd1adfdb57c41a3af4643549a073, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &858855918
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 858855915}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &858855919
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 858855915}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 257
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 73c176f402d2c2f4d929aa5da7585d17, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &858855920
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 858855915}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &858855921
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 858855915}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.21, y: 0.52, z: -0.05}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &860492954
 GameObject:
   m_ObjectHideFlags: 0
@@ -1191,7 +1320,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1038248254
 GameObject:
@@ -1486,7 +1615,7 @@ RectTransform:
   m_Children:
   - {fileID: 469734629}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1507,7 +1636,7 @@ GameObject:
   - component: {fileID: 1168167262}
   - component: {fileID: 1168167266}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Pickups
   m_TagString: CubeNormal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1620,7 +1749,7 @@ GameObject:
   - component: {fileID: 1214106111}
   - component: {fileID: 1214106116}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: Pickups
   m_TagString: CubeNormal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1826,8 +1955,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Rigid: {fileID: 1279596297}
   mouseSensitivity: 0
-  moveSpeed: 0
-  jumpForce: 0
+  moveSpeed: 0.1
+  jumpForce: 5
   groundChecker: {fileID: 566031439}
   groundDistance: 0.4
   groundMask:
@@ -1848,10 +1977,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad86c91f416b60d4490ba1a595f45047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletSpeed: 1000
-  Cooldown: 10
-  BulletPref: {fileID: 4600881676908322744, guid: 7f3c1aea13776594b9a8a47f8be0c044, type: 3}
-  ShootPoint: {fileID: 778875951}
+  bulletSpeed: 0
+  cooldown: 0
+  bulletPref: {fileID: 0}
+  shootPoint: {fileID: 0}
 --- !u!114 &1279596300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1888,7 +2017,7 @@ Transform:
   - {fileID: 566031439}
   - {fileID: 362463133}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1389774651
 GameObject:
@@ -1904,7 +2033,7 @@ GameObject:
   - component: {fileID: 1389774653}
   - component: {fileID: 1389774652}
   m_Layer: 0
-  m_Name: Cube (3)
+  m_Name: Pickups
   m_TagString: CubeNormal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2151,9 +2280,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   maxDistance: 100
-  spring: 0
-  damper: 0
-  mass: 0
+  spring: 2
+  damper: 2
+  mass: 5
   gunTip: {fileID: 778875951}
   cam: {fileID: 1950495123}
   player: {fileID: 1279596305}
@@ -2217,7 +2346,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1449632801
 GameObject:
@@ -2364,7 +2493,7 @@ Transform:
   - {fileID: 75991942}
   - {fileID: 804635936}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1578350645
 GameObject:
@@ -2457,7 +2586,7 @@ MonoBehaviour:
   m_VerticalAxis:
     Value: 0
     m_SpeedMode: 0
-    m_MaxSpeed: 150
+    m_MaxSpeed: 0
     m_AccelTime: 0.1
     m_DecelTime: 0.1
     m_InputAxisName: Mouse Y
@@ -2584,7 +2713,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1950495122
 GameObject:
