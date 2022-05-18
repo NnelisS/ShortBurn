@@ -5,12 +5,11 @@ using UnityEngine;
 public class PlayerRecorder : MonoBehaviour
 {
     //This class should include all the potential inputs that the player makes
-    //These two are the movement inputs in both horizontal and vertical movement
+
     private float horizontalValue;
     private float verticalValue;
 
-    private float horizontalRotationValue;
-    private float verticalRotationValue;
+    private Quaternion rotationValue;
 
     private bool keyPressed;
 
@@ -39,9 +38,8 @@ public class PlayerRecorder : MonoBehaviour
     {
         horizontalValue = Input.GetAxis("Horizontal");
         verticalValue = Input.GetAxis("Vertical");
-        
-        horizontalRotationValue = transform.rotation.y;
-        verticalRotationValue = cam.transform.rotation.x;
+
+        rotationValue = transform.rotation;
     }
 
     /// <summary>
@@ -49,7 +47,7 @@ public class PlayerRecorder : MonoBehaviour
     /// </summary>
     public PlayerInputStruct GetInputStruct()
     {
-        PlayerInputStruct _playerInputs = new PlayerInputStruct(horizontalValue, verticalValue, horizontalRotationValue, verticalRotationValue, keyPressed);
+        PlayerInputStruct _playerInputs = new PlayerInputStruct(horizontalValue, verticalValue, rotationValue, keyPressed);
         return _playerInputs;
     }
 
@@ -60,6 +58,7 @@ public class PlayerRecorder : MonoBehaviour
     {
         horizontalValue = 0;
         verticalValue = 0;
+        rotationValue = Quaternion.Euler(0, 0, 0);
         keyPressed = false;
     }
 }

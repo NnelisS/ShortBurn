@@ -7,17 +7,15 @@ public struct PlayerInputStruct
     public float VerticalInput;
     public float HorizontalInput;
 
-    public float VerticalRotation;
-    public float HorizontalRotation;
+    public Quaternion RotationValue;
 
     public bool ButtonPressed;
 
-    public PlayerInputStruct(float _horizontalValue, float _verticalValue, float _horizontalRotation, float _verticalRotation, bool _buttonvalue)
+    public PlayerInputStruct(float _horizontalValue, float _verticalValue, Quaternion _rotationValue, bool _buttonvalue)
     {
         VerticalInput = _verticalValue;
         HorizontalInput = _horizontalValue;
-        HorizontalRotation = _horizontalRotation;
-        VerticalRotation = _verticalRotation;
+        RotationValue = _rotationValue;
         ButtonPressed = _buttonvalue;
     }
 }

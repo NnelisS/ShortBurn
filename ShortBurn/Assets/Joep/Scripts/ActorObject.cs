@@ -33,7 +33,6 @@ public class ActorObject : MonoBehaviour
     public State CurrentState;
 
     //Booleans to check initial state changes
-    public bool IsClone;
     private bool newPlayback = false;
     private float timer;
     private float playbackTimer;
@@ -41,10 +40,7 @@ public class ActorObject : MonoBehaviour
     void Start()
     {
         //initialize the variables
-        if (IsClone)
-            CurrentState = State.Reset;
-        else
-            CurrentState = State.None;
+        CurrentState = State.None;
 
         playerInput = GetComponent<PlayerRecorder>();
         objectController = GetComponent<CharacterController>();
@@ -80,7 +76,7 @@ public class ActorObject : MonoBehaviour
     #region States
 
     /// <summary>
-    /// Increase timer and adds the time to the dictionary and moves the agent
+    /// Save the input each frame and add it to the dictionary
     /// </summary>
     private void PlayingState()
     {
@@ -90,7 +86,6 @@ public class ActorObject : MonoBehaviour
         inputRec.AddToDictionary(timer, _userInput);
         objectController.GivenInputs(_userInput);
         objectController.Move();
-        playerInput.ResetInput();
     }
 
     /// <summary>
@@ -124,8 +119,7 @@ public class ActorObject : MonoBehaviour
     /// </summary>
     private void ResetState()
     {
-        if (!IsClone)
-            MoveAgent();
+        MoveAgent();
         timer = 0;
     }
 
@@ -134,8 +128,7 @@ public class ActorObject : MonoBehaviour
     /// </summary>
     private void NoneState()
     {
-        if (!IsClone)
-            MoveAgent();
+        MoveAgent();
     }
 
     /// <summary>
@@ -147,7 +140,6 @@ public class ActorObject : MonoBehaviour
         PlayerInputStruct _userInput = playerInput.GetInputStruct();
         objectController.GivenInputs(_userInput);
         objectController.Move();
-        playerInput.ResetInput();
     }
 
     #endregion

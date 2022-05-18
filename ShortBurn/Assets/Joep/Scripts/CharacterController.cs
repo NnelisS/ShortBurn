@@ -15,8 +15,7 @@ public class CharacterController : MonoBehaviour
 
     private float horizontalValue;
     private float verticalValue;
-    private float horizontalRotationValue;
-    private float verticalRotationValue;
+    private Quaternion rotationValue;
     private bool buttonValue;
 
     void Start()
@@ -30,20 +29,18 @@ public class CharacterController : MonoBehaviour
     public void Move()
     {
         Vector3 _motion = transform.right * horizontalValue + transform.forward * verticalValue;
-        //new Vector3(transform.right * horizontalValue, -2, verticalValue);
-        Quaternion _rotation = Quaternion.Euler(verticalRotationValue, horizontalRotationValue, 0);
-        //Vector3 _rotation = new Vector3(horizontalValue, 0, verticalValue);
-
-
+        
+        Quaternion _rotation = rotationValue;
 
         if (buttonValue == true)
         {
             Debug.Log("The button press has been received");
         }
 
-        //Actual Character Movement
+        //Character rotation
         if (IsClone)
             charCont.gameObject.transform.rotation = _rotation;
+        //Character Movement
         charCont.Move(_motion * MoveSpeed);
     }
 
@@ -54,8 +51,7 @@ public class CharacterController : MonoBehaviour
     {
         horizontalValue = _inputs.HorizontalInput;
         verticalValue = _inputs.VerticalInput;
-        horizontalRotationValue = _inputs.HorizontalRotation;
-        verticalRotationValue = _inputs.VerticalRotation;
+        rotationValue = _inputs.RotationValue;
         buttonValue = _inputs.ButtonPressed;
     }
 
