@@ -44,13 +44,9 @@ public class PlayerMovement : MonoBehaviour
     private void Running()
     {
         if (Input.GetKey(KeyCode.LeftShift))
-        {
             Speed = 12;
-        }
         else
-        {
             Speed = 5;
-        }
     }
     #endregion
 
@@ -60,9 +56,7 @@ public class PlayerMovement : MonoBehaviour
         isGrounded = Physics.CheckSphere(GroundCheck.position, GroundDistance, GroundMask);
 
         if (isGrounded && velocity.y < 0)
-        {
             velocity.y = -0.5f;
-        }
     }
     #endregion
 
@@ -74,10 +68,7 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
 
         if (Input.GetButtonDown("Jump") && isGrounded)
-        {
             velocity.y = Mathf.Sqrt(JumpHeight * -2f * Gravity);
-        }
     }
     #endregion
-
 }

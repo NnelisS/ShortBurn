@@ -3303,7 +3303,7 @@ MonoBehaviour:
   rotationSpeed: 5
   playerL: {fileID: 1060537493}
   vCam: {fileID: 1060537492}
-  timer: 1
+  timer: 5
   IsThrowing: 0
 --- !u!114 &1950495129
 MonoBehaviour:
