@@ -488,7 +488,7 @@ GameObject:
   - component: {fileID: 1975696195559396181}
   m_Layer: 10
   m_Name: Clone
-  m_TagString: Untagged
+  m_TagString: Clone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -616,12 +616,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 467281cc0b3c66149a7d877e97285f6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 12
-  gravity: -9.81
-  jumpHeight: 3
-  groundCheck: {fileID: 6583249160062178301}
-  groundDistance: 0.4
-  groundMask:
+  Speed: 12
+  Gravity: -9.81
+  JumpHeight: 3
+  GroundCheck: {fileID: 0}
+  GroundDistance: 0.4
+  GroundMask:
     serializedVersion: 2
     m_Bits: 0
 --- !u!1 &7538839127463139884
