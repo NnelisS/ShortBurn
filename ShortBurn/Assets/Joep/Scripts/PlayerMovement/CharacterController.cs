@@ -20,6 +20,9 @@ public class CharacterController : Mover
     /// </summary>
     public void Move()
     {
+        if (IsClone && GetComponent<MeshRenderer>().enabled == false)
+            GetComponent<MeshRenderer>().enabled = true;
+
         Vector3 _motion = transform.right * horizontalValue + transform.forward * verticalValue;
         
         Quaternion _rotation = rotationValue;
