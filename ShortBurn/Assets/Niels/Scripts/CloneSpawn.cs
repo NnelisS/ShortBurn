@@ -5,6 +5,7 @@ using UnityEngine;
 public class CloneSpawn : MonoBehaviour
 {
     [Header("Clone Info")]
+    public ActorObject Clone;
     [SerializeField] private int maxClones = 1;
     [SerializeField] private int currentClones;
     [SerializeField] private GameObject clonePrefab;
