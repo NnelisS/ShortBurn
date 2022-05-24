@@ -2,26 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterController : MonoBehaviour
+public class CharacterController : Mover
 {
     //Character Stats
-    public float MoveSpeed = .05f;
     public bool Jump;
 
     public bool IsClone;
 
     [Header("Private")]
-    private UnityEngine.CharacterController charCont;
-
     private float horizontalValue;
     private float verticalValue;
     private Quaternion rotationValue;
     private bool buttonValue;
-
-    void Start()
-    {
-        charCont = GetComponent<UnityEngine.CharacterController>();
-    }
 
     /// <summary>
     /// Use the character controller to move the player by getting the rotation and motion
@@ -39,9 +31,9 @@ public class CharacterController : MonoBehaviour
 
         //Character rotation
         if (IsClone)
-            charCont.gameObject.transform.rotation = _rotation;
+            _CharCont.gameObject.transform.rotation = _rotation;
         //Character Movement
-        charCont.Move(_motion * MoveSpeed);
+        _CharCont.Move(_motion * PlayerMovement.MoveSpeed);
     }
 
     /// <summary>
@@ -70,6 +62,6 @@ public class CharacterController : MonoBehaviour
     public void Reset()
     {
         ResetInputs();
-        charCont.enabled = true;
+        _CharCont.enabled = true;
     }
 }
