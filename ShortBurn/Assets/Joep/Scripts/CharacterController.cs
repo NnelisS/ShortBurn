@@ -8,11 +8,14 @@ public class CharacterController : MonoBehaviour
     public float MoveSpeed = .05f;
     public bool Jump;
 
+    public bool IsClone;
+
     [Header("Private")]
     private UnityEngine.CharacterController charCont;
 
     private float horizontalValue;
     private float verticalValue;
+    private Quaternion rotationValue;
     private bool buttonValue;
 
     void Start()
@@ -25,20 +28,19 @@ public class CharacterController : MonoBehaviour
     /// </summary>
     public void Move()
     {
-        Vector3 _motion = new Vector3(horizontalValue, -2, verticalValue);
-        Vector3 _rotation = new Vector3(horizontalValue, 0, verticalValue);
+        Vector3 _motion = transform.right * horizontalValue + transform.forward * verticalValue;
+        
+        Quaternion _rotation = rotationValue;
 
         if (buttonValue == true)
         {
-            Debug.Log("The button press has been received, do additional functionality here");
+            Debug.Log("The button press has been received");
         }
 
-        if (_rotation.magnitude > 0.1f)
-        {
-            float _targetAngle = Mathf.Atan2(_motion.x, _motion.z) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0f, _targetAngle, 0f);
-        }
-        //Actual Character Movement
+        //Character rotation
+        if (IsClone)
+            charCont.gameObject.transform.rotation = _rotation;
+        //Character Movement
         charCont.Move(_motion * MoveSpeed);
     }
 
@@ -49,6 +51,7 @@ public class CharacterController : MonoBehaviour
     {
         horizontalValue = _inputs.HorizontalInput;
         verticalValue = _inputs.VerticalInput;
+        rotationValue = _inputs.RotationValue;
         buttonValue = _inputs.ButtonPressed;
     }
 
