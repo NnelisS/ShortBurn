@@ -30,7 +30,7 @@ public class Controller : MonoBehaviour
             }
             else
             {
-                SelectedPlayer.gameObject.GetComponent<CloneSpawn>().ResetClone();
+               //SelectedPlayer.gameObject.GetComponent<CloneSpawn>().ResetClone();
             }
 
             startRecording();
@@ -39,6 +39,10 @@ public class Controller : MonoBehaviour
         {
             SelectedPlayer.gameObject.GetComponent<CloneSpawn>().ResetClone();
 
+            startPlayback();
+        }
+        if (Input.GetKeyDown(KeyCode.P))
+        {
             startPlayback();
         }
     }
