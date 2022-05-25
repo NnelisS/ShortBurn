@@ -15,7 +15,8 @@ public class CharacterController : Mover
     private Quaternion rotationValue;
     private bool buttonValue;
     [HideInInspector] public GameObject Player;
-    private float startYRotation = 999;
+    [HideInInspector] public float startYRotation = 999;
+    private Quaternion rotation;
 
     /// <summary>
     /// Use the character controller to move the player by getting the rotation and motion
@@ -28,9 +29,9 @@ public class CharacterController : Mover
         Vector3 _motion = transform.right * horizontalValue + transform.forward * verticalValue;
 
         if (startYRotation == 999 && IsClone)
-            startYRotation = rotationValue.eulerAngles.y;
+            startYRotation = CalculateStartYRotation(Player.transform.rotation.eulerAngles.y);
 
-        Quaternion _rotation = rotationValue;
+        rotation = rotationValue;
 
         if (buttonValue == true)
         {
@@ -40,12 +41,29 @@ public class CharacterController : Mover
         //Character rotation
         if (IsClone)
         {
-            float _newYRot = _rotation.eulerAngles.y - (startYRotation * 1.5f);
-            _charCont.gameObject.transform.rotation = Quaternion.Euler(_rotation.x, _newYRot, _rotation.z);
+            //Debug.Log(startYRotation + " : " + CalculateYRotation());
+
+            _charCont.gameObject.transform.rotation = Quaternion.Euler(rotation.x, CalculateYRotation(), rotation.z);
         }
 
         //Character Movement
         _charCont.Move(_motion * PlayerMovement.MoveSpeed);
+    }
+
+    private float CalculateStartYRotation(float value)
+    {
+        print(value);
+        
+        float _f = Mathf.Abs(rotationValue.y - value);
+        
+        return _f;
+    }
+
+    private float CalculateYRotation()
+    {
+        float _rot = rotationValue.eulerAngles.y;
+
+        return _rot + startYRotation;
     }
 
     /// <summary>
