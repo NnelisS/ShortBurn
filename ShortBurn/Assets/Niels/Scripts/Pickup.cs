@@ -15,6 +15,7 @@ public class Pickup : MonoBehaviour
     [SerializeField] private PlayerLook playerL;
     [SerializeField] private CinemachineVirtualCamera vCam;
     private PullObject PullObjScript;
+    private LineRenderer line;
 
     [Header("Throw Settings")]
     [SerializeField] private float timer = 1;
@@ -23,12 +24,14 @@ public class Pickup : MonoBehaviour
     public bool IsThrowing = false;
 
     private GameObject heldObject;
+    public float currentMass;
 
     private Vector3 turn;
     private bool rotateEnabled = false;
 
     private void Start()
     {
+        line = middlePos.gameObject.GetComponent<LineRenderer>();
         PullObjScript = GetComponent<PullObject>();
     }
 
@@ -37,10 +40,13 @@ public class Pickup : MonoBehaviour
         // move picked object to hold position and keep moving it towards
         if (heldObject != null && rotateEnabled == false)
         {
+            line.positionCount = 0;
+
             if (Vector3.Distance(heldObject.transform.position, middlePos.position) > 0.0f)
             {
                 Vector3 moveDiretion = (middlePos.position - heldObject.transform.position);
                 heldObject.GetComponent<Rigidbody>().AddForce(moveDiretion * moveForce);
+                heldObject.GetComponent<Rigidbody>().AddForce(-transform.up * heldObject.GetComponent<Rigidbody>().mass * 35);
             }
 
             if (Input.GetKeyDown(KeyCode.R))
@@ -74,23 +80,35 @@ public class Pickup : MonoBehaviour
                     PickupUpObject(hit.transform.gameObject);
             }
             else if (throwIt == false)
-            {
                 DropObject();
-            }
         }
 
         if (heldObject != null)
         {
-            // if mouse is being hold, fov goes up and you throw harder the longer you hold it
-            if (Input.GetKey(KeyCode.Mouse0) && PullObjScript.HasObj == false)
-            {
-                IsThrowing = true;
-                vCam.m_Lens.FieldOfView += 5 * Time.deltaTime;
-                timer -= 0.90f * Time.deltaTime;
-                heldObject.GetComponent<Rigidbody>().mass = timer;
+            line.positionCount = 2;
+            line.SetPosition(0, middlePos.position);
+            line.SetPosition(1, heldObject.transform.position);
 
-                throwIt = true;
+            float _distanceBetweenObj = Vector3.Distance(middlePos.transform.position, heldObject.transform.position);
+            if (_distanceBetweenObj > 1.4f)
+                DropObject();
+            else
+            {
+                if (heldObject.GetComponent<Rigidbody>().mass < 3)
+                {
+                    // if mouse is being hold, fov goes up and you throw harder the longer you hold it
+                    if (Input.GetKey(KeyCode.Mouse0) && PullObjScript.HasObj == false)
+                    {
+                        IsThrowing = true;
+                        vCam.m_Lens.FieldOfView += 5 * Time.deltaTime;
+                        timer -= 0.1f * Time.deltaTime;
+                        heldObject.GetComponent<Rigidbody>().mass = timer + currentMass;
+
+                        throwIt = true;
+                    }
+                }
             }
+
             if (Input.GetKeyDown(KeyCode.E))
             {
                 rotateEnabled = false;
@@ -116,7 +134,7 @@ public class Pickup : MonoBehaviour
             {
                 letGo = true;
                 rotateEnabled = false;
-                timer = 5;
+                timer = 1;
                 ThrowObject();
                 heldObject = null;
                 throwIt = false;
@@ -206,6 +224,7 @@ public class Pickup : MonoBehaviour
     /// </summary>
     private void DropObject()
     {
+        line.positionCount = 0;
         Rigidbody heldRig = heldObject.GetComponent<Rigidbody>();
         heldObject.GetComponent<Rigidbody>().useGravity = true;
         heldRig.drag = 1;

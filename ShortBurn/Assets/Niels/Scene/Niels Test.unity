@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 48132511}
   - component: {fileID: 48132510}
   - component: {fileID: 48132509}
+  - component: {fileID: 48132514}
   m_Layer: 0
   m_Name: Pickups
   m_TagString: CubeNormal
@@ -235,6 +236,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &48132514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 48132508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a39a405f6371b0544a8e1d58d13f6e6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MassResetValue: 1
 --- !u!1 &75991941
 GameObject:
   m_ObjectHideFlags: 0
@@ -661,6 +675,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a39a405f6371b0544a8e1d58d13f6e6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MassResetValue: 1
 --- !u!54 &475877231
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1792,6 +1807,7 @@ GameObject:
   - component: {fileID: 1168167263}
   - component: {fileID: 1168167262}
   - component: {fileID: 1168167266}
+  - component: {fileID: 1168167267}
   m_Layer: 0
   m_Name: Pickups
   m_TagString: CubeNormal
@@ -1891,6 +1907,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1168167267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168167261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a39a405f6371b0544a8e1d58d13f6e6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MassResetValue: 1
 --- !u!1 &1214106110
 GameObject:
   m_ObjectHideFlags: 0
@@ -2016,6 +2045,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a39a405f6371b0544a8e1d58d13f6e6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MassResetValue: 1
 --- !u!1 &1233634654
 GameObject:
   m_ObjectHideFlags: 0
@@ -2079,6 +2109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d343e27017e71f40bfa5461bf9d77c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Clone: {fileID: 0}
   maxClones: 1
   currentClones: 0
   clonePrefab: {fileID: 6952761170250743135, guid: 49be3b62f742a3140b7f8ab9b92e7808, type: 3}
@@ -2110,7 +2141,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1215fd5ff20d5840bf07e8bede5e172, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Rigid: {fileID: 1279596297}
   moveSpeed: 0.1
   jumpForce: 5
   groundChecker: {fileID: 566031439}
@@ -2189,6 +2219,7 @@ GameObject:
   - component: {fileID: 1389774654}
   - component: {fileID: 1389774653}
   - component: {fileID: 1389774652}
+  - component: {fileID: 1389774657}
   m_Layer: 0
   m_Name: Pickups
   m_TagString: CubeNormal
@@ -2288,6 +2319,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1389774657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1389774651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a39a405f6371b0544a8e1d58d13f6e6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MassResetValue: 1
 --- !u!1 &1392932675
 GameObject:
   m_ObjectHideFlags: 0

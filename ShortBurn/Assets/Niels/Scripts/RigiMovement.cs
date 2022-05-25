@@ -13,6 +13,7 @@ public class RigiMovement : MonoBehaviour
     [SerializeField] private Transform groundChecker;
     [SerializeField] private float groundDistance = 0.4f;
     [SerializeField] private LayerMask groundMask;
+    [SerializeField] private LayerMask groundMaskCube;
 
     [Header("Player Info")]
     [SerializeField] private Transform playerHeight;
