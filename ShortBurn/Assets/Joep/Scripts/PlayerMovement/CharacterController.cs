@@ -53,9 +53,9 @@ public class CharacterController : Mover
     private float CalculateStartYRotation(float value)
     {
         print(value);
-        
-        float _f = Mathf.Abs(rotationValue.y - value);
-        
+
+        float _f = Mathf.Abs(rotationValue.y - Mathf.Clamp(value, 0, 360));
+
         return _f;
     }
 
