@@ -51,7 +51,6 @@ public class PullObject : MonoBehaviour
         else
         {
             HasObj = false;
-            vCam.GetCinemachineComponent<CinemachinePOV>().m_VerticalAxis.m_MaxSpeed = 150;
             playerL.enabled = true;
             playerMove.enabled = true;
         }
