@@ -65,8 +65,6 @@ public class AnimationCollision : MonoBehaviour
         animationState = animator.GetCurrentAnimatorStateInfo(0);
         animTime = animationState.normalizedTime;
 
-        Debug.Log(animTime);
-
         if (IsActive && animTime > animationDuration)
             animator.Play(animationName);
         else if (IsActive == false && animTime > animationDurationBack)

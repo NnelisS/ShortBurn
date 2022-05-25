@@ -22,6 +22,6 @@ public class Gravity : Mover
 
         //Apply gravity
         velocity.y += PlayerMovement.Gravity * Time.deltaTime;
-        _CharCont.Move(velocity * Time.deltaTime);
+        _charCont.Move(velocity * Time.deltaTime);
     }
 }
