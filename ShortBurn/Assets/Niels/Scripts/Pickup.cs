@@ -62,6 +62,9 @@ public class Pickup : MonoBehaviour
         // enable object rotation while holding it
         if (rotateEnabled)
         {
+            Vector3 moveDiretion = (middlePos.position - heldObject.transform.position);
+            heldObject.GetComponent<Rigidbody>().AddForce(moveDiretion * moveForce);
+
             playerL.MouseSensitivity = 0;
             vCam.GetCinemachineComponent<CinemachinePOV>().m_VerticalAxis.m_MaxSpeed = 0;
 
@@ -113,10 +116,7 @@ public class Pickup : MonoBehaviour
             }
 
             if (Input.GetKeyDown(KeyCode.E))
-            {
                 rotateEnabled = false;
-                MoveObject();
-            }
         }
 
         // throw the object and throw fov back to default
@@ -146,9 +146,9 @@ public class Pickup : MonoBehaviour
         }
 
         // if your on full force for throwing the frequency of the camera shake spikes up
-        if (timer <= 0.30f)
+        if (timer <= 0.3f)
         {
-            timer = 0.30f;
+            timer = 0.3f;
             vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = 10;
             vCam.m_Lens.FieldOfView = 86.6f;
         }
@@ -160,10 +160,7 @@ public class Pickup : MonoBehaviour
             rotateEnabled = false;
 
         if (Input.GetKeyDown(KeyCode.E))
-        {
             rotateEnabled = false;
-            MoveObject();
-        }
 
         // rotate object with mouse movement
         float xInput = Input.GetAxis("Mouse X");
@@ -177,18 +174,6 @@ public class Pickup : MonoBehaviour
         heldObject.transform.RotateAround(cameraTransform.up, xInput * Time.deltaTime * rotationSpeed);
         heldObject.transform.RotateAround(cameraTransform.right, -yInput * Time.deltaTime * rotationSpeed);
 #pragma warning restore CS0618 // Type or member is obsolete
-    }
-
-    /// <summary>
-    /// when press E on object it goes to the position it's suppose to be your pickup range
-    /// </summary>
-    private void MoveObject()
-    {
-        if (Vector3.Distance(heldObject.transform.position, middlePos.position) > 0.1f)
-        {
-            Vector3 moveDiretion = (middlePos.position - heldObject.transform.position);
-            heldObject.GetComponent<Rigidbody>().AddForce(moveDiretion * moveForce);
-        }
     }
 
     /// <summary>
