@@ -49,10 +49,13 @@ public class Pickup : MonoBehaviour
                 heldObject.GetComponent<Rigidbody>().AddForce(-transform.up * heldObject.GetComponent<Rigidbody>().mass * 35);
             }
 
-            if (Input.GetKeyDown(KeyCode.R))
+            if (heldObject.GetComponent<Rigidbody>().mass < 3)
             {
-                rotateEnabled = true;
-                heldObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
+                if (Input.GetKeyDown(KeyCode.R))
+                {
+                    rotateEnabled = true;
+                    heldObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
+                }
             }
         }
 

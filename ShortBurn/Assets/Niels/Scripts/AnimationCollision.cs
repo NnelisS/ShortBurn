@@ -26,38 +26,14 @@ public class AnimationCollision : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
-        {
-            Debug.Log("ON");
             IsActive = true;
-        }
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
-        {
-            Debug.Log("ON");
             IsActive = false;
-        }
     }
-
-/*    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            Debug.Log("ON");
-            IsActive = true;
-        }
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            Debug.Log("ON");
-            IsActive = false;
-        }
-    }*/
 
     // wait for the animation to finish before it goes back to the default animation
     private void AnimationUpdater()
