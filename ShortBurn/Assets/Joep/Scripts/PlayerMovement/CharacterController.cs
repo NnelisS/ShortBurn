@@ -14,6 +14,8 @@ public class CharacterController : Mover
     private float verticalValue;
     private Quaternion rotationValue;
     private bool buttonValue;
+    [HideInInspector] public GameObject Player;
+    private float startYRotation = 999;
 
     /// <summary>
     /// Use the character controller to move the player by getting the rotation and motion
@@ -24,7 +26,10 @@ public class CharacterController : Mover
             GetComponent<MeshRenderer>().enabled = true;
 
         Vector3 _motion = transform.right * horizontalValue + transform.forward * verticalValue;
-        
+
+        if (startYRotation == 999 && IsClone)
+            startYRotation = rotationValue.eulerAngles.y;
+
         Quaternion _rotation = rotationValue;
 
         if (buttonValue == true)
@@ -34,9 +39,13 @@ public class CharacterController : Mover
 
         //Character rotation
         if (IsClone)
-            _CharCont.gameObject.transform.rotation = _rotation;
+        {
+            float _newYRot = _rotation.eulerAngles.y - (startYRotation * 1.5f);
+            _charCont.gameObject.transform.rotation = Quaternion.Euler(_rotation.x, _newYRot, _rotation.z);
+        }
+
         //Character Movement
-        _CharCont.Move(_motion * PlayerMovement.MoveSpeed);
+        _charCont.Move(_motion * PlayerMovement.MoveSpeed);
     }
 
     /// <summary>
@@ -65,6 +74,6 @@ public class CharacterController : Mover
     public void Reset()
     {
         ResetInputs();
-        _CharCont.enabled = true;
+        _charCont.enabled = true;
     }
 }

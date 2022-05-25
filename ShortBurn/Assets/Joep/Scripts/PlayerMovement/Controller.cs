@@ -13,6 +13,10 @@ public class Controller : MonoBehaviour
 
     private GameObject clone = null;
 
+    //R Record 10 sec
+    //F Save
+    //C Clone
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))
@@ -20,7 +24,7 @@ public class Controller : MonoBehaviour
             if (currentClones < maxClones)
             {
                 currentClones++;
-                SelectedPlayer.gameObject.GetComponent<CloneSpawn>().MakeClone(clonePrefab);
+                SelectedPlayer.gameObject.GetComponent<CloneSpawn>().MakeClone(clonePrefab, SelectedPlayer.gameObject);
 
                 clone = SelectedPlayer.gameObject.GetComponent<CloneSpawn>().SetClone();
             }
@@ -31,9 +35,8 @@ public class Controller : MonoBehaviour
 
             startRecording();
         }
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.C))
         {
-            //reset pos change later
             SelectedPlayer.gameObject.GetComponent<CloneSpawn>().ResetClone();
 
             startPlayback();

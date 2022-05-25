@@ -7,17 +7,18 @@ public class CloneSpawn : MonoBehaviour
 {
     private GameObject clone;
 
-    public void MakeClone(GameObject _clone)
+    public void MakeClone(GameObject _clone, GameObject _player)
     {
         clone = Instantiate(_clone, transform.position, transform.rotation);
         GetComponent<ActorObject>().NewController = clone.GetComponent<CharacterController>();
 
-        InitializeClone();
+        InitializeClone(_player);
     }
 
-    private void InitializeClone()
+    private void InitializeClone(GameObject _player)
     {
         clone.GetComponent<MeshRenderer>().enabled = false;
+        clone.GetComponent<CharacterController>().Player = _player;
     }
 
     public GameObject SetClone()
@@ -29,7 +30,6 @@ public class CloneSpawn : MonoBehaviour
     {
         clone.gameObject.SetActive(false);
 
-        //doesnt look good yet
         clone.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         clone.transform.rotation = transform.rotation;
 

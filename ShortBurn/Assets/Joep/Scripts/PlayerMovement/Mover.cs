@@ -7,7 +7,7 @@ public class Mover : MonoBehaviour
 {
     protected PlayerSO PlayerMovement;
 
-    protected UnityEngine.CharacterController _CharCont;
+    protected UnityEngine.CharacterController _charCont;
 
     protected bool _IsGrounded;
     
@@ -17,7 +17,7 @@ public class Mover : MonoBehaviour
         if (PlayerMovement == null)
             Debug.LogError("No PlayerSO has been found, Make one in the Assets/Joep/Scriptable Objects to resolve this error");
 
-        _CharCont = GetComponent<UnityEngine.CharacterController>();
+        _charCont = GetComponent<UnityEngine.CharacterController>();
     }
 
     private void Update()
