@@ -41,7 +41,7 @@ public class AnimationCollision : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+/*    private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
@@ -57,7 +57,7 @@ public class AnimationCollision : MonoBehaviour
             Debug.Log("ON");
             IsActive = false;
         }
-    }
+    }*/
 
     // wait for the animation to finish before it goes back to the default animation
     private void AnimationUpdater()
