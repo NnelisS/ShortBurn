@@ -47,11 +47,6 @@ public class ActorObject : MonoBehaviour
         playbackTimer = 0;
     }
 
-    void Update()
-    {
-        playerInput.ListenForKeyPresses();
-    }
-
     void FixedUpdate()
     {
         switch (CurrentState)
@@ -79,14 +74,9 @@ public class ActorObject : MonoBehaviour
     private void PlayingState()
     {
         timer = timer + Time.deltaTime;
-        playerInput.GetInputs();
         PlayerInputStruct _userInput = playerInput.GetInputStruct();
         inputRec.AddToDictionary(timer, _userInput);
-        objectController.GivenInputs(_userInput);
-        objectController.Move();
-
-        //Reset input for next frame
-        playerInput.ResetInput();
+        objectController.Move(_userInput);
     }
 
     /// <summary>
@@ -103,16 +93,12 @@ public class ActorObject : MonoBehaviour
         }
 
         playbackTimer = playbackTimer + Time.deltaTime;
-        if (inputRec.KeyExists(playbackTimer))
+        PlayerInputStruct recordedInputs = inputRec.GetRecordedInputs(playbackTimer);
+        if (recordedInputs.TriggerJump == true)
         {
-            PlayerInputStruct recordedInputs = inputRec.GetRecordedInputs(playbackTimer);
-            if (recordedInputs.ButtonPressed == true)
-            {
-                Debug.Log("At" + playbackTimer + "the value of the button press is" + recordedInputs.ButtonPressed);
-            }
-            NewController.GivenInputs(recordedInputs);
-            NewController.Move();
+            Debug.Log("At" + playbackTimer + "the value of the button press is" + recordedInputs.TriggerJump);
         }
+        NewController.Move(recordedInputs);
     }
 
     /// <summary>
@@ -137,11 +123,9 @@ public class ActorObject : MonoBehaviour
     /// </summary>
     private void MoveAgent()
     {
-        playerInput.GetInputs();
-        PlayerInputStruct _userInput = playerInput.GetInputStruct();
-        objectController.GivenInputs(_userInput);
-        objectController.Move();
-        playerInput.ResetInput();
+        //PlayerInputStruct _userInput = playerInput.GetInputStruct();
+        //objectController.GivenInputs(_userInput);
+        objectController.Move(playerInput.GetInputStruct());
     }
 
     #endregion
@@ -172,6 +156,5 @@ public class ActorObject : MonoBehaviour
     {
         objectController.Reset();
         CurrentState = State.Reset;
-        playerInput.ResetInput();
     }
 }

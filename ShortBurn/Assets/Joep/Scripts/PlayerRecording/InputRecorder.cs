@@ -1,14 +1,15 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class InputRecorder : MonoBehaviour
 {
-    private Dictionary<float, PlayerInputStruct> playerInputRecord;
+    private List<PlayerInputStruct> playerInputRecord;
 
     void Start()
     {
         //Intialize the queue that will be used to record inputs
-        playerInputRecord = new Dictionary<float, PlayerInputStruct>();
+        playerInputRecord = new List<PlayerInputStruct>();
     }
 
     /// <summary>
@@ -16,7 +17,7 @@ public class InputRecorder : MonoBehaviour
     /// </summary>
     public void AddToDictionary(float _time, PlayerInputStruct _inputs)
     {
-        playerInputRecord.Add(_time, _inputs);
+        playerInputRecord.Add(_inputs);
     }
 
     /// <summary>
@@ -24,15 +25,7 @@ public class InputRecorder : MonoBehaviour
     /// </summary>
     public void ClearHistory()
     {
-        playerInputRecord = new Dictionary<float, PlayerInputStruct>();
-    }
-
-    /// <summary>
-    /// Check if key exists
-    /// </summary>
-    public bool KeyExists(float _key)
-    {
-        return playerInputRecord.ContainsKey(_key);
+        playerInputRecord = new List<PlayerInputStruct>();
     }
 
     /// <summary>
@@ -40,6 +33,15 @@ public class InputRecorder : MonoBehaviour
     /// </summary>
     public PlayerInputStruct GetRecordedInputs(float _timeStamp)
     {
-        return playerInputRecord[_timeStamp];
+        PlayerInputStruct value;
+        for (int i = 0; i < playerInputRecord.Count; i++)
+        {
+            if (playerInputRecord[i].DeltaTime < _timeStamp)
+                continue;
+
+            return playerInputRecord[i];
+        }
+
+        return playerInputRecord[playerInputRecord.Count - 1];
     }
 }
