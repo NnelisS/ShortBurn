@@ -24,8 +24,8 @@ public class Pickup : MonoBehaviour
     private bool letGo = false;
     public bool IsThrowing = false;
 
-    public GameObject heldObject;
-    public float currentMass;
+    private GameObject heldObject;
+    private float currentMass = 1;
 
     private Vector3 turn;
     private bool rotateEnabled = false;
@@ -106,12 +106,21 @@ public class Pickup : MonoBehaviour
                     // if mouse is being hold, fov goes up and you throw harder the longer you hold it
                     if (Input.GetKey(KeyCode.Mouse0) && PullObjScript.HasObj == false)
                     {
-                        IsThrowing = true;
-                        vCam.m_Lens.FieldOfView += 5 * Time.deltaTime;
-                        timer -= 0.1f * Time.deltaTime;
-                        heldObject.GetComponent<Rigidbody>().mass = timer + currentMass;
-
-                        throwIt = true;
+                        if (_distanceBetweenObj > 1.4f)
+                        {
+                            DropObject();
+                            letGo = true;
+                            throwIt = false;
+                            vCam.m_Lens.FieldOfView = Mathf.MoveTowards(vCam.m_Lens.FieldOfView, 60, 10 * Time.maximumDeltaTime);
+                        }
+                        else
+                        {
+                            IsThrowing = true;
+                            vCam.m_Lens.FieldOfView += 5 * Time.deltaTime;
+                            timer -= 0.1f * Time.deltaTime;
+                            heldObject.GetComponent<Rigidbody>().mass = timer;
+                            throwIt = true;
+                        }
                     }
                 }
             }
@@ -134,8 +143,10 @@ public class Pickup : MonoBehaviour
         // let go off object and throw it with the force it has
         if (throwIt)
         {
-            if (Input.GetKeyUp(KeyCode.Mouse0))
+            if (letGo == false && Input.GetKeyUp(KeyCode.Mouse0))
             {
+                heldObject.GetComponent<Rigidbody>().mass += currentMass * 3;
+                line.positionCount = 0;
                 letGo = true;
                 rotateEnabled = false;
                 timer = 1;
