@@ -14,6 +14,7 @@ public class Pickup : MonoBehaviour
     [Header("Pickup Info")]
     [SerializeField] private PlayerLook playerL;
     [SerializeField] private CinemachineVirtualCamera vCam;
+    [SerializeField] private LayerMask pickupLayer;
     private PullObject PullObjScript;
     private LineRenderer line;
 
@@ -23,7 +24,7 @@ public class Pickup : MonoBehaviour
     private bool letGo = false;
     public bool IsThrowing = false;
 
-    private GameObject heldObject;
+    public GameObject heldObject;
     public float currentMass;
 
     private Vector3 turn;
@@ -82,7 +83,7 @@ public class Pickup : MonoBehaviour
             if (heldObject == null)
             {
                 RaycastHit hit;
-                if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickupRange))
+                if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickupRange, pickupLayer))
                     PickupUpObject(hit.transform.gameObject);
             }
             else if (throwIt == false)
