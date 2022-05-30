@@ -19,7 +19,6 @@ public class ActorObject : MonoBehaviour
     //3. Recording System / Playback System
     //   Recording system will need to record inputs from the player and then be able to play it back to the object
 
-
     //1 
     private PlayerRecorder playerInput;
 
@@ -32,7 +31,6 @@ public class ActorObject : MonoBehaviour
 
     public State CurrentState;
 
-    //Booleans to check initial state changes
     private bool newPlayback = false;
     private float timer;
     private float playbackTimer;
@@ -86,6 +84,8 @@ public class ActorObject : MonoBehaviour
         inputRec.AddToDictionary(timer, _userInput);
         objectController.GivenInputs(_userInput);
         objectController.Move();
+
+        //Reset input for next frame
         playerInput.ResetInput();
     }
 

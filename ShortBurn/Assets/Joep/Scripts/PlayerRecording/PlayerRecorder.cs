@@ -27,6 +27,8 @@ public class PlayerRecorder : MonoBehaviour
     /// </summary>
     public void GetInputs()
     {
+        //TODO: delta opslaan
+
         horizontalValue = Input.GetAxis("Horizontal");
         verticalValue = Input.GetAxis("Vertical");
 
