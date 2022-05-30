@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerRecorder : MonoBehaviour
@@ -9,16 +7,9 @@ public class PlayerRecorder : MonoBehaviour
     private float horizontalValue;
     private float verticalValue;
 
-    private Quaternion rotationValue;
+    private float rotationValue;
 
     private bool keyPressed;
-
-    private Camera cam;
-
-    private void Awake()
-    {
-        cam = Camera.main;
-    }
 
     /// <summary>
     /// Turns bool on if jump key pressed
@@ -39,7 +30,7 @@ public class PlayerRecorder : MonoBehaviour
         horizontalValue = Input.GetAxis("Horizontal");
         verticalValue = Input.GetAxis("Vertical");
 
-        rotationValue = transform.rotation;
+        rotationValue = transform.rotation.eulerAngles.y;
     }
 
     /// <summary>
@@ -58,7 +49,7 @@ public class PlayerRecorder : MonoBehaviour
     {
         horizontalValue = 0;
         verticalValue = 0;
-        rotationValue = Quaternion.Euler(0, 0, 0);
+        rotationValue = 0;
         keyPressed = false;
     }
 }

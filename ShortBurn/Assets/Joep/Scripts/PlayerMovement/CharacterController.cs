@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CharacterController : Mover
@@ -12,7 +10,7 @@ public class CharacterController : Mover
     [Header("Private")]
     private float horizontalValue;
     private float verticalValue;
-    private Quaternion rotationValue;
+    private float rotationValue;
     private bool buttonValue;
     [HideInInspector] public GameObject Player;
     [HideInInspector] public float startYRotation = 999;
@@ -29,9 +27,9 @@ public class CharacterController : Mover
         Vector3 _motion = transform.right * horizontalValue + transform.forward * verticalValue;
 
         if (startYRotation == 999 && IsClone)
-            startYRotation = CalculateStartYRotation(Player.transform.rotation.eulerAngles.y);
+            startYRotation = Player.transform.rotation.eulerAngles.y;
 
-        rotation = rotationValue;
+        rotation = Quaternion.Euler(transform.rotation.x, rotationValue, transform.rotation.z);
 
         if (buttonValue == true)
         {
@@ -50,20 +48,15 @@ public class CharacterController : Mover
         _charCont.Move(_motion * PlayerMovement.MoveSpeed);
     }
 
-    private float CalculateStartYRotation(float value)
-    {
-        print(value);
-
-        float _f = Mathf.Abs(rotationValue.y - Mathf.Clamp(value, 0, 360));
-
-        return _f;
-    }
-
     private float CalculateYRotation()
     {
-        float _rot = rotationValue.eulerAngles.y;
+        float _dir = rotationValue - startYRotation;
 
-        return _rot + startYRotation;
+        float _newRot = _dir - startYRotation;
+
+        //Does not work ^
+
+        return rotationValue;
     }
 
     /// <summary>
