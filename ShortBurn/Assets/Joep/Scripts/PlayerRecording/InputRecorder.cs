@@ -32,9 +32,9 @@ public class InputRecorder : MonoBehaviour
     /// <summary>
     /// Returns the inputStruct at current timeStamp(in)
     /// </summary>
-    public PlayerInputStruct[] GetRecordedInputs(float _timeStamp)
+    public List<PlayerInputStruct> GetRecordedInputs(float _timeStamp)
     {
-        PlayerInputStruct[] _playerInputStructs = new PlayerInputStruct[1];
+        List<PlayerInputStruct> _playerInputStructs = new List<PlayerInputStruct>();
 
         for (int i = 0; i < playerInputRecord.Count; i++)
         {
@@ -46,9 +46,14 @@ public class InputRecorder : MonoBehaviour
 
             Debug.Log("LT: " + _lt + " Delta: " + _deltaTime);
 
+            _playerInputStructs.Add(playerInputRecord[i - 1]);
+            _playerInputStructs.Add(playerInputRecord[i]);
 
             return _playerInputStructs; //playerInputRecord[i];
         }
+
+        _playerInputStructs.Add(playerInputRecord[playerInputRecord.Count - 1]);
+        _playerInputStructs.Add(playerInputRecord[playerInputRecord.Count - 1]);
 
         return _playerInputStructs; //playerInputRecord[playerInputRecord.Count - 1];
     }

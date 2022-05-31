@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class CharacterController : Mover
@@ -12,25 +13,24 @@ public class CharacterController : Mover
     /// <summary>
     /// Use the character controller to move the player by getting the rotation and motion
     /// </summary>
-    public void Move(PlayerInputStruct _inputs)
+    public void Move(PlayerInputStruct _input, List<PlayerInputStruct> _inputs = null)
     {
         if (IsClone && GetComponent<MeshRenderer>().enabled == false)
             GetComponent<MeshRenderer>().enabled = true;
 
-        if (_inputs.TriggerJump)
+        /*if (_inputs.TriggerJump)
         {
             Debug.Log("The Jump press has been received");
-        }
+        }*/
 
         //Character rotation
         if (IsClone)
         {
-            //transform.position = Vector3.Lerp(transform.position, _inputs.positionDelta, );
+            transform.position = Vector3.Lerp(_inputs[0].positionDelta, _inputs[1].positionDelta, .1f);
 
+            transform.rotation *= Quaternion.Euler(0, Mathf.Lerp(_inputs[0].RotationDelta, _inputs[1].RotationDelta, 0.1f), 0);
 
-            /*transform.rotation *= Quaternion.Euler(0, _inputs.RotationDelta, 0);
-
-            Vector3 rotated = transform.rotation * _inputs.positionDelta;
+            /*Vector3 rotated = transform.rotation * _inputs.positionDelta;
 
             _charCont.Move(-rotated * PlayerMovement.MoveSpeed);*/
 
@@ -38,7 +38,7 @@ public class CharacterController : Mover
         }
 
         //Character Movement
-        _charCont.Move(transform.rotation * _inputs.positionDelta * PlayerMovement.MoveSpeed);
+        _charCont.Move(transform.rotation * _input.positionDelta * PlayerMovement.MoveSpeed);
     }
 
     /// <summary>

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public enum State
@@ -100,14 +101,14 @@ public class ActorObject : MonoBehaviour
             return;
         }
 
-        PlayerInputStruct _recordedInputs = new PlayerInputStruct(); //inputRec.GetRecordedInputs(playbackTimer);
+        List<PlayerInputStruct> _recordedInputs = inputRec.GetRecordedInputs(playbackTimer);
 
-        if (_recordedInputs.TriggerJump == true)
+       /* if (_recordedInputs.TriggerJump == true)
         {
             Debug.Log("At" + playbackTimer + "the value of the button press is" + _recordedInputs.TriggerJump);
-        }
+        }*/
 
-        NewController.Move(_recordedInputs);
+        NewController.Move(new PlayerInputStruct(), _recordedInputs);
     }
 
     /// <summary>
