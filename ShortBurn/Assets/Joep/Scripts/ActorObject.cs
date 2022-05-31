@@ -100,12 +100,14 @@ public class ActorObject : MonoBehaviour
             return;
         }
 
-        PlayerInputStruct recordedInputs = inputRec.GetRecordedInputs(playbackTimer);
-        if (recordedInputs.TriggerJump == true)
+        PlayerInputStruct _recordedInputs = inputRec.GetRecordedInputs(playbackTimer);
+
+        if (_recordedInputs.TriggerJump == true)
         {
-            Debug.Log("At" + playbackTimer + "the value of the button press is" + recordedInputs.TriggerJump);
+            Debug.Log("At" + playbackTimer + "the value of the button press is" + _recordedInputs.TriggerJump);
         }
-        NewController.Move(recordedInputs);
+
+        NewController.Move(_recordedInputs);
     }
 
     /// <summary>

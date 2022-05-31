@@ -25,12 +25,14 @@ public class CharacterController : Mover
         //Character rotation
         if (IsClone)
         {
-            transform.rotation *= Quaternion.Euler(0, _inputs.RotationDelta, 0);
+            //transform.position = Vector3.Lerp(transform.position, _inputs.positionDelta, );
+
+
+            /*transform.rotation *= Quaternion.Euler(0, _inputs.RotationDelta, 0);
 
             Vector3 rotated = transform.rotation * _inputs.positionDelta;
 
-            _charCont.Move(-rotated *
-                PlayerMovement.MoveSpeed);
+            _charCont.Move(-rotated * PlayerMovement.MoveSpeed);*/
 
             return;
         }
