@@ -25,7 +25,6 @@ public class CharacterController : Mover
         //Character rotation
         if (IsClone)
         {
-            //Debug.Log(startYRotation + " : " + CalculateYRotation());
             transform.rotation *= Quaternion.Euler(0, _inputs.RotationDelta, 0);
 
             Vector3 rotated = transform.rotation * _inputs.positionDelta;

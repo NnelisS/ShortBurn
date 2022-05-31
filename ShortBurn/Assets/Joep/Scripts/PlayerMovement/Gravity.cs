@@ -7,6 +7,9 @@ public class Gravity : Mover
     public float GroundDistance = 0.4f;
     public LayerMask GroundMask;
 
+    /// <summary>
+    /// Apply gravity if the player isnt grounded
+    /// </summary>
     protected override void GroundChecker()
     {
         base.GroundChecker();

@@ -75,7 +75,7 @@ public class ActorObject : MonoBehaviour
     {
         timer = timer + Time.deltaTime;
         PlayerInputStruct _userInput = playerInput.CreateInputStruct(timer);
-        inputRec.AddToDictionary(timer, _userInput);
+        inputRec.AddToList(timer, _userInput);
         objectController.Move(_userInput);
     }
 

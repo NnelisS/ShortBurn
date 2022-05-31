@@ -3,7 +3,6 @@ using UnityEngine;
 public class PlayerRecorder : MonoBehaviour
 {
     //This class should include all the potential inputs that the player makes
-
     private float previousRotation;
 
     public void SetPreviousRotation(float _rotation)
