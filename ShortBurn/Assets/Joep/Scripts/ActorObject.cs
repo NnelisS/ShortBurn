@@ -100,7 +100,7 @@ public class ActorObject : MonoBehaviour
             return;
         }
 
-        PlayerInputStruct _recordedInputs = inputRec.GetRecordedInputs(playbackTimer);
+        PlayerInputStruct _recordedInputs = new PlayerInputStruct(); //inputRec.GetRecordedInputs(playbackTimer);
 
         if (_recordedInputs.TriggerJump == true)
         {
