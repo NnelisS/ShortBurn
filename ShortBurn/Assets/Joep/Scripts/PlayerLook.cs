@@ -10,6 +10,8 @@ public class PlayerLook : MonoBehaviour
     [Header("Mouse Info")]
     public Transform PlayerBody;
 
+    public PlayerRecorder PlayerRecorder;
+
     private float xRotation = 0;
 
     private void Start()
@@ -24,6 +26,8 @@ public class PlayerLook : MonoBehaviour
 
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+
+        PlayerRecorder.SetPreviousRotation(PlayerBody.eulerAngles.y);
 
         transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
         PlayerBody.Rotate(Vector3.up, mouseX);

@@ -5,6 +5,7 @@ using UnityEngine;
 public class InputRecorder : MonoBehaviour
 {
     private List<PlayerInputStruct> playerInputRecord;
+    private float duration;
 
     void Start()
     {
@@ -18,6 +19,7 @@ public class InputRecorder : MonoBehaviour
     public void AddToDictionary(float _time, PlayerInputStruct _inputs)
     {
         playerInputRecord.Add(_inputs);
+        duration = Mathf.Max(duration, _time);
     }
 
     /// <summary>
@@ -26,6 +28,7 @@ public class InputRecorder : MonoBehaviour
     public void ClearHistory()
     {
         playerInputRecord = new List<PlayerInputStruct>();
+        duration = 0;
     }
 
     /// <summary>
@@ -33,15 +36,19 @@ public class InputRecorder : MonoBehaviour
     /// </summary>
     public PlayerInputStruct GetRecordedInputs(float _timeStamp)
     {
-        PlayerInputStruct value;
         for (int i = 0; i < playerInputRecord.Count; i++)
         {
-            if (playerInputRecord[i].DeltaTime < _timeStamp)
+            if (playerInputRecord[i].TimeStamp < _timeStamp)
                 continue;
 
             return playerInputRecord[i];
         }
 
         return playerInputRecord[playerInputRecord.Count - 1];
+    }
+
+    public bool IsCompleted(float _timeStamp)
+    {
+        return _timeStamp > duration;
     }
 }

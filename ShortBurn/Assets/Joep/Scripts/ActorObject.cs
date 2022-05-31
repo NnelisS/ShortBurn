@@ -74,7 +74,7 @@ public class ActorObject : MonoBehaviour
     private void PlayingState()
     {
         timer = timer + Time.deltaTime;
-        PlayerInputStruct _userInput = playerInput.GetInputStruct();
+        PlayerInputStruct _userInput = playerInput.CreateInputStruct(timer);
         inputRec.AddToDictionary(timer, _userInput);
         objectController.Move(_userInput);
     }
@@ -93,6 +93,13 @@ public class ActorObject : MonoBehaviour
         }
 
         playbackTimer = playbackTimer + Time.deltaTime;
+
+        if (inputRec.IsCompleted(playbackTimer))
+        {
+            Reset();
+            return;
+        }
+
         PlayerInputStruct recordedInputs = inputRec.GetRecordedInputs(playbackTimer);
         if (recordedInputs.TriggerJump == true)
         {
@@ -125,7 +132,7 @@ public class ActorObject : MonoBehaviour
     {
         //PlayerInputStruct _userInput = playerInput.GetInputStruct();
         //objectController.GivenInputs(_userInput);
-        objectController.Move(playerInput.GetInputStruct());
+        objectController.Move(playerInput.CreateInputStruct());
     }
 
     #endregion
