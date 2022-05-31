@@ -1,23 +1,39 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CloneSpawn : MonoBehaviour
 {
-    [Header("Clone Info")]
-    [SerializeField] private int maxClones = 1;
-    [SerializeField] private int currentClones;
-    [SerializeField] private GameObject clonePrefab;
+    private GameObject clone;
 
-    void Update()
+    public void MakeClone(GameObject _clone, GameObject _player)
     {
-        if (currentClones < maxClones)
-            if (Input.GetKeyDown(KeyCode.C))
-                MakeClone(clonePrefab);
+        clone = Instantiate(_clone, transform.position, transform.rotation);
+        GetComponent<ActorObject>().NewController = clone.GetComponent<CharacterController>();
+
+        InitializeClone(_player);
     }
 
-    private void MakeClone(GameObject clone)
+    private void InitializeClone(GameObject _player)
     {
-        Instantiate(clone, transform.position, transform.rotation);
+        clone.GetComponent<MeshRenderer>().enabled = false;
+        clone.GetComponent<CharacterController>().Player = _player;
+    }
+
+    public GameObject SetClone()
+    {
+        return clone;
+    }
+
+    public void ResetClone()
+    {
+        clone.gameObject.SetActive(false);
+
+        clone.GetComponent<CharacterController>().startYRotation = 999;
+        clone.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        clone.transform.rotation = transform.rotation;
+
+        clone.gameObject.SetActive(true);
     }
 }

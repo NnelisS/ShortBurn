@@ -33,7 +33,6 @@ public class ActorObject : MonoBehaviour
     public State CurrentState;
 
     //Booleans to check initial state changes
-    public bool IsClone;
     private bool newPlayback = false;
     private float timer;
     private float playbackTimer;
@@ -41,10 +40,7 @@ public class ActorObject : MonoBehaviour
     void Start()
     {
         //initialize the variables
-        if (IsClone)
-            CurrentState = State.Reset;
-        else
-            CurrentState = State.None;
+        CurrentState = State.None;
 
         playerInput = GetComponent<PlayerRecorder>();
         objectController = GetComponent<CharacterController>();
@@ -80,7 +76,7 @@ public class ActorObject : MonoBehaviour
     #region States
 
     /// <summary>
-    /// Increase timer and adds the time to the dictionary and moves the agent
+    /// Save the input each frame and add it to the dictionary
     /// </summary>
     private void PlayingState()
     {
@@ -98,8 +94,7 @@ public class ActorObject : MonoBehaviour
     /// </summary>
     private void PlaybackState()
     {
-        if (!IsClone)
-            MoveAgent();
+        MoveAgent();
 
         if (newPlayback == true)
         {
@@ -110,7 +105,7 @@ public class ActorObject : MonoBehaviour
         playbackTimer = playbackTimer + Time.deltaTime;
         if (inputRec.KeyExists(playbackTimer))
         {
-            PlayerInputStruct recordedInputs = inputRec.getRecordedInputs(playbackTimer);
+            PlayerInputStruct recordedInputs = inputRec.GetRecordedInputs(playbackTimer);
             if (recordedInputs.ButtonPressed == true)
             {
                 Debug.Log("At" + playbackTimer + "the value of the button press is" + recordedInputs.ButtonPressed);
@@ -125,17 +120,15 @@ public class ActorObject : MonoBehaviour
     /// </summary>
     private void ResetState()
     {
-        if (!IsClone)
-            MoveAgent();
+        MoveAgent();
         timer = 0;
     }
 
     /// <summary>
-    /// Do nothing unless its the player
+    /// Do nothing 
     /// </summary>
     private void NoneState()
     {
-        if (!IsClone)
         MoveAgent();
     }
 

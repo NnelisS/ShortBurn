@@ -5,8 +5,6 @@ using Cinemachine;
 
 public class RigiMovement : MonoBehaviour
 {
-    public Rigidbody Rigid;
-
     [Header("Movement Settings")]
     [SerializeField] private float moveSpeed;
     [SerializeField] private float jumpForce;
@@ -15,6 +13,7 @@ public class RigiMovement : MonoBehaviour
     [SerializeField] private Transform groundChecker;
     [SerializeField] private float groundDistance = 0.4f;
     [SerializeField] private LayerMask groundMask;
+    [SerializeField] private LayerMask groundMaskCube;
 
     [Header("Player Info")]
     [SerializeField] private Transform playerHeight;
@@ -25,16 +24,18 @@ public class RigiMovement : MonoBehaviour
     public bool IsCrouched = false;
     private Vector3 velocity;
     private bool isGrounded;
+    private Rigidbody Rigid;
 
     private void Start()
     {
-        pickupScript = GetComponentInChildren<Pickup>();
+        Rigid = GetComponent<Rigidbody>();
+        //pickupScript = GetComponentInChildren<Pickup>();
         vCam = GetComponentInChildren<CinemachineVirtualCamera>();
     }
 
     void Update()
     {
-        Crouch();
+        //Crouch();
         Jump();
         GroundCheck();
 

@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - CubeNormal
+  - Clone
+  - PlayerGround
   layers:
   - Default
   - TransparentFX
@@ -18,10 +20,10 @@ TagManager:
   - Not in Reflection
   - Ground
   - Grapple
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Clone
+  - CloneWalkOn
+  - Pickups
   - 
   - 
   - 

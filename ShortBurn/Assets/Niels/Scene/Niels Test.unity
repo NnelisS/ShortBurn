@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 48132511}
   - component: {fileID: 48132510}
   - component: {fileID: 48132509}
+  - component: {fileID: 48132514}
   m_Layer: 0
   m_Name: Pickups
   m_TagString: CubeNormal
@@ -235,6 +236,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &48132514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 48132508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a39a405f6371b0544a8e1d58d13f6e6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &75991941
 GameObject:
   m_ObjectHideFlags: 0
@@ -1792,6 +1805,7 @@ GameObject:
   - component: {fileID: 1168167263}
   - component: {fileID: 1168167262}
   - component: {fileID: 1168167266}
+  - component: {fileID: 1168167267}
   m_Layer: 0
   m_Name: Pickups
   m_TagString: CubeNormal
@@ -1891,6 +1905,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1168167267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168167261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a39a405f6371b0544a8e1d58d13f6e6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1214106110
 GameObject:
   m_ObjectHideFlags: 0
@@ -2025,6 +2051,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1233634655}
+  - component: {fileID: 1233634656}
   m_Layer: 0
   m_Name: MiddlePos
   m_TagString: Untagged
@@ -2046,6 +2073,104 @@ Transform:
   m_Father: {fileID: 416353757}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!120 &1233634656
+LineRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233634654}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 0
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 257
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Positions:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 1}
+  m_Parameters:
+    serializedVersion: 3
+    widthMultiplier: 1
+    widthCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    colorGradient:
+      serializedVersion: 2
+      key0: {r: 1, g: 1, b: 1, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 1}
+      key2: {r: 0, g: 0, b: 0, a: 0}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 65535
+      ctime2: 0
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_NumColorKeys: 2
+      m_NumAlphaKeys: 2
+    numCornerVertices: 0
+    numCapVertices: 0
+    alignment: 0
+    textureMode: 0
+    shadowBias: 0.5
+    generateLightingData: 0
+  m_UseWorldSpace: 1
+  m_Loop: 0
 --- !u!1 &1279596295
 GameObject:
   m_ObjectHideFlags: 0
@@ -2079,9 +2204,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d343e27017e71f40bfa5461bf9d77c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxClones: 1
-  currentClones: 0
-  clonePrefab: {fileID: 6952761170250743135, guid: 49be3b62f742a3140b7f8ab9b92e7808, type: 3}
 --- !u!54 &1279596297
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2110,7 +2232,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1215fd5ff20d5840bf07e8bede5e172, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Rigid: {fileID: 1279596297}
   moveSpeed: 0.1
   jumpForce: 5
   groundChecker: {fileID: 566031439}
@@ -2118,6 +2239,9 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 1024
+  groundMaskCube:
+    serializedVersion: 2
+    m_Bits: 0
   playerHeight: {fileID: 1060537491}
   playerCapsule: {fileID: 362463132}
   IsCrouched: 0
@@ -2189,6 +2313,7 @@ GameObject:
   - component: {fileID: 1389774654}
   - component: {fileID: 1389774653}
   - component: {fileID: 1389774652}
+  - component: {fileID: 1389774657}
   m_Layer: 0
   m_Name: Pickups
   m_TagString: CubeNormal
@@ -2288,6 +2413,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1389774657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1389774651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a39a405f6371b0544a8e1d58d13f6e6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1392932675
 GameObject:
   m_ObjectHideFlags: 0
@@ -3303,8 +3440,9 @@ MonoBehaviour:
   rotationSpeed: 5
   playerL: {fileID: 1060537493}
   vCam: {fileID: 1060537492}
-  timer: 1
+  timer: 5
   IsThrowing: 0
+  currentMass: 0
 --- !u!114 &1950495129
 MonoBehaviour:
   m_ObjectHideFlags: 0
