@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 3.5640373, g: 2.4124165, b: 2.0745888, a: 1}
+  m_IndirectSpecularColor: {r: 3.5638552, g: 2.4126244, b: 2.075222, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5974,14 +5974,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 145337666}
-  m_LocalRotation: {x: -0, y: 0.27978534, z: -0, w: 0.96006256}
-  m_LocalPosition: {x: 2.1079998, y: 0.5209999, z: -7.3859997}
+  m_LocalRotation: {x: -0, y: -0.31629008, z: -0, w: 0.9486626}
+  m_LocalPosition: {x: 0.004, y: 4.215, z: -7.073}
   m_LocalScale: {x: 0.622, y: 0.622, z: 0.622}
   m_Children:
   - {fileID: 1579342379}
   m_Father: {fileID: 1065817200}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 32.495, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -36.877, z: 0}
 --- !u!114 &145337673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7712,6 +7712,7 @@ MonoBehaviour:
   cam: {fileID: 3340701680501986130}
   vCam: {fileID: 3340701680501986128}
   camPos: {fileID: 475230101}
+  dialogue: {fileID: 0}
 --- !u!4 &161485454
 Transform:
   m_ObjectHideFlags: 0
@@ -16971,7 +16972,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh146114
+  m_Name: pb_Mesh156584
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -30333,7 +30334,7 @@ Transform:
   m_GameObject: {fileID: 1445402391}
   m_LocalRotation: {x: -0, y: -0.27739212, z: -0, w: 0.96075684}
   m_LocalPosition: {x: -12.94, y: 17.446, z: -6.072}
-  m_LocalScale: {x: 0.47400004, y: 0.47400004, z: 0.47400004}
+  m_LocalScale: {x: 0.45504004, y: 0.45504004, z: 0.45504004}
   m_Children:
   - {fileID: 353798229}
   - {fileID: 1788174118}
