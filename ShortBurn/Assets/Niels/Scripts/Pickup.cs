@@ -28,7 +28,7 @@ public class Pickup : MonoBehaviour
     private float currentMass = 1;
 
     private Vector3 turn;
-    private bool rotateEnabled = false;
+    public bool RotateEnabled = false;
 
     private void Start()
     {
@@ -39,7 +39,7 @@ public class Pickup : MonoBehaviour
     void Update()
     {
         // move picked object to hold position and keep moving it towards
-        if (heldObject != null && rotateEnabled == false)
+        if (heldObject != null && RotateEnabled == false)
         {
             line.positionCount = 0;
 
@@ -54,14 +54,14 @@ public class Pickup : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.R))
                 {
-                    rotateEnabled = true;
+                    RotateEnabled = true;
                     heldObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
                 }
             }
         }
 
         // enable object rotation while holding it
-        if (rotateEnabled)
+        if (RotateEnabled)
         {
             Vector3 moveDiretion = (middlePos.position - heldObject.transform.position);
             heldObject.GetComponent<Rigidbody>().AddForce(moveDiretion * moveForce);
@@ -71,7 +71,7 @@ public class Pickup : MonoBehaviour
 
             RotateObject();
         }
-        else if (rotateEnabled == false && PullObjScript.HasObj == false)
+        else if (RotateEnabled == false && PullObjScript.HasObj == false)
         {
             playerL.MouseSensitivity = 100;
             vCam.GetCinemachineComponent<CinemachinePOV>().m_VerticalAxis.m_MaxSpeed = 150;
@@ -126,7 +126,7 @@ public class Pickup : MonoBehaviour
             }
 
             if (Input.GetKeyDown(KeyCode.E))
-                rotateEnabled = false;
+                RotateEnabled = false;
         }
 
         // throw the object and throw fov back to default
@@ -148,7 +148,7 @@ public class Pickup : MonoBehaviour
                 heldObject.GetComponent<Rigidbody>().mass += currentMass * 3;
                 line.positionCount = 0;
                 letGo = true;
-                rotateEnabled = false;
+                RotateEnabled = false;
                 timer = 1;
                 ThrowObject();
                 heldObject = null;
@@ -169,10 +169,10 @@ public class Pickup : MonoBehaviour
     private void RotateObject()
     {
         if (Input.GetKeyUp(KeyCode.R))
-            rotateEnabled = false;
+            RotateEnabled = false;
 
         if (Input.GetKeyDown(KeyCode.E))
-            rotateEnabled = false;
+            RotateEnabled = false;
 
         // rotate object with mouse movement
         float xInput = Input.GetAxis("Mouse X");
