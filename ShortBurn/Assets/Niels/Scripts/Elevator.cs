@@ -6,11 +6,14 @@ public class Elevator : MonoBehaviour
 {
     public GameObject player;
 
+    public UnityEngine.CharacterController CharacterCont;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject == player)
         {
-            player.transform.parent = transform;
+            CharacterCont.enabled = false;
+            player.transform.SetParent(this.transform);
         }
     }
 
@@ -18,7 +21,7 @@ public class Elevator : MonoBehaviour
     {
         if (other.gameObject == player)
         {
-            player.transform.parent = null;
+            player.transform.SetParent(null);
         }
     }
 }
