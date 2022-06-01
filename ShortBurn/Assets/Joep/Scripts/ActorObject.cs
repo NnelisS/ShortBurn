@@ -101,14 +101,14 @@ public class ActorObject : MonoBehaviour
             return;
         }
 
-        List<PlayerInputStruct> _recordedInputs = inputRec.GetRecordedInputs(playbackTimer);
+        PlayerInputStruct _recordedInputs = inputRec.GetRecordedInputs(playbackTimer);
 
        /* if (_recordedInputs.TriggerJump == true)
         {
             Debug.Log("At" + playbackTimer + "the value of the button press is" + _recordedInputs.TriggerJump);
         }*/
 
-        NewController.Move(new PlayerInputStruct(), _recordedInputs);
+        NewController.Move(_recordedInputs);
     }
 
     /// <summary>

@@ -20,12 +20,12 @@ public class CharacterController : Mover
     /// <summary>
     /// Use the character controller to move the player by getting the rotation and motion
     /// </summary>
-    public void Move(PlayerInputStruct _input, List<PlayerInputStruct> _inputs = null)
+    public void Move(PlayerInputStruct _inputs)
     {
         if (IsClone && GetComponent<MeshRenderer>().enabled == false)
             GetComponent<MeshRenderer>().enabled = true;
 
-        if (_input.TriggerJump)
+        if (_inputs.TriggerJump)
         {
             gravity.TriggerJump();
             Debug.Log("The Jump press has been received");
@@ -34,9 +34,13 @@ public class CharacterController : Mover
         //Character rotation
         if (IsClone)
         {
-            transform.position = Vector3.Lerp(_inputs[0].positionDelta, _inputs[1].positionDelta, .1f);
+            //transform.position = Vector3.Lerp(_inputs.positionDelta, _inputs.positionDelta, .1f);
 
-            transform.rotation *= Quaternion.Euler(0, Mathf.Lerp(_inputs[0].RotationDelta, _inputs[1].RotationDelta, 0.1f), 0);
+            transform.rotation *= Quaternion.Euler(0, Mathf.Lerp(_inputs.RotationDelta, _inputs.RotationDelta, _inputs.TimeStamp), 0);
+
+            Vector3 rotated = Quaternion.Euler(0, Mathf.Lerp(_inputs.RotationDelta, _inputs.RotationDelta, _inputs.TimeStamp), 0) * Vector3.Lerp(_inputs.positionDelta, _inputs.positionDelta, _inputs.TimeStamp);
+
+            _charCont.Move(-rotated * PlayerMovement.MoveSpeed);
 
             /*Vector3 rotated = transform.rotation * _inputs.positionDelta;
 
@@ -46,7 +50,7 @@ public class CharacterController : Mover
         }
 
         //Character Movement
-        _charCont.Move(transform.rotation * _input.positionDelta * PlayerMovement.MoveSpeed);
+        _charCont.Move(transform.rotation * _inputs.positionDelta * PlayerMovement.MoveSpeed);
     }
 
     /// <summary>

@@ -6,6 +6,8 @@ public class InputRecorder : MonoBehaviour
     private List<PlayerInputStruct> playerInputRecord;
     private float duration;
 
+    private float deltaTime = 0;
+
     void Start()
     {
         playerInputRecord = new List<PlayerInputStruct>();
@@ -32,30 +34,24 @@ public class InputRecorder : MonoBehaviour
     /// <summary>
     /// Returns the inputStruct at current timeStamp(in)
     /// </summary>
-    public List<PlayerInputStruct> GetRecordedInputs(float _timeStamp)
+    public PlayerInputStruct GetRecordedInputs(float _timeStamp)
     {
-        List<PlayerInputStruct> _playerInputStructs = new List<PlayerInputStruct>();
-
         for (int i = 0; i < playerInputRecord.Count; i++)
         {
             if (playerInputRecord[i].TimeStamp < _timeStamp)
                 continue;
 
-            float _deltaTime = 0.5f;
-            float _lt = _timeStamp * _deltaTime;
+            deltaTime = Mathf.Abs(deltaTime - _timeStamp);
+            float _lerpTime = _timeStamp / deltaTime;
 
-            Debug.Log("LT: " + _lt + " Delta: " + _deltaTime);
+            Debug.Log("Lerp Time: " + _lerpTime + " Delta: " + deltaTime);
 
-            _playerInputStructs.Add(playerInputRecord[i - 1]);
-            _playerInputStructs.Add(playerInputRecord[i]);
+            deltaTime = _timeStamp;
 
-            return _playerInputStructs; //playerInputRecord[i];
+            return playerInputRecord[(int)_lerpTime];
         }
 
-        _playerInputStructs.Add(playerInputRecord[playerInputRecord.Count - 1]);
-        _playerInputStructs.Add(playerInputRecord[playerInputRecord.Count - 1]);
-
-        return _playerInputStructs; //playerInputRecord[playerInputRecord.Count - 1];
+        return playerInputRecord[playerInputRecord.Count - 1];
     }
 
     /// <summary>
