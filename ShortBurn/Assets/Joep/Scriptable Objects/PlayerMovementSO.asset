@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveSpeed: 0.03
   Gravity: -15
+  JumpHeight: 1
