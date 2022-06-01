@@ -9,13 +9,6 @@ public class CharacterController : Mover
 
     [HideInInspector] public GameObject Player;
 
-    private Gravity gravity;
-
-    private void Start()
-    {
-        gravity = GetComponent<Gravity>();
-    }
-
     /// <summary>
     /// Use the character controller to move the player by getting the rotation and motion
     /// </summary>
@@ -26,7 +19,6 @@ public class CharacterController : Mover
 
         if (_inputs.TriggerJump)
         {
-            gravity.TriggerJump();
             Debug.Log("The Jump press has been received");
         }
 

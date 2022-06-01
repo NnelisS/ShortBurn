@@ -30,9 +30,4 @@ public class Mover : MonoBehaviour
     {
 
     }
-
-    protected virtual void Jump()
-    {
-     
-    }
 }
