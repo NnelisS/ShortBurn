@@ -233,4 +233,14 @@ public class Pickup : MonoBehaviour
         heldObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
         heldObject = null;
     }
+
+    public void DropObj()
+    {
+        line.positionCount = 0;
+        heldObject.GetComponent<Rigidbody>().useGravity = true;
+
+        heldObject.transform.parent = null;
+        heldObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+        heldObject = null;
+    }
 }

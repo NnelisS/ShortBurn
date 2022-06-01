@@ -8,7 +8,7 @@ using UnityEngine.Rendering.HighDefinition;
 public class LevelEnd : MonoBehaviour
 {
     [SerializeField] private GameObject blur;
-    [SerializeField] private GameObject pausePanel;
+    [SerializeField] private GameObject endPanel;
 
     public Volume Volume;
     private Bloom Bloom;
@@ -26,8 +26,6 @@ public class LevelEnd : MonoBehaviour
 
             if (Bloom.threshold.value <= 0.2f)
                 Time.timeScale = Mathf.MoveTowards(Time.timeScale, 0.001f, 0.2f * Time.maximumDeltaTime);
-            else if (Bloom.threshold.value == 0)
-                pausePanel.SetActive(true);
         }
     }
 
@@ -36,8 +34,11 @@ public class LevelEnd : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
             pausing = true;
             blur.SetActive(true);
+            endPanel.SetActive(true);
         }
     }
 }
