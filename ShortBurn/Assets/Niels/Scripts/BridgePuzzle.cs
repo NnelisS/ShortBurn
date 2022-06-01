@@ -8,6 +8,7 @@ public class BridgePuzzle : MonoBehaviour
     public Transform Bridge;
     public Transform GoTo;
     public Transform GoToBack;
+    public bool ClonePuzzle = false;
 
     private float timer = 2;
     private CinemachineVirtualCamera vCam;
@@ -23,7 +24,7 @@ public class BridgePuzzle : MonoBehaviour
     {
         if (activated)
         {
-            if (timer > 0.1f)
+            if (timer > 0.1f && ClonePuzzle == true)
             {
                 vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = 2f;
                 vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = 25f;
@@ -31,7 +32,7 @@ public class BridgePuzzle : MonoBehaviour
             Bridge.transform.localPosition = Vector3.MoveTowards(Bridge.transform.localPosition, GoTo.transform.localPosition, 1 * Time.deltaTime);
             
             timer -= Time.deltaTime;
-            if (timer <= 0)
+            if (timer <= 0 && ClonePuzzle == true)
             {
                 timer = 0;
                 vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = 0.7f;

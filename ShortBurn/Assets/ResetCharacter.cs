@@ -15,16 +15,22 @@ public class ResetCharacter : MonoBehaviour
     public Transform Gate;
     public Transform Goto;
 
+    private float timer = 2;
     private bool On = false;
 
     void Update()
     {
         if (On)
         {
-            Gate.transform.position = Vector3.MoveTowards(Gate.transform.position, Goto.transform.position, 1 * Time.deltaTime);
+            Gate.transform.position = Vector3.MoveTowards(Gate.transform.position, Goto.transform.position, 1 * Time.maximumDeltaTime);
             Physics.IgnoreCollision(Lift, PlayerCol);
             Player.SetParent(null);
             CharCont.enabled = true;
+            timer -= Time.deltaTime;
+            if (timer <= 0)
+            {
+                On = false;
+            }
         }
     }
 
