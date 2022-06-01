@@ -15,6 +15,7 @@ public class CheckPointManager : MonoBehaviour
     [SerializeField] private Transform cam;
     [SerializeField] private CinemachineVirtualCamera vCam;
     [SerializeField] private Transform camPos;
+    [SerializeField] private DeathDialogue dialogue;
 
     private bool kill = false;
 
@@ -41,6 +42,7 @@ public class CheckPointManager : MonoBehaviour
     private IEnumerator RespawnAtCheckPoint(Transform _oldPos)
     {
         kill = true;
+        dialogue.PlayRandomDialogue();
         characterCont.enabled = false;
         characterController.enabled = false;
         fade.Play("Eyes");

@@ -19,6 +19,9 @@ public class DeathDialogue : MonoBehaviour
 
     public void PlayRandomDialogue()
     {
+        currDialogue = "";
+        dialogueText.text = currDialogue;
+
         StartCoroutine(TypeText(Random.Range(0, DeathMessages.Dialogues.Length)));
     }
 
@@ -32,5 +35,19 @@ public class DeathDialogue : MonoBehaviour
         }
 
         yield return new WaitForSeconds(1f);
+
+        StartCoroutine(RemoveText(_messageCount));
+    }
+
+    private IEnumerator RemoveText(int _messageCount)
+    {
+        for (int i = DeathMessages.Dialogues[_messageCount].Length - 1; i > -1; i--)
+        {
+            currDialogue = DeathMessages.Dialogues[_messageCount].Remove(i);
+            dialogueText.text = currDialogue;
+            yield return new WaitForSeconds(DeathMessages.Delay * 2);
+        }
+
+        yield return new WaitForSeconds(DeathMessages.Delay);
     }
 }
