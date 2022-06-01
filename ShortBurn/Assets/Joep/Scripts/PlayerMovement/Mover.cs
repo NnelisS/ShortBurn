@@ -9,7 +9,7 @@ public class Mover : MonoBehaviour
 
     protected bool _IsGrounded;
     
-    private void Start()
+    private void Awake()
     {
         PlayerMovement = (PlayerSO)AssetDatabase.LoadAssetAtPath("Assets/Joep/Scriptable Objects/PlayerMovementSO.asset", typeof(PlayerSO));
         if (PlayerMovement == null)
@@ -29,5 +29,10 @@ public class Mover : MonoBehaviour
     protected virtual void GroundChecker()
     {
 
+    }
+
+    protected virtual void Jump()
+    {
+      
     }
 }

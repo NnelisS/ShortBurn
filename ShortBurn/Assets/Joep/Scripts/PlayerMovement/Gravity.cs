@@ -25,4 +25,22 @@ public class Gravity : Mover
         velocity.y += PlayerMovement.Gravity * Time.deltaTime;
         _charCont.Move(velocity * Time.deltaTime);
     }
+
+    public void TriggerJump()
+    {
+        if (_IsGrounded)
+            Jump();
+    }
+
+    protected override void Jump()
+    {
+        base.Jump();
+
+        velocity.y += PlayerMovement.Gravity * Time.deltaTime;
+
+        _charCont.Move(velocity * Time.deltaTime);
+
+        if (Input.GetButtonDown("Jump") && _IsGrounded)
+            velocity.y = Mathf.Sqrt(PlayerMovement.JumpHeight * -2f * PlayerMovement.Gravity);
+    }
 }
