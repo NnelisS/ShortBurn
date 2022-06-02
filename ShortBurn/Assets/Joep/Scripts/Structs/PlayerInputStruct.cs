@@ -1,18 +1,21 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public struct PlayerInputStruct
 {
-    public Vector3 positionDelta;
-    public float RotationDelta;
-    public bool TriggerJump;
+    public float VerticalInput;
+    public float HorizontalInput;
 
-    public float TimeStamp;
+    public Quaternion RotationValue;
 
-    public PlayerInputStruct(Vector3 _positionDelta, float _rotationDelta, bool _triggerJump, float _timeStamp)
+    public bool ButtonPressed;
+
+    public PlayerInputStruct(float _horizontalValue, float _verticalValue, Quaternion _rotationValue, bool _buttonvalue)
     {
-        positionDelta = _positionDelta;
-        RotationDelta = _rotationDelta;
-        TriggerJump = _triggerJump;
-        TimeStamp = _timeStamp;
+        VerticalInput = _verticalValue;
+        HorizontalInput = _horizontalValue;
+        RotationValue = _rotationValue;
+        ButtonPressed = _buttonvalue;
     }
 }

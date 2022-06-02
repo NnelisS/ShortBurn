@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public enum State
@@ -20,6 +19,7 @@ public class ActorObject : MonoBehaviour
     //3. Recording System / Playback System
     //   Recording system will need to record inputs from the player and then be able to play it back to the object
 
+
     //1 
     private PlayerRecorder playerInput;
 
@@ -32,6 +32,7 @@ public class ActorObject : MonoBehaviour
 
     public State CurrentState;
 
+    //Booleans to check initial state changes
     private bool newPlayback = false;
     private float timer;
     private float playbackTimer;
@@ -46,6 +47,11 @@ public class ActorObject : MonoBehaviour
         inputRec = GetComponent<InputRecorder>();
         timer = 0;
         playbackTimer = 0;
+    }
+
+    void Update()
+    {
+        playerInput.ListenForKeyPresses();
     }
 
     void FixedUpdate()
@@ -75,9 +81,12 @@ public class ActorObject : MonoBehaviour
     private void PlayingState()
     {
         timer = timer + Time.deltaTime;
-        PlayerInputStruct _userInput = playerInput.CreateInputStruct(timer);
-        inputRec.AddToList(timer, _userInput);
-        objectController.Move(_userInput);
+        playerInput.GetInputs();
+        PlayerInputStruct _userInput = playerInput.GetInputStruct();
+        inputRec.AddToDictionary(timer, _userInput);
+        objectController.GivenInputs(_userInput);
+        objectController.Move();
+        playerInput.ResetInput();
     }
 
     /// <summary>
@@ -94,21 +103,16 @@ public class ActorObject : MonoBehaviour
         }
 
         playbackTimer = playbackTimer + Time.deltaTime;
-
-        if (inputRec.IsCompleted(playbackTimer))
+        if (inputRec.KeyExists(playbackTimer))
         {
-            Reset();
-            return;
+            PlayerInputStruct recordedInputs = inputRec.GetRecordedInputs(playbackTimer);
+            if (recordedInputs.ButtonPressed == true)
+            {
+                Debug.Log("At" + playbackTimer + "the value of the button press is" + recordedInputs.ButtonPressed);
+            }
+            NewController.GivenInputs(recordedInputs);
+            NewController.Move();
         }
-
-        PlayerInputStruct _recordedInputs = inputRec.GetRecordedInputs(playbackTimer);
-
-       /* if (_recordedInputs.TriggerJump == true)
-        {
-            Debug.Log("At" + playbackTimer + "the value of the button press is" + _recordedInputs.TriggerJump);
-        }*/
-
-        NewController.Move(_recordedInputs);
     }
 
     /// <summary>
@@ -133,9 +137,11 @@ public class ActorObject : MonoBehaviour
     /// </summary>
     private void MoveAgent()
     {
-        //PlayerInputStruct _userInput = playerInput.GetInputStruct();
-        //objectController.GivenInputs(_userInput);
-        objectController.Move(playerInput.CreateInputStruct());
+        playerInput.GetInputs();
+        PlayerInputStruct _userInput = playerInput.GetInputStruct();
+        objectController.GivenInputs(_userInput);
+        objectController.Move();
+        playerInput.ResetInput();
     }
 
     #endregion
@@ -166,5 +172,6 @@ public class ActorObject : MonoBehaviour
     {
         objectController.Reset();
         CurrentState = State.Reset;
+        playerInput.ResetInput();
     }
 }

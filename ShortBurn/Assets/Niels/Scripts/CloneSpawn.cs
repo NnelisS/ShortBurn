@@ -30,7 +30,8 @@ public class CloneSpawn : MonoBehaviour
     {
         clone.gameObject.SetActive(false);
 
-        clone.transform.position = transform.position;
+        clone.GetComponent<CharacterController>().startYRotation = 999;
+        clone.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         clone.transform.rotation = transform.rotation;
 
         clone.gameObject.SetActive(true);
