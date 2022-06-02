@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Gravity : Mover
@@ -9,6 +7,9 @@ public class Gravity : Mover
     public float GroundDistance = 0.4f;
     public LayerMask GroundMask;
 
+    /// <summary>
+    /// Apply gravity if the player isnt grounded
+    /// </summary>
     protected override void GroundChecker()
     {
         base.GroundChecker();
@@ -23,5 +24,23 @@ public class Gravity : Mover
         //Apply gravity
         velocity.y += PlayerMovement.Gravity * Time.deltaTime;
         _charCont.Move(velocity * Time.deltaTime);
+    }
+
+    public void TriggerJump()
+    {
+        if (_IsGrounded)
+            Jump();
+    }
+
+    protected override void Jump()
+    {
+        base.Jump();
+
+        velocity.y += PlayerMovement.Gravity * Time.deltaTime;
+
+        _charCont.Move(velocity * Time.deltaTime);
+
+        if (Input.GetButtonDown("Jump") && _IsGrounded)
+            velocity.y = Mathf.Sqrt(PlayerMovement.JumpHeight * -2f * PlayerMovement.Gravity);
     }
 }

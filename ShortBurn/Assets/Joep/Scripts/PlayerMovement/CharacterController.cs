@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,81 +8,49 @@ public class CharacterController : Mover
 
     public bool IsClone;
 
-    [Header("Private")]
-    private float horizontalValue;
-    private float verticalValue;
-    private Quaternion rotationValue;
-    private bool buttonValue;
     [HideInInspector] public GameObject Player;
-    [HideInInspector] public float startYRotation = 999;
-    private Quaternion rotation;
+
+    private Gravity gravity;
+
+    private void Start()
+    {
+        gravity = GetComponent<Gravity>();
+    }
 
     /// <summary>
     /// Use the character controller to move the player by getting the rotation and motion
     /// </summary>
-    public void Move()
+    public void Move(PlayerInputStruct _inputs)
     {
         if (IsClone && GetComponent<MeshRenderer>().enabled == false)
             GetComponent<MeshRenderer>().enabled = true;
 
-        Vector3 _motion = transform.right * horizontalValue + transform.forward * verticalValue;
-
-        if (startYRotation == 999 && IsClone)
-            startYRotation = CalculateStartYRotation(Player.transform.rotation.eulerAngles.y);
-
-        rotation = rotationValue;
-
-        if (buttonValue == true)
+        if (_inputs.TriggerJump)
         {
-            Debug.Log("The button press has been received");
+            gravity.TriggerJump();
+            Debug.Log("The Jump press has been received");
         }
 
         //Character rotation
         if (IsClone)
         {
-            //Debug.Log(startYRotation + " : " + CalculateYRotation());
+            //transform.position = Vector3.Lerp(_inputs.positionDelta, _inputs.positionDelta, .1f);
 
-            _charCont.gameObject.transform.rotation = Quaternion.Euler(rotation.x, CalculateYRotation(), rotation.z);
+            transform.rotation *= Quaternion.Euler(0, Mathf.Lerp(_inputs.RotationDelta, _inputs.RotationDelta, _inputs.TimeStamp), 0);
+
+            Vector3 rotated = transform.rotation * Vector3.Lerp(_inputs.positionDelta, _inputs.positionDelta, _inputs.TimeStamp);
+
+            _charCont.Move(rotated * PlayerMovement.MoveSpeed);
+
+            /*Vector3 rotated = transform.rotation * _inputs.positionDelta;
+
+            _charCont.Move(-rotated * PlayerMovement.MoveSpeed);*/
+
+            return;
         }
 
         //Character Movement
-        _charCont.Move(_motion * PlayerMovement.MoveSpeed);
-    }
-
-    private float CalculateStartYRotation(float value)
-    {
-        print(value);
-        
-        float _f = Mathf.Abs(rotationValue.y - value);
-        
-        return _f;
-    }
-
-    private float CalculateYRotation()
-    {
-        float _rot = rotationValue.eulerAngles.y;
-
-        return _rot + startYRotation;
-    }
-
-    /// <summary>
-    /// Set the horizontal and vertical values 
-    /// </summary>
-    public void GivenInputs(PlayerInputStruct _inputs)
-    {
-        horizontalValue = _inputs.HorizontalInput;
-        verticalValue = _inputs.VerticalInput;
-        rotationValue = _inputs.RotationValue;
-        buttonValue = _inputs.ButtonPressed;
-    }
-
-    /// <summary>
-    /// put the horizontal and vertical values on 0
-    /// </summary>
-    public void ResetInputs()
-    {
-        horizontalValue = 0;
-        verticalValue = 0;
+        _charCont.Move(transform.rotation * _inputs.positionDelta * PlayerMovement.MoveSpeed);
     }
 
     /// <summary>
@@ -91,7 +58,6 @@ public class CharacterController : Mover
     /// </summary>
     public void Reset()
     {
-        ResetInputs();
         _charCont.enabled = true;
     }
 }
