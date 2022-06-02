@@ -38,9 +38,9 @@ public class CharacterController : Mover
 
             transform.rotation *= Quaternion.Euler(0, Mathf.Lerp(_inputs.RotationDelta, _inputs.RotationDelta, _inputs.TimeStamp), 0);
 
-            Vector3 rotated = Quaternion.Euler(0, -Mathf.Lerp(_inputs.RotationDelta, _inputs.RotationDelta, _inputs.TimeStamp), 0) * Vector3.Lerp(_inputs.positionDelta, _inputs.positionDelta, _inputs.TimeStamp);
+            Vector3 rotated = transform.rotation * Vector3.Lerp(_inputs.positionDelta, _inputs.positionDelta, _inputs.TimeStamp);
 
-            _charCont.Move(-rotated * PlayerMovement.MoveSpeed);
+            _charCont.Move(rotated * PlayerMovement.MoveSpeed);
 
             /*Vector3 rotated = transform.rotation * _inputs.positionDelta;
 
