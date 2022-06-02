@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: PlayerMovementSO
   m_EditorClassIdentifier: 
   MoveSpeed: 0.03
-  Gravity: -15
+  Gravity: -50

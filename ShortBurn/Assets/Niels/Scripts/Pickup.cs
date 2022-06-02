@@ -14,6 +14,7 @@ public class Pickup : MonoBehaviour
     [Header("Pickup Info")]
     [SerializeField] private PlayerLook playerL;
     [SerializeField] private CinemachineVirtualCamera vCam;
+    [SerializeField] private LayerMask pickupLayer;
     private PullObject PullObjScript;
     private LineRenderer line;
 
@@ -24,10 +25,10 @@ public class Pickup : MonoBehaviour
     public bool IsThrowing = false;
 
     private GameObject heldObject;
-    public float currentMass;
+    private float currentMass = 1;
 
     private Vector3 turn;
-    private bool rotateEnabled = false;
+    public bool RotateEnabled = false;
 
     private void Start()
     {
@@ -38,7 +39,7 @@ public class Pickup : MonoBehaviour
     void Update()
     {
         // move picked object to hold position and keep moving it towards
-        if (heldObject != null && rotateEnabled == false)
+        if (heldObject != null && RotateEnabled == false)
         {
             line.positionCount = 0;
 
@@ -49,22 +50,28 @@ public class Pickup : MonoBehaviour
                 heldObject.GetComponent<Rigidbody>().AddForce(-transform.up * heldObject.GetComponent<Rigidbody>().mass * 35);
             }
 
-            if (Input.GetKeyDown(KeyCode.R))
+            if (heldObject.GetComponent<Rigidbody>().mass < 3)
             {
-                rotateEnabled = true;
-                heldObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
+                if (Input.GetKeyDown(KeyCode.R))
+                {
+                    RotateEnabled = true;
+                    heldObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
+                }
             }
         }
 
         // enable object rotation while holding it
-        if (rotateEnabled)
+        if (RotateEnabled)
         {
+            Vector3 moveDiretion = (middlePos.position - heldObject.transform.position);
+            heldObject.GetComponent<Rigidbody>().AddForce(moveDiretion * moveForce);
+
             playerL.MouseSensitivity = 0;
             vCam.GetCinemachineComponent<CinemachinePOV>().m_VerticalAxis.m_MaxSpeed = 0;
 
             RotateObject();
         }
-        else if (rotateEnabled == false && PullObjScript.HasObj == false)
+        else if (RotateEnabled == false && PullObjScript.HasObj == false)
         {
             playerL.MouseSensitivity = 100;
             vCam.GetCinemachineComponent<CinemachinePOV>().m_VerticalAxis.m_MaxSpeed = 150;
@@ -76,7 +83,7 @@ public class Pickup : MonoBehaviour
             if (heldObject == null)
             {
                 RaycastHit hit;
-                if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickupRange))
+                if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickupRange, pickupLayer))
                     PickupUpObject(hit.transform.gameObject);
             }
             else if (throwIt == false)
@@ -99,21 +106,27 @@ public class Pickup : MonoBehaviour
                     // if mouse is being hold, fov goes up and you throw harder the longer you hold it
                     if (Input.GetKey(KeyCode.Mouse0) && PullObjScript.HasObj == false)
                     {
-                        IsThrowing = true;
-                        vCam.m_Lens.FieldOfView += 5 * Time.deltaTime;
-                        timer -= 0.1f * Time.deltaTime;
-                        heldObject.GetComponent<Rigidbody>().mass = timer + currentMass;
-
-                        throwIt = true;
+                        if (_distanceBetweenObj > 1.4f)
+                        {
+                            DropObject();
+                            letGo = true;
+                            throwIt = false;
+                            vCam.m_Lens.FieldOfView = Mathf.MoveTowards(vCam.m_Lens.FieldOfView, 60, 10 * Time.maximumDeltaTime);
+                        }
+                        else
+                        {
+                            IsThrowing = true;
+                            vCam.m_Lens.FieldOfView += 5 * Time.deltaTime;
+                            timer -= 0.1f * Time.deltaTime;
+                            heldObject.GetComponent<Rigidbody>().mass = timer;
+                            throwIt = true;
+                        }
                     }
                 }
             }
 
             if (Input.GetKeyDown(KeyCode.E))
-            {
-                rotateEnabled = false;
-                MoveObject();
-            }
+                RotateEnabled = false;
         }
 
         // throw the object and throw fov back to default
@@ -130,10 +143,12 @@ public class Pickup : MonoBehaviour
         // let go off object and throw it with the force it has
         if (throwIt)
         {
-            if (Input.GetKeyUp(KeyCode.Mouse0))
+            if (letGo == false && Input.GetKeyUp(KeyCode.Mouse0))
             {
+                heldObject.GetComponent<Rigidbody>().mass += currentMass * 3;
+                line.positionCount = 0;
                 letGo = true;
-                rotateEnabled = false;
+                RotateEnabled = false;
                 timer = 1;
                 ThrowObject();
                 heldObject = null;
@@ -143,9 +158,9 @@ public class Pickup : MonoBehaviour
         }
 
         // if your on full force for throwing the frequency of the camera shake spikes up
-        if (timer <= 0.30f)
+        if (timer <= 0.3f)
         {
-            timer = 0.30f;
+            timer = 0.3f;
             vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = 10;
             vCam.m_Lens.FieldOfView = 86.6f;
         }
@@ -154,13 +169,10 @@ public class Pickup : MonoBehaviour
     private void RotateObject()
     {
         if (Input.GetKeyUp(KeyCode.R))
-            rotateEnabled = false;
+            RotateEnabled = false;
 
         if (Input.GetKeyDown(KeyCode.E))
-        {
-            rotateEnabled = false;
-            MoveObject();
-        }
+            RotateEnabled = false;
 
         // rotate object with mouse movement
         float xInput = Input.GetAxis("Mouse X");
@@ -174,18 +186,6 @@ public class Pickup : MonoBehaviour
         heldObject.transform.RotateAround(cameraTransform.up, xInput * Time.deltaTime * rotationSpeed);
         heldObject.transform.RotateAround(cameraTransform.right, -yInput * Time.deltaTime * rotationSpeed);
 #pragma warning restore CS0618 // Type or member is obsolete
-    }
-
-    /// <summary>
-    /// when press E on object it goes to the position it's suppose to be your pickup range
-    /// </summary>
-    private void MoveObject()
-    {
-        if (Vector3.Distance(heldObject.transform.position, middlePos.position) > 0.1f)
-        {
-            Vector3 moveDiretion = (middlePos.position - heldObject.transform.position);
-            heldObject.GetComponent<Rigidbody>().AddForce(moveDiretion * moveForce);
-        }
     }
 
     /// <summary>
@@ -228,6 +228,16 @@ public class Pickup : MonoBehaviour
         Rigidbody heldRig = heldObject.GetComponent<Rigidbody>();
         heldObject.GetComponent<Rigidbody>().useGravity = true;
         heldRig.drag = 1;
+
+        heldObject.transform.parent = null;
+        heldObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+        heldObject = null;
+    }
+
+    public void DropObj()
+    {
+        line.positionCount = 0;
+        heldObject.GetComponent<Rigidbody>().useGravity = true;
 
         heldObject.transform.parent = null;
         heldObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;

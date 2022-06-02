@@ -6,6 +6,8 @@ TagManager:
   tags:
   - CubeNormal
   - Clone
+  - PlayerGround
+  - BatteryHolder
   layers:
   - Default
   - TransparentFX
@@ -21,8 +23,8 @@ TagManager:
   - Grapple
   - Player
   - Clone
-  - 
-  - 
+  - CloneWalkOn
+  - Pickups
   - 
   - 
   - 

@@ -10,7 +10,7 @@ public class PullObject : MonoBehaviour
     [SerializeField] private Transform middlePos;
 
     [Header("Pull Object Info")]
-    [SerializeField] private RigiMovement playerMove;
+    //[SerializeField] private RigiMovement playerMove;
     [SerializeField] private PlayerLook playerL;
     [SerializeField] private CinemachineVirtualCamera vCam;
     [SerializeField] private Transform gunPoint;
@@ -38,7 +38,7 @@ public class PullObject : MonoBehaviour
             lr.SetPosition(1, grapplePoint.position = Vector3.MoveTowards(grapplePoint.position, heldObject.transform.position, 5 * Time.maximumDeltaTime));
             vCam.GetCinemachineComponent<CinemachinePOV>().m_VerticalAxis.m_MaxSpeed = 0;
             playerL.enabled = false;
-            playerMove.enabled = false;
+            //playerMove.enabled = false;
 
             // when line renderer reached picked object object is being pulled towards the player
             if (Vector3.Distance(grapplePoint.transform.position, heldObject.transform.position) <= 1.0f)
@@ -52,7 +52,7 @@ public class PullObject : MonoBehaviour
         {
             HasObj = false;
             playerL.enabled = true;
-            playerMove.enabled = true;
+            //playerMove.enabled = true;
         }
 
         if (Input.GetKeyDown(KeyCode.E))
