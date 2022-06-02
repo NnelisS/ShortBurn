@@ -4,14 +4,13 @@ public class PlayerLook : MonoBehaviour
 {
     [Header("Mouse Settings")]
     public float MouseSensitivity = 100;
+    public GameObject cam;
 
-    private Camera cam;
     private PlayerRecorder playerRecorder;
     private float xRotation = 0;
 
     private void Start()
     {
-        cam = Camera.main;
         playerRecorder = GetComponent<PlayerRecorder>();
         Cursor.lockState = CursorLockMode.Locked;
     }
