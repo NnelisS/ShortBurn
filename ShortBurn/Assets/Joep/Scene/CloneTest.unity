@@ -807,6 +807,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc7c0c4e3d040b949bcdc2e339355b82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2112657413 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 127480392134468146, guid: 938819def8053164f8bcf40e895ed62e, type: 3}
+  m_PrefabInstance: {fileID: 127480392013828326}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &127480392013828326
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -818,6 +823,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 127480392217268968, guid: 938819def8053164f8bcf40e895ed62e, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 2112657413}
     - target: {fileID: 127480392217268973, guid: 938819def8053164f8bcf40e895ed62e, type: 3}
       propertyPath: m_RootOrder
       value: 3

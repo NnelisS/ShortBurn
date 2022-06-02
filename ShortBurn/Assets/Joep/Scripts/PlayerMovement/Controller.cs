@@ -1,7 +1,12 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Controller : MonoBehaviour
 {
+    public UnityEvent OnRecord;
+
+    public UnityEvent OnClone;
+
     public ActorObject SelectedPlayer;
 
     [Header("Clone Info")]
@@ -25,10 +30,6 @@ public class Controller : MonoBehaviour
                 SelectedPlayer.gameObject.GetComponent<CloneSpawn>().MakeClone(clonePrefab, SelectedPlayer.gameObject);
 
                 clone = SelectedPlayer.gameObject.GetComponent<CloneSpawn>().SetClone();
-            }
-            else
-            {
-               SelectedPlayer.gameObject.GetComponent<CloneSpawn>().ResetClone();
             }
 
             startRecording();
