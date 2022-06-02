@@ -1,39 +1,34 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class InputRecorder : MonoBehaviour
 {
-    private Dictionary<float, PlayerInputStruct> playerInputRecord;
+    private List<PlayerInputStruct> playerInputRecord;
+    private float duration;
+
+    private float deltaTime = 0;
 
     void Start()
     {
-        //Intialize the queue that will be used to record inputs
-        playerInputRecord = new Dictionary<float, PlayerInputStruct>();
+        playerInputRecord = new List<PlayerInputStruct>();
     }
 
     /// <summary>
-    /// Adds the timeStamp and playerInputs into the dictionary
+    /// Sets the _time playerInputs as the duration if bigger and ads the _inputs to the list
     /// </summary>
-    public void AddToDictionary(float _time, PlayerInputStruct _inputs)
+    public void AddToList(float _time, PlayerInputStruct _inputs)
     {
-        playerInputRecord.Add(_time, _inputs);
+        playerInputRecord.Add(_inputs);
+        duration = Mathf.Max(duration, _time);
     }
 
     /// <summary>
-    /// Make a new dictionary and replace the old one
+    /// Make a new list and replace the old one
     /// </summary>
     public void ClearHistory()
     {
-        playerInputRecord = new Dictionary<float, PlayerInputStruct>();
-    }
-
-    /// <summary>
-    /// Check if key exists
-    /// </summary>
-    public bool KeyExists(float _key)
-    {
-        return playerInputRecord.ContainsKey(_key);
+        playerInputRecord = new List<PlayerInputStruct>();
+        duration = 0;
     }
 
     /// <summary>
@@ -41,6 +36,29 @@ public class InputRecorder : MonoBehaviour
     /// </summary>
     public PlayerInputStruct GetRecordedInputs(float _timeStamp)
     {
-        return playerInputRecord[_timeStamp];
+        for (int i = 0; i < playerInputRecord.Count; i++)
+        {
+            if (playerInputRecord[i].TimeStamp < _timeStamp)
+                continue;
+
+            deltaTime = Mathf.Abs(deltaTime - _timeStamp);
+            float _lerpTime = _timeStamp / deltaTime;
+
+            Debug.Log("Lerp Time: " + _lerpTime + " Delta: " + deltaTime);
+
+            deltaTime = _timeStamp;
+
+            return playerInputRecord[(int)_lerpTime];
+        }
+
+        return playerInputRecord[playerInputRecord.Count - 1];
+    }
+
+    /// <summary>
+    /// Returns true if the _timeStamp is bigger than the duration
+    /// </summary>
+    public bool IsCompleted(float _timeStamp)
+    {
+        return _timeStamp > duration;
     }
 }
