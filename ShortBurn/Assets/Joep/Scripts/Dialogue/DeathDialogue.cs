@@ -45,7 +45,7 @@ public class DeathDialogue : MonoBehaviour
         {
             currDialogue = DeathMessages.Dialogues[_messageCount].Remove(i);
             dialogueText.text = currDialogue;
-            yield return new WaitForSeconds(DeathMessages.Delay * 2);
+            yield return new WaitForSeconds(DeathMessages.Delay / 2);
         }
 
         yield return new WaitForSeconds(DeathMessages.Delay);
