@@ -1,19 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerLook : MonoBehaviour
 {
     [Header("Mouse Settings")]
     public float MouseSensitivity = 100;
+    public GameObject cam;
 
-    [Header("Mouse Info")]
-    public Transform PlayerBody;
-
+    private PlayerRecorder playerRecorder;
     private float xRotation = 0;
 
     private void Start()
     {
+        playerRecorder = GetComponent<PlayerRecorder>();
         Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -25,7 +23,9 @@ public class PlayerLook : MonoBehaviour
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
-        PlayerBody.Rotate(Vector3.up, mouseX);
+        playerRecorder.SetPreviousRotation(transform.eulerAngles.y);
+
+        cam.transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
+        transform.Rotate(Vector3.up, mouseX);
     }
 }
