@@ -4,25 +4,24 @@ using UnityEngine;
 
 public class Elevator : MonoBehaviour
 {
-    public GameObject Player;
-    public GameObject Capsule;
+    public GameObject player;
 
     public UnityEngine.CharacterController CharacterCont;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == Capsule)
+        if (other.gameObject == player)
         {
             CharacterCont.enabled = false;
-            Player.transform.SetParent(this.transform);
+            player.transform.SetParent(this.transform);
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject == Capsule)
+        if (other.gameObject == player)
         {
-            Player.transform.SetParent(null);
+            player.transform.SetParent(null);
         }
     }
 }
