@@ -14,6 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Delay: 0.1
   Dialogues:
-  - You suck -5 tried
-  - You suck -5 tried
-  - You suck -5 tried
+  - You died.
+  - Dont you die on me.

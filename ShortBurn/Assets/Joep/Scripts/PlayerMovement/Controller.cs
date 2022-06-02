@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Controller : MonoBehaviour
@@ -28,7 +30,7 @@ public class Controller : MonoBehaviour
             }
             else
             {
-               SelectedPlayer.gameObject.GetComponent<CloneSpawn>().ResetClone();
+               //SelectedPlayer.gameObject.GetComponent<CloneSpawn>().ResetClone();
             }
 
             startRecording();

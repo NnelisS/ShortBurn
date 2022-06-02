@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
@@ -9,7 +11,7 @@ public class Mover : MonoBehaviour
 
     protected bool _IsGrounded;
     
-    private void Awake()
+    private void Start()
     {
         PlayerMovement = (PlayerSO)AssetDatabase.LoadAssetAtPath("Assets/Joep/Scriptable Objects/PlayerMovementSO.asset", typeof(PlayerSO));
         if (PlayerMovement == null)
@@ -29,10 +31,5 @@ public class Mover : MonoBehaviour
     protected virtual void GroundChecker()
     {
 
-    }
-
-    protected virtual void Jump()
-    {
-      
     }
 }
