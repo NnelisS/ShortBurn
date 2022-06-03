@@ -19,6 +19,11 @@ public class CloneSpawn : MonoBehaviour
     {
         clone.GetComponent<MeshRenderer>().enabled = false;
         clone.GetComponent<CharacterController>().Player = _player;
+
+        for (int i = 0; i < clone.transform.childCount; i++)
+        {
+            clone.transform.GetChild(i).gameObject.SetActive(false);
+        }
     }
 
     public GameObject SetClone()
