@@ -4,15 +4,22 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.HighDefinition;
 
-public class Pause : MonoBehaviour
-{   
+public class TutorialCells : MonoBehaviour
+{    
     public Volume Volume;
     public bool Pausing = false;
+
 
     [SerializeField] private GameObject blur;
     [SerializeField] private GameObject pausePanel;
 
     private Bloom Bloom;
+    private BoxCollider boxCol;
+
+    private void Start()
+    {
+        boxCol = GetComponent<BoxCollider>();
+    }
 
     void Update()
     {
@@ -23,7 +30,15 @@ public class Pause : MonoBehaviour
             Bloom = tmp;
 
             if (Pausing)
+            {
                 Bloom.threshold.value = Mathf.MoveTowards(Bloom.threshold.value, Bloom.threshold.value = 0, 1 * Time.deltaTime);
+                if (Input.GetKeyDown(KeyCode.Escape))
+                {
+                    Time.timeScale = 1;
+                    pausePanel.SetActive(false);
+                    Pausing = false;
+                }
+            }
             else if (Pausing == false)
                 Bloom.threshold.value = Mathf.MoveTowards(Bloom.threshold.value, Bloom.threshold.value = 1, 1 * Time.deltaTime);
 
@@ -31,7 +46,7 @@ public class Pause : MonoBehaviour
                 Time.timeScale = Mathf.MoveTowards(Time.timeScale, 0.001f, 1 * Time.deltaTime);
             else if (Bloom.threshold.value == 1)
                 blur.SetActive(false);
-            else if(Bloom.threshold.value >= 0.5f)
+            else if (Bloom.threshold.value >= 0.5f)
                 Time.timeScale = Mathf.MoveTowards(Time.timeScale, 1, 1 * Time.deltaTime);
         }
 
@@ -49,6 +64,16 @@ public class Pause : MonoBehaviour
                 blur.SetActive(true);
                 pausePanel.SetActive(true);
             }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Pausing = true;
+            blur.SetActive(true);
+            pausePanel.SetActive(true);
         }
     }
 }
