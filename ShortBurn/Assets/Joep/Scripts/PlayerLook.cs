@@ -1,31 +1,46 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerLook : MonoBehaviour
 {
     [Header("Mouse Settings")]
     public float MouseSensitivity = 100;
+    public GameObject cam;
 
-    [Header("Mouse Info")]
-    public Transform PlayerBody;
-
+    private PlayerRecorder playerRecorder;
     private float xRotation = 0;
+
+    private bool movementOn = true;
 
     private void Start()
     {
+        playerRecorder = GetComponent<PlayerRecorder>();
         Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X") * MouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * MouseSensitivity * Time.deltaTime;
+        if (movementOn)
+        {
+            float mouseX = Input.GetAxis("Mouse X") * MouseSensitivity * Time.deltaTime;
+            float mouseY = Input.GetAxis("Mouse Y") * MouseSensitivity * Time.deltaTime;
 
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+            xRotation -= mouseY;
+            xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
-        PlayerBody.Rotate(Vector3.up, mouseX);
+            playerRecorder.SetPreviousRotation(transform.eulerAngles.y);
+
+            cam.transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
+            transform.Rotate(Vector3.up, mouseX);
+        }
+        else
+        {
+
+        }
+    }
+
+    public void ChangeMovement()
+    {
+        movementOn = !movementOn;
+        Debug.Log(movementOn);
     }
 }

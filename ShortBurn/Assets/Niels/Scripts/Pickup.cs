@@ -67,14 +67,8 @@ public class Pickup : MonoBehaviour
             heldObject.GetComponent<Rigidbody>().AddForce(moveDiretion * moveForce);
 
             playerL.MouseSensitivity = 0;
-            vCam.GetCinemachineComponent<CinemachinePOV>().m_VerticalAxis.m_MaxSpeed = 0;
 
             RotateObject();
-        }
-        else if (RotateEnabled == false && PullObjScript.HasObj == false)
-        {
-            playerL.MouseSensitivity = 100;
-            vCam.GetCinemachineComponent<CinemachinePOV>().m_VerticalAxis.m_MaxSpeed = 150;
         }
 
         // pickup object when pressing e
@@ -169,7 +163,10 @@ public class Pickup : MonoBehaviour
     private void RotateObject()
     {
         if (Input.GetKeyUp(KeyCode.R))
+        {
             RotateEnabled = false;
+            playerL.MouseSensitivity = 50;
+        }
 
         if (Input.GetKeyDown(KeyCode.E))
             RotateEnabled = false;
