@@ -55,6 +55,7 @@ public class Pickup : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.R))
                 {
                     RotateEnabled = true;
+                    playerL.ChangeMovement();
                     heldObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
                 }
             }
@@ -65,8 +66,6 @@ public class Pickup : MonoBehaviour
         {
             Vector3 moveDiretion = (middlePos.position - heldObject.transform.position);
             heldObject.GetComponent<Rigidbody>().AddForce(moveDiretion * moveForce);
-
-            playerL.MouseSensitivity = 0;
 
             RotateObject();
         }
@@ -81,7 +80,10 @@ public class Pickup : MonoBehaviour
                     PickupUpObject(hit.transform.gameObject);
             }
             else if (throwIt == false)
+            {
                 DropObject();
+                playerL.ChangeMovement();
+            }
         }
 
         if (heldObject != null)
@@ -139,6 +141,9 @@ public class Pickup : MonoBehaviour
         {
             if (letGo == false && Input.GetKeyUp(KeyCode.Mouse0))
             {
+                if (RotateEnabled)
+                    playerL.ChangeMovement();
+
                 heldObject.GetComponent<Rigidbody>().mass += currentMass * 3;
                 line.positionCount = 0;
                 letGo = true;
@@ -165,7 +170,7 @@ public class Pickup : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.R))
         {
             RotateEnabled = false;
-            playerL.MouseSensitivity = 50;
+            playerL.ChangeMovement();
         }
 
         if (Input.GetKeyDown(KeyCode.E))
@@ -229,6 +234,9 @@ public class Pickup : MonoBehaviour
         heldObject.transform.parent = null;
         heldObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
         heldObject = null;
+
+        if (RotateEnabled)
+            playerL.ChangeMovement();
     }
 
     public void DropObj()
