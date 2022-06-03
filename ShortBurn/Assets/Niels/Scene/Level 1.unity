@@ -45709,6 +45709,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f816ceb482d6e484392eed9a148e704d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerMovement: {fileID: 11400000, guid: 95255bc62eaba024387d601a05cc59de, type: 2}
   GroundCheck: {fileID: 3340701682175427446}
   GroundDistance: 0.5
   GroundMask:
@@ -45741,6 +45742,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c2a0ac800c919242ac3a0ae77418c78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerMovement: {fileID: 11400000, guid: 95255bc62eaba024387d601a05cc59de, type: 2}
   Jump: 0
   IsClone: 0
   Player: {fileID: 0}
