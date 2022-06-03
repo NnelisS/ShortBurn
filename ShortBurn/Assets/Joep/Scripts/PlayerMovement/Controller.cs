@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class Controller : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class Controller : MonoBehaviour
     public UnityEvent OnSave;
 
     public ActorObject SelectedPlayer;
+
+    public Slider RecordSlider;
 
     [Header("Clone Info")]
     [SerializeField] private int maxClones = 1;
@@ -30,8 +33,6 @@ public class Controller : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(PropTimer);
-
         if (isRecording)
         {
             Timer();
@@ -91,6 +92,9 @@ public class Controller : MonoBehaviour
     private void Timer()
     {
         PropTimer += Time.deltaTime;
+
+        if (RecordSlider != null)
+            RecordSlider.value = PropTimer;
     }
 
     private void SafeState()
