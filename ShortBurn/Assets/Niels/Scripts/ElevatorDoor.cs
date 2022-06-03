@@ -11,7 +11,7 @@ public class ElevatorDoor : MonoBehaviour
         for (int i = 0; i < Batteries.Length; i++)
         {
             if (Batteries[i].BatteryIn == true)
-                transform.position = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x, 1.5f, transform.position.z), 1 * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x, 2.5f, transform.position.z), 1 * Time.deltaTime);
             else if (Batteries[i].BatteryIn == false)
                 transform.position = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x, 0, transform.position.z), 1 * Time.deltaTime);
         }

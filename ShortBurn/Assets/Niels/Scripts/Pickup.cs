@@ -124,6 +124,8 @@ public class Pickup : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
                 RotateEnabled = false;
         }
+        else if (heldObject == null)
+            playerL.movementOn = true;
 
         // throw the object and throw fov back to default
         if (letGo)
@@ -247,5 +249,8 @@ public class Pickup : MonoBehaviour
         heldObject.transform.parent = null;
         heldObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
         heldObject = null;
+
+        if (RotateEnabled)
+            playerL.ChangeMovement();
     }
 }
