@@ -7,6 +7,8 @@ public class Controller : MonoBehaviour
 
     public UnityEvent OnClone;
 
+    public UnityEvent OnSave;
+
     public ActorObject SelectedPlayer;
 
     [Header("Clone Info")]
@@ -16,23 +18,46 @@ public class Controller : MonoBehaviour
 
     private GameObject clone = null;
 
-    //R Record 10 sec
-    //F Save
-    //C Clone
+    private bool isRecording = false;
+    public float PropTimer { get; private set; }
+
+    private Pickup pickup;
+
+    private void Start()
+    {
+        pickup = SelectedPlayer.gameObject.GetComponentInChildren<Pickup>();
+    }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        Debug.Log(PropTimer);
+
+        if (isRecording)
         {
-            if (currentClones < maxClones)
+            Timer();
+
+            if (PropTimer >= 5)
+                SafeState();
+        }
+
+        if (Input.GetKeyDown(KeyCode.R) && pickup.heldObject == null)
+        {
+            if (!isRecording)
             {
-                currentClones++;
-                SelectedPlayer.gameObject.GetComponent<CloneSpawn>().MakeClone(clonePrefab, SelectedPlayer.gameObject);
+                isRecording = true;
 
-                clone = SelectedPlayer.gameObject.GetComponent<CloneSpawn>().SetClone();
+                if (currentClones < maxClones)
+                {
+                    currentClones++;
+                    SelectedPlayer.gameObject.GetComponent<CloneSpawn>().MakeClone(clonePrefab, SelectedPlayer.gameObject);
+
+                    clone = SelectedPlayer.gameObject.GetComponent<CloneSpawn>().SetClone();
+                }
+
+                startRecording();
             }
-
-            startRecording();
+            else
+                SafeState();
         }
         if (Input.GetKeyDown(KeyCode.C))
         {
@@ -61,5 +86,17 @@ public class Controller : MonoBehaviour
     public void resetPlayer()
     {
         SelectedPlayer.Reset();
+    }
+
+    private void Timer()
+    {
+        PropTimer += Time.deltaTime;
+    }
+
+    private void SafeState()
+    {
+        resetPlayer();
+        PropTimer = 0;
+        isRecording = false;
     }
 }
