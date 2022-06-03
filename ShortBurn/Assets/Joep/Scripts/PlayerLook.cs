@@ -9,7 +9,7 @@ public class PlayerLook : MonoBehaviour
     private PlayerRecorder playerRecorder;
     private float xRotation = 0;
 
-    private bool movementOn = true;
+    public bool movementOn = true;
 
     private void Start()
     {
@@ -41,6 +41,5 @@ public class PlayerLook : MonoBehaviour
     public void ChangeMovement()
     {
         movementOn = !movementOn;
-        Debug.Log(movementOn);
     }
 }
