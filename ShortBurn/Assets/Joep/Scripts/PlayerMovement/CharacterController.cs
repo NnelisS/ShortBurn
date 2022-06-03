@@ -23,7 +23,14 @@ public class CharacterController : Mover
     public void Move(PlayerInputStruct _inputs)
     {
         if (IsClone && GetComponent<MeshRenderer>().enabled == false)
+        {
             GetComponent<MeshRenderer>().enabled = true;
+
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                transform.GetChild(i).gameObject.SetActive(true);
+            }
+        }
 
         if (_inputs.TriggerJump)
         {
