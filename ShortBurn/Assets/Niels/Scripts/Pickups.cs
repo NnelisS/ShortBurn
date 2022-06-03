@@ -8,10 +8,11 @@ public class Pickups : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private float groundDistance = 0.4f;
     [SerializeField] private LayerMask groundMask;
+    [SerializeField] private LayerMask ground;
 
     private Rigidbody rb;
 
-    private bool isGrounded;
+    public bool isGrounded;
 
     private void Start()
     {
@@ -26,14 +27,21 @@ public class Pickups : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("PlayerGround"))
+        if (other.gameObject.CompareTag("PlayerGround") && isGrounded)
             groundMask = LayerMask.NameToLayer("Default");
+        else if (!isGrounded)
+            transform.gameObject.tag = "Untagged";
     }
 
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("PlayerGround") && isGrounded)
+        {
             rb.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
+            transform.gameObject.tag = "CubeNormal";
+        }
+        else
+            transform.gameObject.tag = "Untagged";
     }
 
     private void OnTriggerExit(Collider other)
@@ -42,13 +50,14 @@ public class Pickups : MonoBehaviour
         {
             rb.constraints = RigidbodyConstraints.None;
             groundMask = LayerMask.NameToLayer("Pickups");
+            transform.gameObject.tag = "CubeNormal";
         }
     }
 
     #region GroundCheck
     private void GroundChecker()
     {
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, ground);
     }
     #endregion
 

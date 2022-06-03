@@ -8,7 +8,8 @@ public class Mover : MonoBehaviour
     protected UnityEngine.CharacterController _charCont;
 
     protected bool _IsGrounded;
-    
+    protected bool _IsGroundedOnCube;
+
     private void Awake()
     {
         PlayerMovement = (PlayerSO)AssetDatabase.LoadAssetAtPath("Assets/Joep/Scriptable Objects/PlayerMovementSO.asset", typeof(PlayerSO));
