@@ -4597,7 +4597,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GroundCheck: {fileID: 1806474193}
-  GroundDistance: 0.4
+  GroundDistance: 0.3
   GroundMask:
     serializedVersion: 2
     m_Bits: 1024
