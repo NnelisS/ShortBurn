@@ -13,5 +13,10 @@ public class SceneManager : MonoBehaviour
     public void GameScene()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("GameScene");
+    }    
+    
+    public void Quit()
+    {
+        Application.Quit();
     }
 }
