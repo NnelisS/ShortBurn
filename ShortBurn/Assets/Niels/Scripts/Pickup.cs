@@ -24,7 +24,7 @@ public class Pickup : MonoBehaviour
     private bool letGo = false;
     public bool IsThrowing = false;
 
-    private GameObject heldObject;
+    [HideInInspector] public GameObject heldObject;
     private float currentMass = 1;
 
     private Vector3 turn;

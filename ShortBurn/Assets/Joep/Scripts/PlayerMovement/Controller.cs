@@ -21,6 +21,13 @@ public class Controller : MonoBehaviour
     private bool isRecording = false;
     public float PropTimer { get; private set; }
 
+    private Pickup pickup;
+
+    private void Start()
+    {
+        pickup = SelectedPlayer.gameObject.GetComponentInChildren<Pickup>();
+    }
+
     private void Update()
     {
         Debug.Log(PropTimer);
@@ -33,7 +40,7 @@ public class Controller : MonoBehaviour
                 SafeState();
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R) && pickup.heldObject == null)
         {
             if (!isRecording)
             {
