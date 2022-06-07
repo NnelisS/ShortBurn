@@ -41,19 +41,17 @@ public class InputRecorder : MonoBehaviour
             if (playerInputRecord[i].TimeStamp < _timeStamp)
                 continue;
 
-            /*deltaTime = Mathf.Abs(deltaTime - _timeStamp);
+            deltaTime = Mathf.Abs(deltaTime - _timeStamp);
             float _lerpTime = _timeStamp / deltaTime;
 
             //Debug.Log("Lerp Time: " + _lerpTime + " Delta: " + deltaTime);
 
-            deltaTime = _timeStamp;*/
+            deltaTime = _timeStamp;
 
-            return playerInputRecord[i];
-            
-            /*if ((int)_lerpTime < playerInputRecord.Count - 1)
+            if ((int)_lerpTime < playerInputRecord.Count - 1)
                 return playerInputRecord[(int)_lerpTime];
             else
-                return playerInputRecord[playerInputRecord.Count - 1];*/
+                return playerInputRecord[playerInputRecord.Count - 1];
         }
 
         return playerInputRecord[playerInputRecord.Count - 1];
