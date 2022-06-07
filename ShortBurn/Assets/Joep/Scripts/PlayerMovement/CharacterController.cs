@@ -9,6 +9,8 @@ public class CharacterController : Mover
 
     public bool IsClone;
     public bool IsCrouched = false;
+    public bool CrouchUsable = true;
+    public bool InCrouch = false;
 
     [HideInInspector] public GameObject Player;
 
@@ -28,7 +30,8 @@ public class CharacterController : Mover
 
     private void Update()
     {
-        Crouch();
+        if (!IsClone)
+            Crouch();
     }
 
     /// <summary>
@@ -76,25 +79,31 @@ public class CharacterController : Mover
 
     private void Crouch()
     {
-        if (Input.GetKey(KeyCode.LeftControl))
+        if (CrouchUsable)
         {
-            IsCrouched = true;
-            if (pickupScript.IsThrowing == false)
-                vCam.m_Lens.FieldOfView = Mathf.MoveTowards(vCam.m_Lens.FieldOfView, 52, 4 * Time.maximumDeltaTime);
-
-            _charCont.height = Mathf.MoveTowards(_charCont.height, 0.4f, 4 * Time.deltaTime);
-            playerHeight.transform.localPosition = Vector3.MoveTowards(playerHeight.transform.localPosition, new Vector3(playerHeight.transform.localPosition.x, 0.5f, playerHeight.transform.localPosition.z), 14 * Time.deltaTime);
-            PlayerMovement.MoveSpeed = 0.01f;
-        }
-        else
-        {
-            IsCrouched = false;
-            _charCont.height = Mathf.Lerp(_charCont.height, 1.43f, 4 * Time.deltaTime);
-            playerHeight.transform.localPosition = Vector3.MoveTowards(playerHeight.transform.localPosition, new Vector3(playerHeight.transform.localPosition.x, 0.8f, playerHeight.transform.localPosition.z), 14 * Time.deltaTime);
-            if (pickupScript.IsThrowing == false)
+            if (Input.GetKey(KeyCode.LeftControl))
             {
-                vCam.m_Lens.FieldOfView = Mathf.MoveTowards(vCam.m_Lens.FieldOfView, 60, 4 * Time.maximumDeltaTime);
-                PlayerMovement.MoveSpeed = 0.03f;
+                IsCrouched = true;
+                if (pickupScript.IsThrowing == false)
+                    vCam.m_Lens.FieldOfView = Mathf.MoveTowards(vCam.m_Lens.FieldOfView, 52, 4 * Time.maximumDeltaTime);
+
+                _charCont.height = Mathf.MoveTowards(_charCont.height, 0.4f, 4 * Time.deltaTime);
+                playerHeight.transform.localPosition = Vector3.MoveTowards(playerHeight.transform.localPosition, new Vector3(playerHeight.transform.localPosition.x, 0.5f, playerHeight.transform.localPosition.z), 14 * Time.deltaTime);
+                PlayerMovement.MoveSpeed = 0.01f;
+            }
+            else
+            {
+                if (InCrouch == false)
+                {
+                    IsCrouched = false;
+                    _charCont.height = Mathf.Lerp(_charCont.height, 1.43f, 4 * Time.deltaTime);
+                    playerHeight.transform.localPosition = Vector3.MoveTowards(playerHeight.transform.localPosition, new Vector3(playerHeight.transform.localPosition.x, 0.8f, playerHeight.transform.localPosition.z), 14 * Time.deltaTime);
+                    if (pickupScript.IsThrowing == false)
+                    {
+                        vCam.m_Lens.FieldOfView = Mathf.MoveTowards(vCam.m_Lens.FieldOfView, 60, 4 * Time.maximumDeltaTime);
+                        PlayerMovement.MoveSpeed = 0.03f;
+                    }
+                }
             }
         }
     }
@@ -105,5 +114,28 @@ public class CharacterController : Mover
     public void Reset()
     {
         _charCont.enabled = true;
+    }
+
+    public void GoCrouch()
+    {
+        IsCrouched = true;
+        if (pickupScript.IsThrowing == false)
+            vCam.m_Lens.FieldOfView = Mathf.MoveTowards(vCam.m_Lens.FieldOfView, 52, 4 * Time.maximumDeltaTime);
+
+        _charCont.height = Mathf.MoveTowards(_charCont.height, 0.4f, 4 * Time.deltaTime);
+        playerHeight.transform.localPosition = Vector3.MoveTowards(playerHeight.transform.localPosition, new Vector3(playerHeight.transform.localPosition.x, 0.5f, playerHeight.transform.localPosition.z), 14 * Time.deltaTime);
+        PlayerMovement.MoveSpeed = 0.01f;
+    }
+
+    public void OutCrouch()
+    {
+        IsCrouched = false;
+        _charCont.height = Mathf.Lerp(_charCont.height, 1.43f, 4 * Time.deltaTime);
+        playerHeight.transform.localPosition = Vector3.MoveTowards(playerHeight.transform.localPosition, new Vector3(playerHeight.transform.localPosition.x, 0.8f, playerHeight.transform.localPosition.z), 14 * Time.deltaTime);
+        if (pickupScript.IsThrowing == false)
+        {
+            vCam.m_Lens.FieldOfView = Mathf.MoveTowards(vCam.m_Lens.FieldOfView, 60, 4 * Time.maximumDeltaTime);
+            PlayerMovement.MoveSpeed = 0.03f;
+        }
     }
 }
