@@ -16,14 +16,13 @@ public class Controller : MonoBehaviour
 
     [Header("Clone Info")]
     [SerializeField] private int maxClones = 1;
-    private int currentClones;
     [SerializeField] private GameObject clonePrefab;
 
-    private GameObject clone = null;
-
-    private bool isRecording = false;
     public float PropTimer { get; private set; }
 
+    private int currentClones;
+    private GameObject clone = null;
+    private bool isRecording = false;
     private Pickup pickup;
 
     private void Start()

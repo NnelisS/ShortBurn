@@ -12,11 +12,11 @@ public class DeathDialogue : MonoBehaviour
 
     public TextMeshProUGUI dialogueText;
 
-    /*private void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.T))
             PlayRandomDialogue();
-    }*/
+    }
 
     public void PlayRandomDialogue()
     {
@@ -67,10 +67,13 @@ public class DeathDialogue : MonoBehaviour
     {
         if (_removeCount == 0)
             _removeCount = DeathMessages.Dialogues[_messageCount].Length - 1;
+        Debug.Log(_removeCount);
 
-        for (int i = _removeCount; i > -1; i--)
+        string _oldDialogue = dialogueText.ToString();
+
+        for (int i = 0; i < _removeCount; i++)
         {
-            currDialogue = DeathMessages.Dialogues[_messageCount].Remove(i);
+            currDialogue = DeathMessages.Dialogues[_messageCount].Remove(Int32.Parse(_oldDialogue) - i);
             dialogueText.text = currDialogue;
             yield return new WaitForSeconds(DeathMessages.Delay / 2);
         }
