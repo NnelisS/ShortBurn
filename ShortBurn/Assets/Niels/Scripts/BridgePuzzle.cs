@@ -39,11 +39,19 @@ public class BridgePuzzle : MonoBehaviour
                 vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = 0.5f;
             }
         }
+        else
+            Bridge.transform.localPosition = Vector3.MoveTowards(Bridge.transform.localPosition, GoToBack.transform.localPosition, 1 * Time.deltaTime);
     }
 
     private void OnTriggerStay(Collider collision)
     {
         if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Clone"))
             activated = true;
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Clone"))
+            activated = false;
     }
 }
