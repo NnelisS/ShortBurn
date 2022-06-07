@@ -8,6 +8,8 @@ public class Gravity : Mover
     public LayerMask GroundMask;
     public LayerMask GroundMaskCube;
 
+    public bool DisableJump = false;
+
 
     /// <summary>
     /// Apply gravity if the player isnt grounded
@@ -29,7 +31,7 @@ public class Gravity : Mover
 
     public void TriggerJump()
     {
-        if (_IsGrounded || _IsGroundedOnCube)
+        if (_IsGrounded && DisableJump == false || _IsGroundedOnCube && DisableJump == false)
             Jump();
     }
 

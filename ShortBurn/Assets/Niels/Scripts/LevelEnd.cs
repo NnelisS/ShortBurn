@@ -41,4 +41,9 @@ public class LevelEnd : MonoBehaviour
             endPanel.SetActive(true);
         }
     }
+
+    public void ResetTime()
+    {
+        Time.timeScale = 1;
+    }
 }

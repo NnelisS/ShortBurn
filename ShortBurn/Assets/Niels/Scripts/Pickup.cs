@@ -133,9 +133,7 @@ public class Pickup : MonoBehaviour
             IsThrowing = false;
             vCam.m_Lens.FieldOfView = Mathf.MoveTowards(vCam.m_Lens.FieldOfView, 60, 10 * Time.maximumDeltaTime);
             if (vCam.m_Lens.FieldOfView == 60)
-            {
                 letGo = false;
-            }
         }
 
         // let go off object and throw it with the force it has

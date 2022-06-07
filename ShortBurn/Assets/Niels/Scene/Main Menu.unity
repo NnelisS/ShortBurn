@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 3.571515, g: 2.4161034, b: 2.0752602, a: 1}
+  m_IndirectSpecularColor: {r: 3.8694744, g: 2.8038158, b: 2.8976746, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -17291,6 +17291,10 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 1024
+  ground:
+    serializedVersion: 2
+    m_Bits: 0
+  isGrounded: 0
 --- !u!114 &652014333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18877,6 +18881,10 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 1024
+  ground:
+    serializedVersion: 2
+    m_Bits: 0
+  isGrounded: 0
 --- !u!114 &804169151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29054,11 +29062,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1267813678}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a52b6a7a8308364392e13395728e299, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Batteries: []
+  RB: []
 --- !u!43 &1267847137
 Mesh:
   m_ObjectHideFlags: 0
@@ -42635,6 +42645,10 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 1024
+  ground:
+    serializedVersion: 2
+    m_Bits: 0
+  isGrounded: 0
 --- !u!114 &2063552870
 MonoBehaviour:
   m_ObjectHideFlags: 0
