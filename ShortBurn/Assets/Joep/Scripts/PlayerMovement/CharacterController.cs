@@ -38,6 +38,9 @@ public class CharacterController : Mover
     /// </summary>
     public void Move(PlayerInputStruct _inputs)
     {
+        if (!IsClone)
+            PlayerAudio();
+
         if (IsClone && GetComponent<MeshRenderer>().enabled == false)
         {
             GetComponent<MeshRenderer>().enabled = true;
@@ -74,6 +77,14 @@ public class CharacterController : Mover
 
         //Character Movement
         _charCont.Move(transform.rotation * _inputs.positionDelta * PlayerMovement.MoveSpeed);
+    }
+
+    private void PlayerAudio()
+    {
+        if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+            AudioManager.instance.Play("Walk");
+        else
+            AudioManager.instance.Stop("Walk");
     }
 
     private void Crouch()
