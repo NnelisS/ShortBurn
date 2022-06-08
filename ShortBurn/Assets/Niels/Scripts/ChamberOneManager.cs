@@ -7,7 +7,7 @@ public class ChamberOneManager : MonoBehaviour
     public ChamberOnePressurePlate[] ChamberPressurePlates;
     public Rigidbody Battery;
 
-    private Animator clawOpen;
+    public Animator clawOpen;
 
     private void Update()
     {

@@ -15,7 +15,6 @@ public class CharacterController : Mover
     [HideInInspector] public GameObject Player;
 
     [SerializeField] private Transform playerHeight;
-    [SerializeField] private GameObject playerCapsule;
     private CinemachineVirtualCamera vCam;
 
     private Gravity gravity;
