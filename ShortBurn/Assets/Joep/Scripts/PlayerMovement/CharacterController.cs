@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class CharacterController : Mover
 {
@@ -7,14 +8,29 @@ public class CharacterController : Mover
     public bool Jump;
 
     public bool IsClone;
+    public bool IsCrouched = false;
+    public bool CrouchUsable = true;
+    public bool InCrouch = false;
 
     [HideInInspector] public GameObject Player;
 
+    [SerializeField] private Transform playerHeight;
+    private CinemachineVirtualCamera vCam;
+
     private Gravity gravity;
+    private Pickup pickupScript;
 
     private void Start()
     {
         gravity = GetComponent<Gravity>();
+        vCam = GetComponentInChildren<CinemachineVirtualCamera>();
+        pickupScript = GetComponentInChildren<Pickup>();
+    }
+
+    private void Update()
+    {
+        if (!IsClone)
+            Crouch();
     }
 
     /// <summary>
@@ -60,11 +76,65 @@ public class CharacterController : Mover
         _charCont.Move(transform.rotation * _inputs.positionDelta * PlayerMovement.MoveSpeed);
     }
 
+    private void Crouch()
+    {
+        if (CrouchUsable)
+        {
+            if (Input.GetKey(KeyCode.LeftControl))
+            {
+                IsCrouched = true;
+                if (pickupScript.IsThrowing == false)
+                    vCam.m_Lens.FieldOfView = Mathf.MoveTowards(vCam.m_Lens.FieldOfView, 52, 4 * Time.maximumDeltaTime);
+
+                _charCont.height = Mathf.MoveTowards(_charCont.height, 0.4f, 4 * Time.deltaTime);
+                playerHeight.transform.localPosition = Vector3.MoveTowards(playerHeight.transform.localPosition, new Vector3(playerHeight.transform.localPosition.x, 0.5f, playerHeight.transform.localPosition.z), 14 * Time.deltaTime);
+                PlayerMovement.MoveSpeed = 0.01f;
+            }
+            else
+            {
+                if (InCrouch == false)
+                {
+                    IsCrouched = false;
+                    _charCont.height = Mathf.Lerp(_charCont.height, 1.43f, 4 * Time.deltaTime);
+                    playerHeight.transform.localPosition = Vector3.MoveTowards(playerHeight.transform.localPosition, new Vector3(playerHeight.transform.localPosition.x, 0.8f, playerHeight.transform.localPosition.z), 14 * Time.deltaTime);
+                    if (pickupScript.IsThrowing == false)
+                    {
+                        vCam.m_Lens.FieldOfView = Mathf.MoveTowards(vCam.m_Lens.FieldOfView, 60, 4 * Time.maximumDeltaTime);
+                        PlayerMovement.MoveSpeed = 0.03f;
+                    }
+                }
+            }
+        }
+    }
+
     /// <summary>
     /// Reset input and enable charactercontroller
     /// </summary>
     public void Reset()
     {
         _charCont.enabled = true;
+    }
+
+    public void GoCrouch()
+    {
+        IsCrouched = true;
+        if (pickupScript.IsThrowing == false)
+            vCam.m_Lens.FieldOfView = Mathf.MoveTowards(vCam.m_Lens.FieldOfView, 52, 4 * Time.maximumDeltaTime);
+
+        _charCont.height = Mathf.MoveTowards(_charCont.height, 0.4f, 4 * Time.deltaTime);
+        playerHeight.transform.localPosition = Vector3.MoveTowards(playerHeight.transform.localPosition, new Vector3(playerHeight.transform.localPosition.x, 0.5f, playerHeight.transform.localPosition.z), 14 * Time.deltaTime);
+        PlayerMovement.MoveSpeed = 0.01f;
+    }
+
+    public void OutCrouch()
+    {
+        IsCrouched = false;
+        _charCont.height = Mathf.Lerp(_charCont.height, 1.43f, 4 * Time.deltaTime);
+        playerHeight.transform.localPosition = Vector3.MoveTowards(playerHeight.transform.localPosition, new Vector3(playerHeight.transform.localPosition.x, 0.8f, playerHeight.transform.localPosition.z), 14 * Time.deltaTime);
+        if (pickupScript.IsThrowing == false)
+        {
+            vCam.m_Lens.FieldOfView = Mathf.MoveTowards(vCam.m_Lens.FieldOfView, 60, 4 * Time.maximumDeltaTime);
+            PlayerMovement.MoveSpeed = 0.03f;
+        }
     }
 }

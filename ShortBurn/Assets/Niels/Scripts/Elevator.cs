@@ -10,8 +10,9 @@ public class Elevator : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == player)
+        if (other.gameObject.CompareTag("Player"))
         {
+            Debug.Log("In");
             CharacterCont.enabled = false;
             player.transform.SetParent(this.transform);
         }
@@ -19,9 +20,7 @@ public class Elevator : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject == player)
-        {
+        if (other.gameObject.CompareTag("Player"))
             player.transform.SetParent(null);
-        }
     }
 }

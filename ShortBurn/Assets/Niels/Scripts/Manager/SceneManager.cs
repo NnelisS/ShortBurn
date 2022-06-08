@@ -12,7 +12,7 @@ public class SceneManager : MonoBehaviour
 
     public void GameScene()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("GameScene");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Level 1");
     }    
     
     public void Quit()

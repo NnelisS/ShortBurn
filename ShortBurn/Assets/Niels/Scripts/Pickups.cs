@@ -7,11 +7,11 @@ public class Pickups : MonoBehaviour
     [Header("ground Info")]
     [SerializeField] private Transform groundCheck;
     [SerializeField] private float groundDistance = 0.4f;
-    [SerializeField] private LayerMask groundMask;
+    [SerializeField] private LayerMask ground;
 
     private Rigidbody rb;
 
-    private bool isGrounded;
+    public bool isGrounded;
 
     private void Start()
     {
@@ -24,16 +24,37 @@ public class Pickups : MonoBehaviour
         GroundChecker();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.gameObject.CompareTag("PlayerGround"))
-            groundMask = LayerMask.NameToLayer("Default");
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            if (isGrounded == false)
+                collision.gameObject.GetComponent<Gravity>().DisableJump = true;
+            else if (isGrounded)
+                collision.gameObject.GetComponent<Gravity>().DisableJump = false;
+        }
     }
 
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("PlayerGround") && isGrounded)
+        {
             rb.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
+            transform.gameObject.tag = "CubeNormal";
+        }
+        else
+            transform.gameObject.tag = "Untagged";
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            if (isGrounded == false)
+                collision.gameObject.GetComponent<Gravity>().DisableJump = true;
+            else if (isGrounded)
+                collision.gameObject.GetComponent<Gravity>().DisableJump = false;
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -41,14 +62,14 @@ public class Pickups : MonoBehaviour
         if (other.gameObject.CompareTag("PlayerGround"))
         {
             rb.constraints = RigidbodyConstraints.None;
-            groundMask = LayerMask.NameToLayer("Pickups");
+            transform.gameObject.tag = "CubeNormal";
         }
     }
 
     #region GroundCheck
     private void GroundChecker()
     {
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, ground);
     }
     #endregion
 
