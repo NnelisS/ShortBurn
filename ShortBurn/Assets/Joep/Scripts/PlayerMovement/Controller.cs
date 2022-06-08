@@ -69,20 +69,19 @@ public class Controller : MonoBehaviour
         {
             StartPlayback();
         }
-
-        if (Input.GetKeyDown(KeyCode.M))
-            DestroyClone();
     }
 
     public void startRecording()
     {
         ResetPlayer();
+        OnRecord?.Invoke();
         SelectedPlayer.Recording();
     }
 
     public void StartPlayback()
     {
         ResetPlayer();
+        OnClone?.Invoke();
         SelectedPlayer.Playback();
     }
 
@@ -107,6 +106,7 @@ public class Controller : MonoBehaviour
 
     private void SafeState()
     {
+        OnSave?.Invoke();
         ResetPlayer();
         PropTimer = 0;
         isRecording = false;

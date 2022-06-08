@@ -16,8 +16,8 @@ public class DeathDialogue : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T))
-            PlayRandomDialogue();
+        /*if (Input.GetKeyDown(KeyCode.T))
+            PlayRandomDialogue();*/
     }
 
     public void PlayRandomDialogue()
