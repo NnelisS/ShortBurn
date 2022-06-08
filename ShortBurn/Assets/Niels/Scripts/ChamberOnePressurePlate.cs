@@ -6,15 +6,15 @@ public class ChamberOnePressurePlate : MonoBehaviour
 {
     public bool On = false;
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Clone"))
+        if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Clone"))
             On = true;
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider other)
     {
-        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Clone"))
+        if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Clone"))
             On = false;
     }
 }
