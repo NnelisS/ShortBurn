@@ -21,11 +21,12 @@ public class Gravity : Mover
         _IsGrounded = Physics.CheckSphere(GroundCheck.position, GroundDistance, GroundMask);
         _IsGroundedOnCube = Physics.CheckSphere(GroundCheck.position, GroundDistance, GroundMaskCube);
 
- /*       if (_IsGrounded && velocity.y < 0 || _IsGroundedOnCube && velocity.y < 0)
-            velocity.y = -0.5f;*/
+        if (_IsGrounded && velocity.y < 0 || _IsGroundedOnCube && velocity.y < 0)
+            velocity.y = -0.5f;
 
         //Apply gravity
         velocity.y += PlayerMovement.Gravity * Time.deltaTime;
+
         _charCont.Move(velocity * Time.deltaTime);
     }
 
