@@ -1308,7 +1308,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2026861268}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 79d0663fbc8572d408ed8fa372e72d62, type: 3}
   m_Name: 
@@ -1647,6 +1647,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MouseSensitivity: 50
   cam: {fileID: 2026861268}
+  movementOn: 1
 --- !u!1001 &481531762532550022
 PrefabInstance:
   m_ObjectHideFlags: 0
