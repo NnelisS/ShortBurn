@@ -13,26 +13,20 @@ public class DialogueSO : ScriptableObject
 }
 
 [System.Serializable]
-public class Dialogue
+public class Dialogue : PropertyAttribute
 {
     [TextArea(2, 4)]
     public string Text;
 
-    public bool OvverideDefault = false;
+    public bool OverrideDefault = false;
 }
 
-[CustomEditor(typeof(Dialogue))]
-public class MyScriptEditor : Editor
+[CustomPropertyDrawer(typeof(Dialogue))]
+public class MyScriptEditor : PropertyDrawer
 {
-    override public void OnInspectorGUI()
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
     {
-        var _target = target as DialogueSO;
-
-        /*_target.someBool = GUILayout.Toggle(_target.someBool, "Some Bool");
-        
-        if (_target.someBool)
-        {
-            _target.someFloat = EditorGUILayout.FloatField("Soem Float:", _target.someFloat);
-        }*/
+        Dialogue dialogue = (Dialogue)attribute;
+        EditorGUI.PropertyField(position, property, label, true);
     }
 }
