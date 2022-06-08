@@ -21,7 +21,7 @@ public class Controller : MonoBehaviour
     public float PropTimer { get; private set; }
 
     private int currentClones;
-    private GameObject clone = null;
+    [HideInInspector] public GameObject clone = null;
     private bool isRecording = false;
     private Pickup pickup;
 
@@ -63,29 +63,38 @@ public class Controller : MonoBehaviour
         {
             SelectedPlayer.gameObject.GetComponent<CloneSpawn>().ResetClone();
 
-            startPlayback();
+            StartPlayback();
         }
         if (Input.GetKeyDown(KeyCode.P))
         {
-            startPlayback();
+            StartPlayback();
         }
+
+        if (Input.GetKeyDown(KeyCode.M))
+            DestroyClone();
     }
 
     public void startRecording()
     {
-        resetPlayer();
+        ResetPlayer();
         SelectedPlayer.Recording();
     }
 
-    public void startPlayback()
+    public void StartPlayback()
     {
-        resetPlayer();
+        ResetPlayer();
         SelectedPlayer.Playback();
     }
 
-    public void resetPlayer()
+    public void ResetPlayer()
     {
         SelectedPlayer.Reset();
+    }
+
+    public void DestroyClone()
+    {
+        ResetPlayer();
+        clone.SetActive(false);
     }
 
     private void Timer()
@@ -98,7 +107,7 @@ public class Controller : MonoBehaviour
 
     private void SafeState()
     {
-        resetPlayer();
+        ResetPlayer();
         PropTimer = 0;
         isRecording = false;
     }
