@@ -2286,8 +2286,16 @@ MonoBehaviour:
   sounds:
   - name: Walk
     clip: {fileID: 8300000, guid: 6a73debcef220fb4d96438281f14f3e5, type: 3}
-    parent: {fileID: 0}
-    volume: 0.5
+    parent: {fileID: 1099794826}
+    volume: 0.3
+    pitch: 1
+    spacialBlend: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Record
+    clip: {fileID: 8300000, guid: 6a73debcef220fb4d96438281f14f3e5, type: 3}
+    parent: {fileID: 1099794826}
+    volume: 0.3
     pitch: 1
     spacialBlend: 0
     loop: 0
