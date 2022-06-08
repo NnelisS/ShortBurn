@@ -4,9 +4,6 @@ using Cinemachine;
 
 public class CharacterController : Mover
 {
-    //Character Stats
-    public bool Jump;
-
     public bool IsClone;
     public bool IsCrouched = false;
     public bool CrouchUsable = true;
@@ -60,17 +57,11 @@ public class CharacterController : Mover
         //Character rotation
         if (IsClone)
         {
-            //transform.position = Vector3.Lerp(_inputs.positionDelta, _inputs.positionDelta, .1f);
-
             transform.rotation *= Quaternion.Euler(0, Mathf.Lerp(_inputs.RotationDelta, _inputs.RotationDelta, _inputs.TimeStamp), 0);
 
             Vector3 rotated = transform.rotation * Vector3.Lerp(_inputs.positionDelta, _inputs.positionDelta, _inputs.TimeStamp);
 
             _charCont.Move(rotated * PlayerMovement.MoveSpeed);
-
-            /*Vector3 rotated = transform.rotation * _inputs.positionDelta;
-
-            _charCont.Move(-rotated * PlayerMovement.MoveSpeed);*/
 
             return;
         }

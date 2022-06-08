@@ -15,7 +15,7 @@ public class CheckPointManager : MonoBehaviour
     [SerializeField] private Animator fade;
     [SerializeField] private Transform cam;
     [SerializeField] private Transform oldCam;
-    [SerializeField] private DeathDialogue dialogue;
+    [SerializeField] private DialogueSystem dialogue;
 
     private bool kill = false;
 
