@@ -9,6 +9,7 @@ TagManager:
   - PlayerGround
   - BatteryHolder
   - Wall
+  - Water
   layers:
   - Default
   - TransparentFX
