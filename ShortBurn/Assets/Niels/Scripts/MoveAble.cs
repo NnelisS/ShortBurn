@@ -24,11 +24,13 @@ public class MoveAble : MonoBehaviour
             Debug.Log("Update");
         }
         else
-            transform.position = Vector3.MoveTowards(transform.position, NormalPos.position, 1 * Time.deltaTime);
+            if (PressurePlates[2].Move == false)
+                transform.position = Vector3.MoveTowards(transform.position, NormalPos.position, 1 * Time.deltaTime);
 
-        if (PressurePlates[2].Move)
+        if (PressurePlates[2].Move && PressurePlates[0].Move && PressurePlates[1].Move)
         {
             Block.transform.position = Vector3.MoveTowards(Block.transform.position, BlockPosBack.position, 1 * Time.deltaTime);
+            if (PressurePlates[0].Move && PressurePlates[1].Move == false && PressurePlates[2].Move || PressurePlates[0].Move == false && PressurePlates[1].Move && PressurePlates[2].Move)
             transform.position = Vector3.MoveTowards(transform.position, BackPos.position, 1 * Time.deltaTime);
         }
         else

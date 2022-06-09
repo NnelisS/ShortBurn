@@ -68,4 +68,40 @@ public class ReliableOnTriggerExit : MonoBehaviour
             }
         }
     }
+    private void OnDisable()
+    {
+        if (gameObject.activeInHierarchy == false)
+            CallCallbacks();
+    }
+    private void Update()
+    {
+        if (thisCollider == null)
+        {
+            // Will GetOnTriggerExit with null, but is better than no call at all
+            CallCallbacks();
+
+            Component.Destroy(this);
+        }
+        else if (thisCollider.enabled == false)
+        {
+            CallCallbacks();
+        }
+    }
+    void CallCallbacks()
+    {
+        ignoreNotifyTriggerExit = true;
+        foreach (var v in waitingForOnTriggerExit)
+        {
+            if (v.Key == null)
+            {
+                continue;
+            }
+
+            v.Value.Invoke(thisCollider);
+        }
+        ignoreNotifyTriggerExit = false;
+        waitingForOnTriggerExit.Clear();
+        enabled = false;
+    }
+
 }
