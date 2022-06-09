@@ -45,12 +45,16 @@ public class BridgePuzzle : MonoBehaviour
 
     private void OnTriggerStay(Collider collision)
     {
+        ReliableOnTriggerExit.NotifyTriggerEnter(collision, gameObject, OnTriggerExit);
+
         if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Clone"))
             activated = true;
     }
 
     private void OnTriggerExit(Collider other)
     {
+        ReliableOnTriggerExit.NotifyTriggerExit(other, gameObject);
+
         if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Clone"))
             activated = false;
     }
