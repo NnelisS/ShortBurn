@@ -16,5 +16,4 @@ MonoBehaviour:
   Delay: 0.1
   TimeTillRemove: 1
   Dialogues:
-  - Text: You are a NIG -4 nice person.
-    OverrideDefault: 0
+  - {fileID: 0}

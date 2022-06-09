@@ -1,3 +1,4 @@
+using System;
 using UnityEditor;
 using UnityEngine;
 
@@ -12,21 +13,26 @@ public class DialogueSO : ScriptableObject
     public Dialogue[] Dialogues;
 }
 
-[System.Serializable]
-public class Dialogue : PropertyAttribute
+[Serializable]
+public class Dialogue 
 {
     [TextArea(2, 4)]
     public string Text;
 
     public bool OverrideDefault = false;
+
+    public bool UsePortrait = false;
+
+    public Sprite portrait;
 }
 
-[CustomPropertyDrawer(typeof(Dialogue))]
-public class MyScriptEditor : PropertyDrawer
+[CustomEditor(typeof(Dialogue))]
+public class MyScriptEditor : Editor
 {
-    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+    public override void OnInspectorGUI()
     {
-        Dialogue dialogue = (Dialogue)attribute;
-        EditorGUI.PropertyField(position, property, label, true);
+        base.OnInspectorGUI();
+
+        Dialogue dialogue = (Dialogue)target;
     }
 }
