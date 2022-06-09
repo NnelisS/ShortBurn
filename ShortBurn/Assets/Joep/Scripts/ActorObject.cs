@@ -31,6 +31,7 @@ public class ActorObject : MonoBehaviour
     private InputRecorder inputRec;
 
     public State CurrentState;
+    public GameObject IsPlaying;
 
     private bool newPlayback = false;
     private float timer;
@@ -85,6 +86,8 @@ public class ActorObject : MonoBehaviour
     /// </summary>
     private void PlaybackState()
     {
+        IsPlaying.SetActive(true);
+
         MoveAgent();
 
         if (newPlayback == true)
@@ -97,6 +100,7 @@ public class ActorObject : MonoBehaviour
 
         if (inputRec.IsCompleted(playbackTimer))
         {
+            IsPlaying.SetActive(false);
             Reset();
             return;
         }

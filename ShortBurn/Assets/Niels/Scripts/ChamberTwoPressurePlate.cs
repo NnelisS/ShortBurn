@@ -8,25 +8,48 @@ public class ChamberTwoPressurePlate : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Clone"))
+        ReliableOnTriggerExit.NotifyTriggerEnter(other, gameObject, OnTriggerExit);
+
+        if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Clone") || other.gameObject.CompareTag("CubeNormal"))
+        {
             Move = true;
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Clone"))
+        ReliableOnTriggerExit.NotifyTriggerExit(other, gameObject);
+
+        if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Clone") || other.gameObject.CompareTag("CubeNormal"))
+        {
             Move = false;
+        }
     }
 
-/*    private void OnCollisionStay(Collision collision)
+    public void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Clone"))
+        if (collision.gameObject.CompareTag("CubeNormal"))
+        {
             Move = true;
+        }
     }
-
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Clone"))
-            Move = true;
-    }*/
+        if (collision.gameObject.CompareTag("CubeNormal"))
+        {
+            Move = false;
+        }
+    }
+
+    /*    private void OnCollisionStay(Collision collision)
+        {
+            if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Clone"))
+                Move = true;
+        }
+
+        private void OnCollisionExit(Collision collision)
+        {
+            if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Clone"))
+                Move = true;
+        }*/
 }
