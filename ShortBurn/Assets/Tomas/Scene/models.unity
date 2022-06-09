@@ -588,6 +588,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Screens
       objectReference: {fileID: 0}
+    - target: {fileID: 8947181576013225548, guid: ce615e319f437b94cbc1397b26829e5d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c371d8fe0b8deef4f84ed0c321d89848, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce615e319f437b94cbc1397b26829e5d, type: 3}
 --- !u!1 &1809861598
