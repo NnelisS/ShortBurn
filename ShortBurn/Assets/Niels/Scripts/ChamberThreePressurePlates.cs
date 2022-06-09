@@ -2,19 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChamberOnePressurePlate : MonoBehaviour
+public class ChamberThreePressurePlates : MonoBehaviour
 {
-    public bool On = false;
+    public bool Move = false;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Clone"))
-            On = true;
+            Move = true;
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Clone"))
-            On = false;
+            Move = false;
     }
 }

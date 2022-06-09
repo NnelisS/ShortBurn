@@ -11,13 +11,10 @@ public class ChamberOneManager : MonoBehaviour
 
     private void Update()
     {
-        for (int i = 0; i < ChamberPressurePlates.Length; i++)
+        if (ChamberPressurePlates[0].On == true && ChamberPressurePlates[1].On == true)
         {
-            if (ChamberPressurePlates[i].On == true)
-            {
-                clawOpen.Play("Claw1");
-                Battery.useGravity = true;
-            }
+            Battery.useGravity = true;
+            clawOpen.Play("Claw1");
         }
     }
 }

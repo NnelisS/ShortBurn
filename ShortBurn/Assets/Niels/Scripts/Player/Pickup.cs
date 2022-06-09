@@ -144,7 +144,7 @@ public class Pickup : MonoBehaviour
                 if (RotateEnabled)
                     playerL.ChangeMovement();
 
-                heldObject.GetComponent<Rigidbody>().mass += currentMass * 3;
+                heldObject.GetComponent<Rigidbody>().mass += currentMass * 1.5f;
                 line.positionCount = 0;
                 letGo = true;
                 RotateEnabled = false;
