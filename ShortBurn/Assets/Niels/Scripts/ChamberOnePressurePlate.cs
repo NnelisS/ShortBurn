@@ -8,12 +8,16 @@ public class ChamberOnePressurePlate : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        ReliableOnTriggerExit.NotifyTriggerEnter(other, gameObject, OnTriggerExit);
+
         if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Clone"))
             On = true;
     }
 
     private void OnTriggerExit(Collider other)
     {
+        ReliableOnTriggerExit.NotifyTriggerExit(other, gameObject);
+
         if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Clone"))
             On = false;
     }

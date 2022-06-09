@@ -43,14 +43,18 @@ public class BridgePuzzle : MonoBehaviour
             Bridge.transform.localPosition = Vector3.MoveTowards(Bridge.transform.localPosition, GoToBack.transform.localPosition, 1 * Time.deltaTime);
     }
 
-    private void OnTriggerStay(Collider collision)
+    private void OnTriggerStay(Collider other)
     {
-        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Clone"))
+        ReliableOnTriggerExit.NotifyTriggerEnter(other, gameObject, OnTriggerExit);
+
+        if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Clone"))
             activated = true;
     }
 
     private void OnTriggerExit(Collider other)
     {
+        ReliableOnTriggerExit.NotifyTriggerExit(other, gameObject);
+
         if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Clone"))
             activated = false;
     }
