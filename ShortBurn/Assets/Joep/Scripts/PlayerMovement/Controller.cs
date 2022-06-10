@@ -28,7 +28,8 @@ public class Controller : MonoBehaviour
 
     private void Start()
     {
-        RecordSlider.maxValue = MaxRecordTime;
+        if (RecordSlider != null)
+            RecordSlider.maxValue = MaxRecordTime;
         pickup = SelectedPlayer.gameObject.GetComponentInChildren<Pickup>();
     }
 
