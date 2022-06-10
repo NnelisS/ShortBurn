@@ -1340,13 +1340,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerMovement: {fileID: 11400000, guid: 95255bc62eaba024387d601a05cc59de, type: 2}
-  Jump: 0
   IsClone: 0
   IsCrouched: 0
   CrouchUsable: 1
   InCrouch: 0
   Player: {fileID: 0}
-  playerHeight: {fileID: 0}
+  playerHeight: {fileID: 1812405746}
 --- !u!114 &1099794823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1586,6 +1585,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DeathMessages
       objectReference: {fileID: 0}
+    - target: {fileID: 3688571883669237737, guid: fdf519044779a8b4f992d4fe8701aeca, type: 3}
+      propertyPath: Messages
+      value: 
+      objectReference: {fileID: 11400000, guid: 64b66b4e6756e8a4c8c41dcae49165a1, type: 2}
     - target: {fileID: 3688571883669237737, guid: fdf519044779a8b4f992d4fe8701aeca, type: 3}
       propertyPath: dialogueText
       value: 
@@ -2998,7 +3001,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerMovement: {fileID: 11400000, guid: 95255bc62eaba024387d601a05cc59de, type: 2}
-  Jump: 0
   IsClone: 0
   IsCrouched: 0
   CrouchUsable: 1
