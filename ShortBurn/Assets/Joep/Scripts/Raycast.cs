@@ -12,7 +12,6 @@ public class Raycast : MonoBehaviour
     private void OnMouseDown()
     {
         StartCoroutine(Teleport());
- 
     }
 
     private IEnumerator Teleport()
