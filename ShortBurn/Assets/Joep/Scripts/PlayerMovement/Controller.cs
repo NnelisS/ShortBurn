@@ -25,6 +25,7 @@ public class Controller : MonoBehaviour
     [HideInInspector] public GameObject clone = null;
     private bool isRecording = false, isCloning = false;
     private Pickup pickup;
+    private float oldTime;
 
     private void Start()
     {
@@ -55,6 +56,8 @@ public class Controller : MonoBehaviour
         {
             if (!isRecording)
             {
+                PropTimer = 0;
+                oldTime = 0;
                 isRecording = true;
 
                 if (currentClones < maxClones)
@@ -78,8 +81,11 @@ public class Controller : MonoBehaviour
             SafeState();
             StartPlayback();
         }
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.P) && !isCloning)
         {
+            if (oldTime != 0)
+                PropTimer = oldTime;
+
             isCloning = true;
             SafeState();
             StartPlayback();
@@ -127,5 +133,6 @@ public class Controller : MonoBehaviour
         OnSave?.Invoke();
         ResetPlayer();
         isRecording = false;
+        oldTime = PropTimer;
     }
 }
