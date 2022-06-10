@@ -41,7 +41,6 @@ public class CheckPointManager : MonoBehaviour
 
     private IEnumerator RespawnAtCheckPoint(Transform _OldPos)
     {
-        Debug.Log("Co ON");
         kill = true;
         playerL.ChangeMovement();
         cam.transform.localRotation = Quaternion.Euler(90, transform.localRotation.y, transform.localRotation.z);
