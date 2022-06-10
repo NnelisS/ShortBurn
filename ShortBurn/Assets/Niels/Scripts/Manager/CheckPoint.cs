@@ -12,6 +12,12 @@ public class CheckPoint : MonoBehaviour
         checkPointManager = FindObjectOfType<CheckPointManager>();
     }
 
+    private void Update()
+    {
+        if (checkPointManager.checkPoint != this.spawnPos)
+            GetComponent<BoxCollider>().enabled = true;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
