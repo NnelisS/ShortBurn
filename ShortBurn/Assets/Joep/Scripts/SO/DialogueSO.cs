@@ -26,7 +26,7 @@ public class Dialogue
     public Sprite portrait;
 }
 
-[CustomEditor(typeof(Dialogue))]
+/*[CustomEditor(typeof(Dialogue))]
 public class MyScriptEditor : Editor
 {
     public override void OnInspectorGUI()
@@ -35,4 +35,4 @@ public class MyScriptEditor : Editor
 
         Dialogue dialogue = (Dialogue)target;
     }
-}
+}*/

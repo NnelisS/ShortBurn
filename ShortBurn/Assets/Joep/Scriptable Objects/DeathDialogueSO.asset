@@ -16,4 +16,7 @@ MonoBehaviour:
   Delay: 0.1
   TimeTillRemove: 1
   Dialogues:
-  - {fileID: 0}
+  - Text: 
+    OverrideDefault: 0
+    UsePortrait: 0
+    portrait: {fileID: 0}

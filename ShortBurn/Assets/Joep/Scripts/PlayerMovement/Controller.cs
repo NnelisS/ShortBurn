@@ -19,6 +19,7 @@ public class Controller : MonoBehaviour
     [SerializeField] private GameObject clonePrefab;
 
     public float PropTimer { get; private set; }
+    public float MaxRecordTime;
 
     private int currentClones;
     [HideInInspector] public GameObject clone = null;
@@ -27,18 +28,23 @@ public class Controller : MonoBehaviour
 
     private void Start()
     {
+        RecordSlider.maxValue = MaxRecordTime;
         pickup = SelectedPlayer.gameObject.GetComponentInChildren<Pickup>();
     }
 
     private void Update()
     {
+        PropTimer = Mathf.Clamp(PropTimer, 0, MaxRecordTime);
+
         if (isRecording)
         {
-            Timer();
+            Timer(false);
 
-            if (PropTimer >= 5)
+            if (PropTimer >= MaxRecordTime)
                 SafeState();
         }
+        else
+            Timer(true);
 
         if (Input.GetKeyDown(KeyCode.R) && pickup.heldObject == null)
         {
@@ -96,9 +102,12 @@ public class Controller : MonoBehaviour
         clone.SetActive(false);
     }
 
-    private void Timer()
+    private void Timer(bool revert)
     {
-        PropTimer += Time.deltaTime;
+        if (!revert)
+            PropTimer += Time.deltaTime;
+        else
+            PropTimer -= Time.deltaTime;
 
         if (RecordSlider != null)
             RecordSlider.value = PropTimer;
