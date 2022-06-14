@@ -5,22 +5,26 @@ using UnityEngine;
 public class Elevator : MonoBehaviour
 {
     public GameObject player;
+    public Transform ElevatorPos;
 
     public UnityEngine.CharacterController CharacterCont;
 
-    private void OnTriggerEnter(Collider other)
+    public bool ElevatorUse = false;
+
+    private void Update()
     {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            Debug.Log("In");
-            CharacterCont.enabled = false;
-            player.transform.SetParent(this.transform);
-        }
+        if (ElevatorUse)
+            StartCoroutine(ElevatorChange());
     }
 
-    private void OnTriggerExit(Collider other)
+    private IEnumerator ElevatorChange()
     {
-        if (other.gameObject.CompareTag("Player"))
-            player.transform.SetParent(null);
+        CharacterCont.enabled = false;
+        player.transform.SetParent(this.transform);
+        yield return new WaitForSeconds(0.01f);
+        transform.position = ElevatorPos.position;
+        yield return new WaitForSeconds(0.01f);
+        player.transform.SetParent(null);
+        CharacterCont.enabled = true;
     }
 }
