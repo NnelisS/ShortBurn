@@ -8,6 +8,9 @@ public class Pause : MonoBehaviour
 {   
     public Volume Volume;
     public bool Pausing = false;
+    public Animator PanelAnim;
+
+    private bool usable = true;
 
     [SerializeField] private GameObject blur;
     [SerializeField] private GameObject pausePanel;
@@ -35,20 +38,32 @@ public class Pause : MonoBehaviour
                 Time.timeScale = Mathf.MoveTowards(Time.timeScale, 1, 1 * Time.deltaTime);
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && usable)
         {
             if (pausePanel.activeInHierarchy)
             {
+                StartCoroutine(PauseAnim());
                 Pausing = false;
                 Time.timeScale = 1;
                 pausePanel.SetActive(false);
             }
             else
             {
+                StartCoroutine(PauseAnim());
                 Pausing = true;
                 blur.SetActive(true);
                 pausePanel.SetActive(true);
             }
         }
+    }
+
+    private IEnumerator PauseAnim()
+    {
+        if (pausePanel.activeInHierarchy)
+            PanelAnim.Play("Pausing");
+        else
+            PanelAnim.Play("UnPausing");
+
+        yield return new WaitForSeconds(2);
     }
 }
