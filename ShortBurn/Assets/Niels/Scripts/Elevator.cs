@@ -8,7 +8,7 @@ public class Elevator : MonoBehaviour
     public GameObject player;
     public Transform ElevatorPos;
 
-    public UnityEngine.CharacterController CharacterCont;
+    private UnityEngine.CharacterController characterCont;
 
     private Animator elevatorAnim;
 
@@ -17,6 +17,7 @@ public class Elevator : MonoBehaviour
     private void Start()
     {
         vCam = FindObjectOfType<CinemachineVirtualCamera>();
+        characterCont = FindObjectOfType<UnityEngine.CharacterController>();
         elevatorAnim = GetComponentInChildren<Animator>();
     }
 
@@ -25,14 +26,14 @@ public class Elevator : MonoBehaviour
         elevatorAnim.Play("ElevatorClose");
         yield return new WaitForSeconds(2);
         vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = 10;
-        CharacterCont.enabled = false;
+        characterCont.enabled = false;
         player.transform.SetParent(this.transform);
         yield return new WaitForSeconds(0.01f);
         if (ElevatorPos != null)
             transform.position = ElevatorPos.position;
         yield return new WaitForSeconds(0.01f);
         player.transform.SetParent(null);
-        CharacterCont.enabled = true;
+        characterCont.enabled = true;
         yield return new WaitForSeconds(5);
         vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = 1;
         yield return new WaitForSeconds(1);
