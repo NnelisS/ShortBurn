@@ -64,6 +64,72 @@ public class Pause : MonoBehaviour
         else
             PanelAnim.Play("UnPausing");
 
+<<<<<<< HEAD
         yield return new WaitForSeconds(2);
+=======
+            if (restartOption)
+            {
+                CheckpointAnimBack.Play("CheckPointBack");
+                restartOption = false;
+            }
+
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            Pausing = false;
+            pausePanel.SetActive(false);
+        }
+        else
+        {
+            PanelAnim.Play("Pausing");
+
+            if (restartOption)
+                CheckpointAnimBack.Play("CheckPointBack");
+
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            blur.SetActive(true);
+            yield return new WaitForSeconds(1);
+            pausePanel.SetActive(true);
+        }
+
+        yield return new WaitForSeconds(2);
+    }
+
+    public void Resume()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        StartCoroutine(PauseAnim());
+        Pausing = false;
+        pausePanel.SetActive(false);
+    }
+
+    public void Restart()
+    {
+        if (restartOption)
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("GameScene");
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+        else
+            CheckpointAnimBack.Play("CheckPoint");
+
+        restartOption = true;
+    }
+
+    public void CheckPointRestart()
+    {
+
+        if (checkPointManager != null)
+            checkPointManager.Respawn();
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        StartCoroutine(PauseAnim());
+        Pausing = false;
+        pausePanel.SetActive(false);
+>>>>>>> parent of 6369d96 (Pause Update)
     }
 }
