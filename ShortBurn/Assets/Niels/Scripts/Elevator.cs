@@ -1,30 +1,42 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class Elevator : MonoBehaviour
 {
     public GameObject player;
     public Transform ElevatorPos;
 
-    public UnityEngine.CharacterController CharacterCont;
+    private UnityEngine.CharacterController characterCont;
 
-    public bool ElevatorUse = false;
+    private Animator elevatorAnim;
 
-    private void Update()
+    private CinemachineVirtualCamera vCam;
+
+    private void Start()
     {
-        if (ElevatorUse)
-            StartCoroutine(ElevatorChange());
+        vCam = FindObjectOfType<CinemachineVirtualCamera>();
+        characterCont = FindObjectOfType<UnityEngine.CharacterController>();
+        elevatorAnim = GetComponentInChildren<Animator>();
     }
 
-    private IEnumerator ElevatorChange()
+    public IEnumerator ElevatorChange()
     {
-        CharacterCont.enabled = false;
+        elevatorAnim.Play("ElevatorClose");
+        yield return new WaitForSeconds(2);
+        vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = 10;
+        characterCont.enabled = false;
         player.transform.SetParent(this.transform);
         yield return new WaitForSeconds(0.01f);
-        transform.position = ElevatorPos.position;
+        if (ElevatorPos != null)
+            transform.position = ElevatorPos.position;
         yield return new WaitForSeconds(0.01f);
         player.transform.SetParent(null);
-        CharacterCont.enabled = true;
+        characterCont.enabled = true;
+        yield return new WaitForSeconds(5);
+        vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = 1;
+        yield return new WaitForSeconds(1);
+        elevatorAnim.Play("ElevatorOpen");
     }
 }
