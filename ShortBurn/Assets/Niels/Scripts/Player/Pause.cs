@@ -9,6 +9,7 @@ public class Pause : MonoBehaviour
     public Volume Volume;
     public bool Pausing = false;
     public Animator PanelAnim;
+    public Animator CheckpointAnimBack;
 
     private bool usable = true;
 
@@ -16,6 +17,15 @@ public class Pause : MonoBehaviour
     [SerializeField] private GameObject pausePanel;
 
     private Bloom Bloom;
+
+    private bool restartOption = false;
+
+    private CheckPointManager checkPointManager;
+
+    private void Start()
+    {
+        checkPointManager = FindObjectOfType<CheckPointManager>();
+    }
 
     void Update()
     {
@@ -60,13 +70,9 @@ public class Pause : MonoBehaviour
     private IEnumerator PauseAnim()
     {
         if (pausePanel.activeInHierarchy)
-            PanelAnim.Play("Pausing");
-        else
+        {
             PanelAnim.Play("UnPausing");
 
-<<<<<<< HEAD
-        yield return new WaitForSeconds(2);
-=======
             if (restartOption)
             {
                 CheckpointAnimBack.Play("CheckPointBack");
@@ -91,8 +97,6 @@ public class Pause : MonoBehaviour
             yield return new WaitForSeconds(1);
             pausePanel.SetActive(true);
         }
-
-        yield return new WaitForSeconds(2);
     }
 
     public void Resume()
@@ -120,7 +124,6 @@ public class Pause : MonoBehaviour
 
     public void CheckPointRestart()
     {
-
         if (checkPointManager != null)
             checkPointManager.Respawn();
 
@@ -130,6 +133,5 @@ public class Pause : MonoBehaviour
         StartCoroutine(PauseAnim());
         Pausing = false;
         pausePanel.SetActive(false);
->>>>>>> parent of 6369d96 (Pause Update)
     }
 }
