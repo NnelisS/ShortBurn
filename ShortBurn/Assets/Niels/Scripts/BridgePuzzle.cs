@@ -5,15 +5,12 @@ using Cinemachine;
 
 public class BridgePuzzle : MonoBehaviour
 {
-    [SerializeField] private float speed;
-    [SerializeField] private bool isDoor = false;
-
     public Transform Bridge;
     public Transform GoTo;
     public Transform GoToBack;
     public bool ClonePuzzle = false;
 
-    [SerializeField] private float timer = 2;
+    private float timer = 2;
     private CinemachineVirtualCamera vCam;
 
     private bool activated = false;
@@ -32,11 +29,8 @@ public class BridgePuzzle : MonoBehaviour
                 vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = 2f;
                 vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = 25f;
             }
-            if (isDoor && Bridge.transform.localPosition != GoTo.transform.localPosition)
-                AudioManager.instance.Play("Big Door");
+            Bridge.transform.localPosition = Vector3.MoveTowards(Bridge.transform.localPosition, GoTo.transform.localPosition, 1 * Time.deltaTime);
             
-            Bridge.transform.localPosition = Vector3.MoveTowards(Bridge.transform.localPosition, GoTo.transform.localPosition, speed * Time.deltaTime);
-
             timer -= Time.deltaTime;
             if (timer <= 0 && ClonePuzzle == true)
             {
@@ -46,13 +40,7 @@ public class BridgePuzzle : MonoBehaviour
             }
         }
         else
-            Bridge.transform.localPosition = Vector3.MoveTowards(Bridge.transform.localPosition, GoToBack.transform.localPosition, speed * Time.deltaTime);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Clone"))
-            AudioManager.instance.Play("Pressure plate");
+            Bridge.transform.localPosition = Vector3.MoveTowards(Bridge.transform.localPosition, GoToBack.transform.localPosition, 1 * Time.deltaTime);
     }
 
     private void OnTriggerStay(Collider other)

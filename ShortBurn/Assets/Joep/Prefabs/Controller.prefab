@@ -45,52 +45,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnRecord:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-        m_MethodName: Play
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: StartRecording
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnClone:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-        m_MethodName: Play
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Clone
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnSave:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-        m_MethodName: Play
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: StopRecording
-          m_BoolArgument: 0
-        m_CallState: 2
-  SelectedPlayer: {fileID: 0}
+      m_Calls: []
+  SelectedPlayer: {fileID: 5950536606275422371, guid: 8bb3fb81b77006646b76ec0a190f7a83, type: 3}
   RecordSlider: {fileID: 0}
   maxClones: 1
-  clonePrefab: {fileID: 8539348607308350251, guid: e74dbb5edba2ac146883b3fcb98cc8bf, type: 3}
+  clonePrefab: {fileID: 0}
   MaxRecordTime: 5
   clone: {fileID: 0}
