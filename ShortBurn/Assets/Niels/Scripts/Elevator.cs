@@ -32,6 +32,7 @@ public class Elevator : MonoBehaviour
         if (ElevatorPos != null)
         {
             transform.position = ElevatorPos.position;
+
             transform.rotation = ElevatorPos.rotation;
         }
         yield return new WaitForSeconds(0.01f);

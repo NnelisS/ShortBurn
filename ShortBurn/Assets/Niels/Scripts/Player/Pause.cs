@@ -100,8 +100,6 @@ public class Pause : MonoBehaviour
             yield return new WaitForSeconds(1);
             pausePanel.SetActive(true);
         }
-
-        yield return new WaitForSeconds(2);
     }
 
     public void Resume()
