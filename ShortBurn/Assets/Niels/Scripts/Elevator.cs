@@ -30,7 +30,10 @@ public class Elevator : MonoBehaviour
         player.transform.SetParent(this.transform);
         yield return new WaitForSeconds(0.01f);
         if (ElevatorPos != null)
+        {
             transform.position = ElevatorPos.position;
+            transform.rotation = ElevatorPos.rotation;
+        }
         yield return new WaitForSeconds(0.01f);
         player.transform.SetParent(null);
         characterCont.enabled = true;
