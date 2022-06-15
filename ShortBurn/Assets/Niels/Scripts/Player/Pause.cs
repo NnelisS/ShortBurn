@@ -97,6 +97,7 @@ public class Pause : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             blur.SetActive(true);
+            yield return new WaitForSeconds(1);
             pausePanel.SetActive(true);
         }
 
