@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_trim 1
+  m_Name: M_trim Cel 2 n
   m_Shader: {fileID: -6465566751694194690, guid: f412ce24d50474143bc0991ba282f774, type: 3}
   m_ShaderKeywords: _DISABLE_SSR_TRANSPARENT
   m_LightmapFlags: 4
@@ -26,19 +26,19 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Texture2D_47dc825f3e044f4980d617759e7533ab:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 1ca33a8e01d253d439fb10d3f26dcdb6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_632ccb18872d45c0925f86f0725fcbce:
-        m_Texture: {fileID: 2800000, guid: cd59f1e82478ac548a64f126a201344e, type: 3}
+        m_Texture: {fileID: 2800000, guid: ca69218e7cb168746a840dea9f145372, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_847f606454514837b2f6f1b877c3aecb:
-        m_Texture: {fileID: 2800000, guid: ab39c64e3b74e5d428a4a0c3692b530c, type: 3}
+        m_Texture: {fileID: 2800000, guid: 589e51978999bb54f880a236b200d6fc, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_fa319aa87e8943bb8ae574243b4b2134:
-        m_Texture: {fileID: 2800000, guid: 0ce52faec7311424ab8a0d6aac60fa10, type: 3}
+        m_Texture: {fileID: 2800000, guid: fdf52490c8f85be418f58096aa293a06, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -104,10 +104,10 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
-    - Color_c2f4cb5ee8454161b1252bc4d6ab7033: {r: 0, g: 0, b: 0, a: 0}
-    - Color_c2f4cb5ee8454161b1252bc4d6ab7033_1: {r: 0, g: 0, b: 0, a: 0}
-    - Color_c2f4cb5ee8454161b1252bc4d6ab7033_2: {r: 0.8867924, g: 0.8867924, b: 0.8867924, a: 0}
-    - Vector2_a322189f044d41338ff995a0a893967b: {r: 0, g: 1, b: 0, a: 0}
+    - Color_c2f4cb5ee8454161b1252bc4d6ab7033: {r: 0.054957278, g: 0.11157776, b: 0.122641504, a: 0.6156863}
+    - Color_c2f4cb5ee8454161b1252bc4d6ab7033_1: {r: 0.764151, g: 0.764151, b: 0.764151, a: 0.7647059}
+    - Color_c2f4cb5ee8454161b1252bc4d6ab7033_2: {r: 0, g: 0.55093956, b: 1, a: 0.7529412}
+    - Vector2_a322189f044d41338ff995a0a893967b: {r: -0.43, g: 0.79, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
