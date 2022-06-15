@@ -92073,6 +92073,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 372692621}
     m_Modifications:
+    - target: {fileID: 3356741905531431564, guid: 349684e9f869dc74fbd8d7827a9bfb49, type: 3}
+      propertyPath: m_VideoClip
+      value: 
+      objectReference: {fileID: 32900000, guid: f50cd3184e787d741ab1bbea7c39f609, type: 3}
     - target: {fileID: 8452291662336459225, guid: 349684e9f869dc74fbd8d7827a9bfb49, type: 3}
       propertyPath: m_Name
       value: Screens
