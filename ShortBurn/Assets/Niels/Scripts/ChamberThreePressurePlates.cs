@@ -10,7 +10,7 @@ public class ChamberThreePressurePlates : MonoBehaviour
     {
         ReliableOnTriggerExit.NotifyTriggerEnter(other, gameObject, OnTriggerExit);
 
-        if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Clone"))
+        if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Clone") || other.gameObject.CompareTag("CubeNormal"))
             Move = true;
     }
 
@@ -18,7 +18,7 @@ public class ChamberThreePressurePlates : MonoBehaviour
     {
         ReliableOnTriggerExit.NotifyTriggerExit(other, gameObject);
 
-        if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Clone"))
+        if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Clone") || other.gameObject.CompareTag("CubeNormal"))
             Move = false;
     }
 }

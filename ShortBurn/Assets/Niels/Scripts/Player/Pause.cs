@@ -21,10 +21,16 @@ public class Pause : MonoBehaviour
     private bool restartOption = false;
 
     private CheckPointManager checkPointManager;
+    private CharacterController characCont;
+    private PlayerLook playerL;
+    private UnityEngine.CharacterController charcont;
 
     private void Start()
     {
+        charcont = FindObjectOfType<UnityEngine.CharacterController>();
         checkPointManager = FindObjectOfType<CheckPointManager>();
+        characCont = FindObjectOfType<CharacterController>();
+        playerL = FindObjectOfType<PlayerLook>();
     }
 
     void Update()
@@ -41,11 +47,19 @@ public class Pause : MonoBehaviour
                 Bloom.threshold.value = Mathf.MoveTowards(Bloom.threshold.value, Bloom.threshold.value = 1, 1 * Time.deltaTime);
 
             if (Bloom.threshold.value <= 0.2f)
-                Time.timeScale = Mathf.MoveTowards(Time.timeScale, 0.001f, 1 * Time.deltaTime);
+            {
+                characCont.enabled = false;
+                charcont.enabled = false;
+                playerL.enabled = false;
+            }
             else if (Bloom.threshold.value == 1)
                 blur.SetActive(false);
-            else if(Bloom.threshold.value >= 0.5f)
-                Time.timeScale = Mathf.MoveTowards(Time.timeScale, 1, 1 * Time.deltaTime);
+            else if (Bloom.threshold.value >= 0.5f)
+            {
+                charcont.enabled = true;
+                characCont.enabled = true;
+                playerL.enabled = true;
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Escape) && usable)
@@ -69,6 +83,8 @@ public class Pause : MonoBehaviour
 
     private IEnumerator PauseAnim()
     {
+        usable = false;
+
         if (pausePanel.activeInHierarchy)
         {
             PanelAnim.Play("UnPausing");
@@ -81,8 +97,7 @@ public class Pause : MonoBehaviour
 
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
-            Pausing = false;
-            pausePanel.SetActive(false);
+            Pausing = false; 
         }
         else
         {
@@ -97,6 +112,9 @@ public class Pause : MonoBehaviour
             yield return new WaitForSeconds(1);
             pausePanel.SetActive(true);
         }
+
+        yield return new WaitForSeconds(0.5f);
+        usable = true;
     }
 
     public void Resume()
@@ -112,6 +130,7 @@ public class Pause : MonoBehaviour
     {
         if (restartOption)
         {
+            CheckpointAnimBack.Play("New State");
             UnityEngine.SceneManagement.SceneManager.LoadScene("GameScene");
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;

@@ -25,13 +25,13 @@ public class PressurePlate : MonoBehaviour
     // check for player and block collision
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("CubeNormal") || collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("CubeNormal") || collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("CubeNormal"))
             onCol = false;
     }
 
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.CompareTag("CubeNormal") || collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("CubeNormal") || collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("CubeNormal"))
             onCol = true;
     }
 }

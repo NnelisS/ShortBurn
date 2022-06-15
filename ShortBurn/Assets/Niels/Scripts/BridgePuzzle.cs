@@ -47,7 +47,7 @@ public class BridgePuzzle : MonoBehaviour
     {
         ReliableOnTriggerExit.NotifyTriggerEnter(other, gameObject, OnTriggerExit);
 
-        if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Clone"))
+        if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Clone") || other.gameObject.CompareTag("CubeNormal"))
             activated = true;
     }
 
@@ -55,7 +55,7 @@ public class BridgePuzzle : MonoBehaviour
     {
         ReliableOnTriggerExit.NotifyTriggerExit(other, gameObject);
 
-        if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Clone"))
+        if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Clone") || other.gameObject.CompareTag("CubeNormal"))
             activated = false;
     }
 }
