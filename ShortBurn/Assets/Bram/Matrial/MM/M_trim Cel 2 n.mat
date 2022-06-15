@@ -106,7 +106,7 @@ Material:
     m_Colors:
     - Color_c2f4cb5ee8454161b1252bc4d6ab7033: {r: 0.054957278, g: 0.11157776, b: 0.122641504, a: 0.6156863}
     - Color_c2f4cb5ee8454161b1252bc4d6ab7033_1: {r: 0.764151, g: 0.764151, b: 0.764151, a: 0.7647059}
-    - Color_c2f4cb5ee8454161b1252bc4d6ab7033_2: {r: 0, g: 0.55093956, b: 1, a: 0.7529412}
+    - Color_c2f4cb5ee8454161b1252bc4d6ab7033_2: {r: 0, g: 1, b: 0.104029894, a: 0.7529412}
     - Vector2_a322189f044d41338ff995a0a893967b: {r: -0.43, g: 0.79, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
