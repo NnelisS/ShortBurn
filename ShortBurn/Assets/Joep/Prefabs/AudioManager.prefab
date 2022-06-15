@@ -1,0 +1,102 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6133889460400646525
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6133889460400646523}
+  - component: {fileID: 6133889460400646522}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6133889460400646523
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6133889460400646525}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6133889460400646522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6133889460400646525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e696b0fef2438fc4bbfd6573bf6ac8c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Walk
+    clip: {fileID: 8300000, guid: 6a73debcef220fb4d96438281f14f3e5, type: 3}
+    parent: {fileID: 0}
+    volume: 0.3
+    pitch: 1
+    spacialBlend: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Elevator
+    clip: {fileID: 8300000, guid: e7936b8631bf5124b9eceee006d6789a, type: 3}
+    parent: {fileID: 0}
+    volume: 0.3
+    pitch: 1
+    spacialBlend: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Pressure plate
+    clip: {fileID: 8300000, guid: 7c3324dc36269b84b827d697ed31f0d5, type: 3}
+    parent: {fileID: 0}
+    volume: 0.3
+    pitch: 1
+    spacialBlend: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Big Door
+    clip: {fileID: 8300000, guid: e92a8c577c3e80240ac3509bc0b2ee6c, type: 3}
+    parent: {fileID: 0}
+    volume: 0.5
+    pitch: 1
+    spacialBlend: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Clone
+    clip: {fileID: 8300000, guid: a58491e148b72944d86e065a64e2645c, type: 3}
+    parent: {fileID: 0}
+    volume: 0.2
+    pitch: 1
+    spacialBlend: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: StartRecording
+    clip: {fileID: 8300000, guid: d5a80ea15c385a9478d40fcdce459deb, type: 3}
+    parent: {fileID: 0}
+    volume: 0.5
+    pitch: 1
+    spacialBlend: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: StopRecording
+    clip: {fileID: 8300000, guid: 078e24fd95e0dd840af52c6603d552dc, type: 3}
+    parent: {fileID: 0}
+    volume: 0.5
+    pitch: 1
+    spacialBlend: 0
+    loop: 0
+    source: {fileID: 0}
