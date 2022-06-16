@@ -12,13 +12,15 @@ public class WalkingAnim : MonoBehaviour
     void Start()
     {
         up = new Vector3(transform.position.x, 0.1f, transform.position.z);
+        mid = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        up = new Vector3(transform.position.x, 0.1f, transform.position.z);
     }
 
     void Update()
     {
-        if (Input.GetKey)
+       /* if ()
         {
 
-        }    
+        } */   
     }
 }
