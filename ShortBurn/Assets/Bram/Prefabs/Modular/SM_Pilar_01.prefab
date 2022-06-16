@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 42979769487843147}
   - component: {fileID: 3978765662449750254}
   - component: {fileID: 1212485364271686692}
+  - component: {fileID: 438836731349132248}
   m_Layer: 0
   m_Name: SM_Pilar_01
   m_TagString: Untagged
@@ -81,3 +82,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &438836731349132248
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852131905320617457}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.7378466, y: 3.9999976, z: 0.6517105}
+  m_Center: {x: -0.00086684525, y: 1.9999986, z: -0.0004196763}
