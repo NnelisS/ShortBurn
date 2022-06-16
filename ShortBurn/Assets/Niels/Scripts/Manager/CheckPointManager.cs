@@ -43,7 +43,7 @@ public class CheckPointManager : MonoBehaviour
     private IEnumerator RespawnAtCheckPoint(Transform _OldPos)
     {
         kill = true;
-        playerL.ChangeMovement();
+        playerL.enabled = false;
         cam.transform.localRotation = Quaternion.Euler(0, transform.localRotation.y, transform.localRotation.z);
         dialogue.PlayRandomDialogue();
         characterCont.enabled = false;
@@ -52,10 +52,10 @@ public class CheckPointManager : MonoBehaviour
         yield return new WaitForSeconds(1);
         kill = false;
         cam.transform.localRotation = Quaternion.Euler(0, 0, 0);
-        playerL.ChangeMovement();
         player.transform.position = checkPoint.position;
         cam.position = _OldPos.position;
         yield return new WaitForSeconds(1);
+        playerL.enabled = true;
         characterCont.enabled = true;
         characterController.enabled = true;
     }

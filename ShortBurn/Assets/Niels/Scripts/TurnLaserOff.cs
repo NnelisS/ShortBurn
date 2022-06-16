@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class TurnLaserOff : MonoBehaviour
 {
+    public MeshRenderer Laser;
+    public BoxCollider BoxCol;
+
     private void OnTriggerEnter(Collider other)
     {
         ReliableOnTriggerExit.NotifyTriggerEnter(other, gameObject, OnTriggerExit);
 
         if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Clone") || other.gameObject.CompareTag("CubeNormal"))
         {
-            GetComponent<MeshRenderer>().enabled = false;
-            GetComponent<BoxCollider>().enabled = false;
+            Laser.enabled = false;
+            BoxCol.enabled = false;
         }        
     }
 
@@ -21,8 +24,8 @@ public class TurnLaserOff : MonoBehaviour
 
         if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Clone") || other.gameObject.CompareTag("CubeNormal"))
         {
-            GetComponent<MeshRenderer>().enabled = true;
-            GetComponent<BoxCollider>().enabled = true;
+            Laser.enabled = true;
+            BoxCol.enabled = true;
         }
     }
 }
