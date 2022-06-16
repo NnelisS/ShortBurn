@@ -35588,7 +35588,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh54846
+  m_Name: pb_Mesh252684
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -60957,7 +60957,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1170754365
 RectTransform:
   m_ObjectHideFlags: 0
@@ -99421,6 +99421,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Restart
       objectReference: {fileID: 0}
+    - target: {fileID: 3075728221661371568, guid: 896b925c19ae64e4b9c9e7b2341a00c3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.0101475185
+      objectReference: {fileID: 0}
+    - target: {fileID: 3075728221661371568, guid: 896b925c19ae64e4b9c9e7b2341a00c3, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.876721
+      objectReference: {fileID: 0}
+    - target: {fileID: 3075728221661371568, guid: 896b925c19ae64e4b9c9e7b2341a00c3, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 110
+      objectReference: {fileID: 0}
+    - target: {fileID: 3075728221661371568, guid: 896b925c19ae64e4b9c9e7b2341a00c3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -3.4000244
+      objectReference: {fileID: 0}
     - target: {fileID: 3075728221661371582, guid: 896b925c19ae64e4b9c9e7b2341a00c3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -100946,6 +100962,7 @@ GameObject:
   - component: {fileID: 3340701680501986130}
   - component: {fileID: 3340701680501986128}
   - component: {fileID: 3340701680501986132}
+  - component: {fileID: 3340701680501986133}
   m_Layer: 0
   m_Name: Virtual Cam
   m_TagString: Untagged
@@ -100965,6 +100982,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61ea343a81efba743a3992b4796c333d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &3340701680501986133
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3340701680501986131}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 27618f6fc56adbd469b8ea18be77c47c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &3340701681187102001
 Transform:
   m_ObjectHideFlags: 0
@@ -101720,7 +101756,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NoiseProfile: {fileID: 11400000, guid: 46965f9cbaf525742a6da4c2172a99cd, type: 2}
   m_PivotOffset: {x: 0, y: 0, z: 0}
-  m_AmplitudeGain: 0.7
+  m_AmplitudeGain: 0.3
   m_FrequencyGain: 1
   mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!4 &3340701682056442073

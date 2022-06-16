@@ -12,11 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f5a569eaa6091d478c30f32d6cdd47f, type: 3}
   m_Name: DeathDialogueSO
   m_EditorClassIdentifier: 
-  NormalColor: {r: 1, g: 1, b: 1, a: 1}
+  NormalColor: {r: 0, g: 0, b: 0, a: 1}
   Delay: 0.1
-  TimeTillRemove: 0.1
-  Dialogues:
-  - Text: you die
-    OverrideDefault: 0
-    UsePortrait: 0
-    portrait: {fileID: 0}
+  TimeTillRemove: 1
+  Text:
+  - You suck -5 tried.
+  - You died.
+  - Dont you die on me.

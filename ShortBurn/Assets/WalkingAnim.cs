@@ -4,23 +4,18 @@ using UnityEngine;
 
 public class WalkingAnim : MonoBehaviour
 {
-    private Vector3 up;
-    private Vector3 mid;
-    private Vector3 Down;
-
+    private Animator walkAnim;
 
     void Start()
     {
-        up = new Vector3(transform.position.x, 0.1f, transform.position.z);
-        mid = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-        up = new Vector3(transform.position.x, 0.1f, transform.position.z);
+        walkAnim = GetComponent<Animator>();
     }
 
     void Update()
     {
-       /* if ()
-        {
-
-        } */   
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+            walkAnim.SetBool("IsWalking", true);
+        else
+            walkAnim.SetBool("IsWalking", false);
     }
 }
