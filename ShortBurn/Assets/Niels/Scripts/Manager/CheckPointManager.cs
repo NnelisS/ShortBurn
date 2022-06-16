@@ -8,7 +8,7 @@ public class CheckPointManager : MonoBehaviour
     public Transform checkPoint;
 
     [SerializeField] private CharacterController characterCont;
-    [SerializeField] private UnityEngine.CharacterController characterController;
+    private UnityEngine.CharacterController characterController;
 
     [SerializeField] private PlayerLook playerL;
     [SerializeField] private GameObject player;
@@ -22,6 +22,7 @@ public class CheckPointManager : MonoBehaviour
     private void Start()
     {
         cam.transform.localRotation = Quaternion.Euler(90, transform.localRotation.y, transform.localRotation.z);
+        characterController = FindObjectOfType<UnityEngine.CharacterController>();
     }
     private void Update()
     {
@@ -42,8 +43,8 @@ public class CheckPointManager : MonoBehaviour
     private IEnumerator RespawnAtCheckPoint(Transform _OldPos)
     {
         kill = true;
-        playerL.ChangeMovement();
-        cam.transform.localRotation = Quaternion.Euler(90, transform.localRotation.y, transform.localRotation.z);
+        playerL.enabled = false;
+        cam.transform.localRotation = Quaternion.Euler(0, transform.localRotation.y, transform.localRotation.z);
         dialogue.PlayRandomDialogue();
         characterCont.enabled = false;
         characterController.enabled = false;
@@ -51,10 +52,10 @@ public class CheckPointManager : MonoBehaviour
         yield return new WaitForSeconds(1);
         kill = false;
         cam.transform.localRotation = Quaternion.Euler(0, 0, 0);
-        playerL.ChangeMovement();
         player.transform.position = checkPoint.position;
         cam.position = _OldPos.position;
         yield return new WaitForSeconds(1);
+        playerL.enabled = true;
         characterCont.enabled = true;
         characterController.enabled = true;
     }
