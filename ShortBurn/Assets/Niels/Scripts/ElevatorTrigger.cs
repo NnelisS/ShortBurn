@@ -7,12 +7,11 @@ public class ElevatorTrigger : MonoBehaviour
     private Elevator elevator;
 
     private BoxCollider trigger;
-    private BoxCollider boxCol;
+    public BoxCollider BoxCol;
 
     private void Start()
     {
         trigger = GetComponent<BoxCollider>();
-        boxCol = GetComponentInChildren<BoxCollider>();
         elevator = GetComponentInParent<Elevator>();
     }
 
@@ -20,6 +19,7 @@ public class ElevatorTrigger : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            BoxCol.enabled = true;
             StartCoroutine(ColliderChanges());
             StartCoroutine(elevator.ElevatorChange());
         }
@@ -28,8 +28,8 @@ public class ElevatorTrigger : MonoBehaviour
     private IEnumerator ColliderChanges()
     {
         trigger.enabled = false;
-        boxCol.enabled = true;
+        BoxCol.enabled = true;
         yield return new WaitForSeconds(2f);
-        boxCol.enabled = false;
+        BoxCol.enabled = false;
     }
 }
