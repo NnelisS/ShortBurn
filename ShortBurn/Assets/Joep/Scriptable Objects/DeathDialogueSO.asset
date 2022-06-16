@@ -15,8 +15,7 @@ MonoBehaviour:
   NormalColor: {r: 0, g: 0, b: 0, a: 1}
   Delay: 0.1
   TimeTillRemove: 1
-  Dialogues:
-  - Text: 
-    OverrideDefault: 0
-    UsePortrait: 0
-    portrait: {fileID: 0}
+  Text:
+  - You suck -5 tried.
+  - You died.
+  - Dont you die on me.

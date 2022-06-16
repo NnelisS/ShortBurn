@@ -10,29 +10,6 @@ public class DialogueSO : ScriptableObject
     public float Delay;
     public float TimeTillRemove;
 
-    public Dialogue[] Dialogues;
-}
-
-[Serializable]
-public class Dialogue 
-{
     [TextArea(2, 4)]
-    public string Text;
-
-    public bool OverrideDefault = false;
-
-    public bool UsePortrait = false;
-
-    public Sprite portrait;
+    public string[] Text;
 }
-
-/*[CustomEditor(typeof(Dialogue))]
-public class MyScriptEditor : Editor
-{
-    public override void OnInspectorGUI()
-    {
-        base.OnInspectorGUI();
-
-        Dialogue dialogue = (Dialogue)target;
-    }
-}*/

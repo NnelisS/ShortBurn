@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 4.488888, g: 2.9517689, b: 2.435913, a: 1}
+  m_IndirectSpecularColor: {r: 4.488202, g: 2.952011, b: 2.4370651, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -71239,6 +71239,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DeathMessages
       objectReference: {fileID: 0}
+    - target: {fileID: 3688571883669237737, guid: fdf519044779a8b4f992d4fe8701aeca, type: 3}
+      propertyPath: Messages
+      value: 
+      objectReference: {fileID: 11400000, guid: 64b66b4e6756e8a4c8c41dcae49165a1, type: 2}
     - target: {fileID: 3688571883669237737, guid: fdf519044779a8b4f992d4fe8701aeca, type: 3}
       propertyPath: dialogueText
       value: 
