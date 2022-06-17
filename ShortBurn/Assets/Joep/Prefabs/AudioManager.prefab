@@ -108,3 +108,11 @@ MonoBehaviour:
     spacialBlend: 0
     loop: 0
     source: {fileID: 0}
+  - name: ElevatorEnd
+    clip: {fileID: 8300000, guid: 9b133310eee999e4ab9d579744580fc1, type: 3}
+    parent: {fileID: 0}
+    volume: 0.3
+    pitch: 1
+    spacialBlend: 0
+    loop: 0
+    source: {fileID: 0}
