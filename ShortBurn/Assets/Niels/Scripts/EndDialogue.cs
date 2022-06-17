@@ -10,9 +10,4 @@ public class EndDialogue : MonoBehaviour
     {
         diaSys.PlayRandomDialogue();
     }
-
-    private void Update()
-    {
-        diaSys.PlayRandomDialogue();
-    }
 }
