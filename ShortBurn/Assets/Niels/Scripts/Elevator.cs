@@ -23,10 +23,10 @@ public class Elevator : MonoBehaviour
 
     public IEnumerator ElevatorChange()
     {
-        //Close Door
+        AudioManager.instance.Play("ElevatorOpen");
         elevatorAnim.Play("ElevatorClose");
         yield return new WaitForSeconds(2);
-        //Play Music
+        AudioManager.instance.Play("ElevatorMusic");
         vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = 6;
         characterCont.enabled = false;
         player.transform.SetParent(this.transform);
@@ -42,7 +42,7 @@ public class Elevator : MonoBehaviour
         yield return new WaitForSeconds(10);
         vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = 1;
         yield return new WaitForSeconds(1);
-        //OpenDoor
+        AudioManager.instance.Play("ElevatorEnd");
         elevatorAnim.Play("ElevatorOpen");
     }
 }
