@@ -33,6 +33,8 @@ public class EndTrigger : MonoBehaviour
             time -= Time.deltaTime;
             if (time <= 0)
             {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
                 UnityEngine.SceneManagement.SceneManager.LoadScene("Main Menu");
             }
 
