@@ -7,6 +7,7 @@ public class Beginning : MonoBehaviour
     public GameObject UI;
     public Pause Pauser;
     public Transform camRot;
+    public MeshRenderer capsule;
 
     private UnityEngine.CharacterController charCont;
     private CharacterController charController;
@@ -27,12 +28,14 @@ public class Beginning : MonoBehaviour
     {
         if (on == false)
         {
+            capsule.enabled = false;
             charCont.enabled = false;
             charController.enabled = false;
             playerL.enabled = false;
         }
         else
         {
+            capsule.enabled = true;
             camRot.rotation = Quaternion.Euler(0, 0, 0);
             charCont.enabled = true;
             charController.enabled = true;
