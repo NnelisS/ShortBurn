@@ -23,9 +23,11 @@ public class Elevator : MonoBehaviour
 
     public IEnumerator ElevatorChange()
     {
+        AudioManager.instance.Play("ElevatorOpen");
         elevatorAnim.Play("ElevatorClose");
         yield return new WaitForSeconds(2);
-        vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = 10;
+        AudioManager.instance.Play("ElevatorMusic");
+        vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = 6;
         characterCont.enabled = false;
         player.transform.SetParent(this.transform);
         yield return new WaitForSeconds(0.01f);
@@ -37,9 +39,10 @@ public class Elevator : MonoBehaviour
         yield return new WaitForSeconds(0.01f);
         player.transform.SetParent(null);
         characterCont.enabled = true;
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(10);
         vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = 1;
         yield return new WaitForSeconds(1);
+        AudioManager.instance.Play("ElevatorEnd");
         elevatorAnim.Play("ElevatorOpen");
     }
 }

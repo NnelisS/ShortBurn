@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 849547827390800434}
   - component: {fileID: 9070287023846057451}
   - component: {fileID: 6486545432057811233}
+  - component: {fileID: 83425434543400003}
   m_Layer: 0
   m_Name: desk
   m_TagString: Untagged
@@ -25,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 36560496486594696}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8.71, y: -0.397, z: 0}
   m_LocalScale: {x: 0.691466, y: 0.691466, z: 0.691466}
   m_Children: []
@@ -81,3 +82,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &83425434543400003
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 36560496486594696}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.6540563, y: 1.2915176, z: 1.0016216}
+  m_Center: {x: 0, y: 0.000000059604645, z: 0}

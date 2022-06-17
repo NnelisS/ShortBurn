@@ -26,7 +26,10 @@ public class PlateDown : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Clone") || other.gameObject.CompareTag("CubeNormal"))
+        {
+            AudioManager.instance.Play("PressurePlate");
             On = true;
+        }
     }
 
     private void OnTriggerExit(Collider other)

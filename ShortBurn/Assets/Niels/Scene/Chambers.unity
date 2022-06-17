@@ -210,7 +210,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &11189254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -594,7 +594,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -628,8 +628,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -657,7 +657,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -120.8233, y: 0, z: -130.30981, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1602,8 +1602,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 345133390}
-  m_LocalRotation: {x: -0.061732408, y: 0.97890294, z: 0.18196273, w: -0.069481775}
-  m_LocalPosition: {x: 27.458124, y: 19.038399, z: -7.5518637}
+  m_LocalRotation: {x: -0, y: 0.02469538, z: -0, w: -0.999695}
+  m_LocalPosition: {x: 27.640411, y: 19.038399, z: -11.962529}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1787545513}
@@ -2064,7 +2064,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.11280823, y: 0}
   m_SizeDelta: {x: 0.2256, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2133,7 +2133,7 @@ RectTransform:
   m_GameObject: {fileID: 395377474}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.13, y: 1.13, z: 1.13}
   m_Children: []
   m_Father: {fileID: 1556312131}
   m_RootOrder: 0
@@ -2156,7 +2156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -8546,7 +8546,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2359399943578566900, guid: be774e9341c06ff4a9d18c80342176a0, type: 3}
       propertyPath: m_Intensity
-      value: 0
+      value: 152.36366
       objectReference: {fileID: 0}
     - target: {fileID: 2407002483077614312, guid: be774e9341c06ff4a9d18c80342176a0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8562,7 +8562,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4664130895453980152, guid: be774e9341c06ff4a9d18c80342176a0, type: 3}
       propertyPath: m_Intensity
-      value: 0
+      value: 152.36366
       objectReference: {fileID: 0}
     - target: {fileID: 4983933691023674872, guid: be774e9341c06ff4a9d18c80342176a0, type: 3}
       propertyPath: m_Intensity
@@ -8630,7 +8630,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6015342161617398580, guid: be774e9341c06ff4a9d18c80342176a0, type: 3}
       propertyPath: m_Intensity
-      value: 0
+      value: 152.36366
       objectReference: {fileID: 0}
     - target: {fileID: 7200476645851655631, guid: be774e9341c06ff4a9d18c80342176a0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8650,7 +8650,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8131675229560701891, guid: be774e9341c06ff4a9d18c80342176a0, type: 3}
       propertyPath: m_Intensity
-      value: 0
+      value: 152.36366
       objectReference: {fileID: 0}
     - target: {fileID: 8251017932364929536, guid: be774e9341c06ff4a9d18c80342176a0, type: 3}
       propertyPath: m_Intensity
@@ -8658,7 +8658,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8646123598214261615, guid: be774e9341c06ff4a9d18c80342176a0, type: 3}
       propertyPath: m_Intensity
-      value: 0
+      value: 152.36366
       objectReference: {fileID: 0}
     - target: {fileID: 8704842435469443320, guid: be774e9341c06ff4a9d18c80342176a0, type: 3}
       propertyPath: m_LocalPosition.x
