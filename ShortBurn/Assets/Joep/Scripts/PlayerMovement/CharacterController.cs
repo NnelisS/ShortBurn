@@ -32,13 +32,16 @@ public class CharacterController : Mover
         if (!IsClone)
             PlayerAudio();
 
-        if (IsClone && GetComponent<MeshRenderer>().enabled == false)
+        if (IsClone)
         {
-            GetComponent<MeshRenderer>().enabled = true;
-
-            for (int i = 0; i < transform.childCount; i++)
+            if (GetComponent<MeshRenderer>().enabled == false)
             {
-                transform.GetChild(i).gameObject.SetActive(true);
+                GetComponent<MeshRenderer>().enabled = true;
+
+                for (int i = 0; i < transform.childCount; i++)
+                {
+                    transform.GetChild(i).gameObject.SetActive(true);
+                }
             }
         }
 
