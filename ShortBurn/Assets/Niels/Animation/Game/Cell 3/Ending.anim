@@ -3855,6 +3855,34 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
+  - time: 1
+    functionName: playSound
+    data: Walk
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 2.0666666
+    functionName: playSound
+    data: Walk
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 3
+    functionName: playSound
+    data: Walk
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 4
+    functionName: playSound
+    data: Walk
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 6.05
     functionName: playSound
     data: ElevatorOpen
@@ -3865,6 +3893,13 @@ AnimationClip:
   - time: 8.016666
     functionName: playSound
     data: ElevatorMusic
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 8.983334
+    functionName: playSound
+    data: ElevatorCrash
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
