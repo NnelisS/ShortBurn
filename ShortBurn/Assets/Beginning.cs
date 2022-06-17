@@ -14,6 +14,7 @@ public class Beginning : MonoBehaviour
     private PlayerLook playerL;
 
     public bool on = false;
+    private bool isFinnished = false;
 
     void Start()
     {
@@ -33,7 +34,7 @@ public class Beginning : MonoBehaviour
             charController.enabled = false;
             playerL.enabled = false;
         }
-        else
+        else if (!isFinnished)
         {
             capsule.enabled = true;
             camRot.rotation = Quaternion.Euler(0, 0, 0);
@@ -42,6 +43,7 @@ public class Beginning : MonoBehaviour
             playerL.enabled = true;
             UI.SetActive(true);
             Pauser.enabled = true;
+            isFinnished = true;
         }
     }
 }

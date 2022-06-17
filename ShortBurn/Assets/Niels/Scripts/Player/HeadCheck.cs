@@ -12,7 +12,7 @@ public class HeadCheck : MonoBehaviour
         crouch = FindObjectOfType<CharacterController>();
     }
 
-    private void OnTriggerStay(Collider other)
+/*    private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Wall"))
         {
@@ -28,5 +28,5 @@ public class HeadCheck : MonoBehaviour
             crouch.CrouchUsable = false;
             crouch.OutCrouch();
         }
-    }
+    }*/
 }
