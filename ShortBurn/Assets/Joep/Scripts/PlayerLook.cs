@@ -20,6 +20,7 @@ public class PlayerLook : MonoBehaviour
     {
         playerRecorder = GetComponent<PlayerRecorder>();
         Cursor.lockState = CursorLockMode.Locked;
+        xRotation = 0;
     }
 
     private void Update()
@@ -31,6 +32,7 @@ public class PlayerLook : MonoBehaviour
 
             xRotation -= mouseY;
             xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+
 
             playerRecorder.SetPreviousRotation(transform.eulerAngles.y);
 
