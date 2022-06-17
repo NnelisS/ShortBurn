@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerLook : MonoBehaviour
@@ -20,29 +22,35 @@ public class PlayerLook : MonoBehaviour
     {
         playerRecorder = GetComponent<PlayerRecorder>();
         Cursor.lockState = CursorLockMode.Locked;
-        xRotation = 0;
+        StartCoroutine(StarRotation());
     }
 
     private void Update()
     {
-        if (movementOn)
-        {
-            float mouseX = Input.GetAxis("Mouse X") * MouseSensitivity * Time.deltaTime;
-            float mouseY = Input.GetAxis("Mouse Y") * MouseSensitivity * Time.deltaTime;
+        if (!movementOn) return;
 
-            xRotation -= mouseY;
-            xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+        float mouseX = Input.GetAxis("Mouse X") * MouseSensitivity * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * MouseSensitivity * Time.deltaTime;
+
+        xRotation -= mouseY;
+        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
 
-            playerRecorder.SetPreviousRotation(transform.eulerAngles.y);
+        playerRecorder.SetPreviousRotation(transform.eulerAngles.y);
 
-            cam.transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
-            transform.Rotate(Vector3.up, mouseX);
-        }
-        else
-        {
+        cam.transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
+        transform.Rotate(Vector3.up, mouseX);
+    }
 
-        }
+    private IEnumerator StarRotation()
+    {
+        movementOn = false;
+        xRotation = 0;
+
+        cam.transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
+
+        yield return new WaitForSeconds(1f);
+        movementOn = true;
     }
 
     public void ChangeMovement()
