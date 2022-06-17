@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f5a569eaa6091d478c30f32d6cdd47f, type: 3}
   m_Name: Ending
   m_EditorClassIdentifier: 
-  NormalColor: {r: 1, g: 1, b: 1, a: 0}
-  Delay: 0.1
-  TimeTillRemove: 0.1
+  NormalColor: {r: 1, g: 1, b: 1, a: 1}
+  Delay: 0.05
+  TimeTillRemove: 2
   Text:
-  - To be nvirbaihesks
+  - To be Destroyed -9 Continued
