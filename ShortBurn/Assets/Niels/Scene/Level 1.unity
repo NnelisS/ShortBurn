@@ -19987,9 +19987,29 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8697038942998844613, guid: 7c7d44cb3f9fbe747b3a872def7e23bb, type: 3}
+      propertyPath: sounds.Array.size
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8697038942998844613, guid: 7c7d44cb3f9fbe747b3a872def7e23bb, type: 3}
+      propertyPath: sounds.Array.data[10].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 5df90fa4bac1b2547bc09e7b16a0b2f4, type: 3}
+    - target: {fileID: 8697038942998844613, guid: 7c7d44cb3f9fbe747b3a872def7e23bb, type: 3}
+      propertyPath: sounds.Array.data[10].loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8697038942998844613, guid: 7c7d44cb3f9fbe747b3a872def7e23bb, type: 3}
+      propertyPath: sounds.Array.data[10].name
+      value: Ambience
+      objectReference: {fileID: 0}
+    - target: {fileID: 8697038942998844613, guid: 7c7d44cb3f9fbe747b3a872def7e23bb, type: 3}
       propertyPath: sounds.Array.data[0].parent
       value: 
       objectReference: {fileID: 3340701681223403456}
+    - target: {fileID: 8697038942998844613, guid: 7c7d44cb3f9fbe747b3a872def7e23bb, type: 3}
+      propertyPath: sounds.Array.data[10].pitch
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8697038942998844613, guid: 7c7d44cb3f9fbe747b3a872def7e23bb, type: 3}
       propertyPath: sounds.Array.data[1].parent
       value: 
@@ -20026,6 +20046,10 @@ PrefabInstance:
       propertyPath: sounds.Array.data[8].parent
       value: 
       objectReference: {fileID: 3340701681223403456}
+    - target: {fileID: 8697038942998844613, guid: 7c7d44cb3f9fbe747b3a872def7e23bb, type: 3}
+      propertyPath: sounds.Array.data[10].volume
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8697038942998844614, guid: 7c7d44cb3f9fbe747b3a872def7e23bb, type: 3}
       propertyPath: m_Name
       value: AudioManager
@@ -68742,6 +68766,7 @@ MonoBehaviour:
   camRot: {fileID: 3340701680501986130}
   capsule: {fileID: 3340701681736698805}
   on: 0
+  isFinnished: 0
 --- !u!43 &1279070333
 Mesh:
   m_ObjectHideFlags: 0
@@ -83641,6 +83666,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1588099537}
   - component: {fileID: 1588099536}
+  - component: {fileID: 1588099538}
   m_Layer: 0
   m_Name: Cell 3 Anim
   m_TagString: Untagged
@@ -83685,6 +83711,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1588099538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588099535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2362746b423f8db4ba98d7c566f48de0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1589091801
 PrefabInstance:
   m_ObjectHideFlags: 0
