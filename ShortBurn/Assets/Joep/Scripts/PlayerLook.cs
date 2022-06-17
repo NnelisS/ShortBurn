@@ -11,6 +11,11 @@ public class PlayerLook : MonoBehaviour
 
     public bool movementOn = true;
 
+    private void Awake()
+    {
+        cam.transform.rotation = Quaternion.Euler(0, 0, 0);
+    }
+
     private void Start()
     {
         playerRecorder = GetComponent<PlayerRecorder>();
