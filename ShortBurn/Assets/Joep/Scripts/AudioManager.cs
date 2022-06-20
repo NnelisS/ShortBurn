@@ -27,16 +27,11 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        Play("Ambience");
-    }
-
     public void Play(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
 
-        if (!s.source.isPlaying && s != null)
+        if (s.dontCheckPlaying && s != null || !s.source.isPlaying && s != null)
             s.source.Play();
     }
 
@@ -68,6 +63,7 @@ public class Sound
     public float spacialBlend;
 
     public bool loop = false;
+    public bool dontCheckPlaying;
 
     [HideInInspector] public AudioSource source;
 }

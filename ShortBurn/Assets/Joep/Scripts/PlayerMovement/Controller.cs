@@ -71,7 +71,10 @@ public class Controller : MonoBehaviour
                 startRecording();
             }
             else
+            {
+                OnSave?.Invoke();
                 SafeState();
+            }
         }
         if (Input.GetKeyDown(KeyCode.C))
         {
@@ -130,7 +133,6 @@ public class Controller : MonoBehaviour
 
     private void SafeState()
     {
-        OnSave?.Invoke();
         ResetPlayer();
         isRecording = false;
         oldTime = PropTimer;
