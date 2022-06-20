@@ -27,11 +27,7 @@ public class Elevator : MonoBehaviour
         elevatorAnim.Play("ElevatorClose");
         yield return new WaitForSeconds(2);
         AudioManager.instance.Play("ElevatorMusic");
-<<<<<<< HEAD
-        vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = 6;
-=======
         vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = 8;
->>>>>>> main
         characterCont.enabled = false;
         player.transform.SetParent(this.transform);
         yield return new WaitForSeconds(0.01f);

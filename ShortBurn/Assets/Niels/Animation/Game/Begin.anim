@@ -495,11 +495,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-<<<<<<< HEAD
-        time: 12.983334
-=======
         time: 12.966666
->>>>>>> main
         value: 0
         inSlope: 0
         outSlope: 0
@@ -527,11 +523,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-<<<<<<< HEAD
-        time: 12.983334
-=======
         time: 12.933333
->>>>>>> main
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -539,8 +531,6 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0
         outWeight: 0
-<<<<<<< HEAD
-=======
       - serializedVersion: 3
         time: 35.916668
         value: 0
@@ -550,7 +540,6 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0
         outWeight: 0
->>>>>>> main
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -558,8 +547,6 @@ AnimationClip:
     path: Canvas/RawImage
     classID: 1
     script: {fileID: 0}
-<<<<<<< HEAD
-=======
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -681,7 +668,6 @@ AnimationClip:
     path: 
     classID: 114
     script: {fileID: 11500000, guid: c6379f7fc684e9e4987fd4f4a37adf63, type: 3}
->>>>>>> main
   m_PPtrCurves: []
   m_SampleRate: 60
   m_WrapMode: 0
@@ -725,8 +711,6 @@ AnimationClip:
       typeID: 1
       customType: 0
       isPPtrCurve: 0
-<<<<<<< HEAD
-=======
     - serializedVersion: 2
       path: 477304250
       attribute: 2086281974
@@ -755,18 +739,13 @@ AnimationClip:
       typeID: 114
       customType: 0
       isPPtrCurve: 0
->>>>>>> main
     pptrCurveMapping: []
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-<<<<<<< HEAD
-    m_StopTime: 12.983334
-=======
     m_StopTime: 39.883335
->>>>>>> main
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -1801,11 +1780,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-<<<<<<< HEAD
-        time: 12.983334
-=======
         time: 12.966666
->>>>>>> main
         value: 0
         inSlope: 0
         outSlope: 0
@@ -1833,11 +1808,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-<<<<<<< HEAD
-        time: 12.983334
-=======
         time: 12.933333
->>>>>>> main
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -1845,8 +1816,6 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0
         outWeight: 0
-<<<<<<< HEAD
-=======
       - serializedVersion: 3
         time: 35.916668
         value: 0
@@ -1856,7 +1825,6 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0
         outWeight: 0
->>>>>>> main
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -1864,8 +1832,6 @@ AnimationClip:
     path: Canvas/RawImage
     classID: 1
     script: {fileID: 0}
-<<<<<<< HEAD
-=======
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1987,7 +1953,6 @@ AnimationClip:
     path: 
     classID: 114
     script: {fileID: 11500000, guid: c6379f7fc684e9e4987fd4f4a37adf63, type: 3}
->>>>>>> main
   m_EulerEditorCurves:
   - curve:
       serializedVersion: 2

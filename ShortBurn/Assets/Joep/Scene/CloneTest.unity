@@ -3019,8 +3019,6 @@ Transform:
   m_Father: {fileID: 1961174355}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
-=======
 --- !u!1 &1712167114
 GameObject:
   m_ObjectHideFlags: 0
@@ -3080,7 +3078,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Messages: {fileID: 11400000, guid: 7c9e36a86a937c1429d3627f59a82a94, type: 2}
   dialogueText: {fileID: 389269414}
->>>>>>> main
 --- !u!1 &1734844516
 GameObject:
   m_ObjectHideFlags: 0
@@ -3922,11 +3919,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8697038942998844612, guid: 7c7d44cb3f9fbe747b3a872def7e23bb, type: 3}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
-      value: 8
-=======
       value: 10
->>>>>>> main
       objectReference: {fileID: 0}
     - target: {fileID: 8697038942998844612, guid: 7c7d44cb3f9fbe747b3a872def7e23bb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3968,8 +3961,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-<<<<<<< HEAD
-=======
     - target: {fileID: 8697038942998844613, guid: 7c7d44cb3f9fbe747b3a872def7e23bb, type: 3}
       propertyPath: sounds.Array.data[5].parent
       value: 
@@ -3982,7 +3973,6 @@ PrefabInstance:
       propertyPath: sounds.Array.data[7].parent
       value: 
       objectReference: {fileID: 1495287164}
->>>>>>> main
     - target: {fileID: 8697038942998844614, guid: 7c7d44cb3f9fbe747b3a872def7e23bb, type: 3}
       propertyPath: m_Name
       value: AudioManager
