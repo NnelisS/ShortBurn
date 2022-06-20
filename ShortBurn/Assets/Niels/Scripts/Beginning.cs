@@ -10,7 +10,6 @@ public class Beginning : MonoBehaviour
     public GameObject UI;
     public Pause Pauser;
     public Transform CamRot;
-    public MeshRenderer Capsule;
 
     private UnityEngine.CharacterController charCont;
     private CharacterController charController;
@@ -28,16 +27,8 @@ public class Beginning : MonoBehaviour
 
     void Update()
     {
-        if (On == false)
+        if (IsFinnished)
         {
-            Capsule.enabled = false;
-            charCont.enabled = false;
-            charController.enabled = false;
-            playerL.enabled = false;
-        }
-        else if (!IsFinnished)
-        {
-            Capsule.enabled = true;
             CamRot.rotation = Quaternion.Euler(0, 0, 0);
             charCont.enabled = true;
             charController.enabled = true;
@@ -46,5 +37,12 @@ public class Beginning : MonoBehaviour
             Pauser.enabled = true;
             IsFinnished = true;
         }
+        else if (On == false)
+        {
+            charCont.enabled = false;
+            charController.enabled = false;
+            playerL.enabled = false;
+        }
+       
     }
 }
