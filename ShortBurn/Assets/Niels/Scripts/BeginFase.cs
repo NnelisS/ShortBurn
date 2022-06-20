@@ -22,7 +22,10 @@ public class BeginFase : MonoBehaviour
             timer -= Time.deltaTime;
             if (timer <= 0)
             {
+                Debug.Log("On");
+                Debug.Log(virtualCam.isActiveAndEnabled);
                 virtualCam.enabled = true;
+                Debug.Log(virtualCam.isActiveAndEnabled);
                 on = false;
             }
         }
