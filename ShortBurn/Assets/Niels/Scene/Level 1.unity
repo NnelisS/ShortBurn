@@ -38287,7 +38287,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh131324
+  m_Name: pb_Mesh586140
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -46949,6 +46949,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8801603237443546208, guid: 283b6e01ac0a51a4c9cb70840f6825e1, type: 3}
   m_PrefabInstance: {fileID: 873337120}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &877261238 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5203225860134896194, guid: 9573b64753b8b1f48a78140067d5e4a6, type: 3}
+  m_PrefabInstance: {fileID: 6831185776649019919}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &877261239
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 877261238}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0244844, y: 3.6, z: 0.13756743}
+  m_Center: {x: -0.5000056, y: 1.8, z: 0}
 --- !u!1 &880671414
 GameObject:
   m_ObjectHideFlags: 0
