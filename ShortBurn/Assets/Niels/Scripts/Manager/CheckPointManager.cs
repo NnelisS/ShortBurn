@@ -1,11 +1,9 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using Cinemachine;
 
 public class CheckPointManager : MonoBehaviour
 {
-    public Transform checkPoint;
+    [HideInInspector] public Transform CheckPoint;
 
     [SerializeField] private CharacterController characterCont;
     private UnityEngine.CharacterController characterController;
@@ -37,7 +35,7 @@ public class CheckPointManager : MonoBehaviour
 
     public void AddCheckPoint(Transform _checkPointPos)
     {
-        checkPoint = _checkPointPos;
+        CheckPoint = _checkPointPos;
     }
 
     private IEnumerator RespawnAtCheckPoint(Transform _OldPos)
@@ -52,7 +50,7 @@ public class CheckPointManager : MonoBehaviour
         yield return new WaitForSeconds(1);
         kill = false;
         cam.transform.localRotation = Quaternion.Euler(0, 0, 0);
-        player.transform.position = checkPoint.position;
+        player.transform.position = CheckPoint.position;
         cam.position = _OldPos.position;
         yield return new WaitForSeconds(1);
         playerL.enabled = true;

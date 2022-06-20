@@ -7,6 +7,7 @@ public class LiftDoorPlate : MonoBehaviour
     public Transform Plate;
     public Transform BackPos;
     public Transform Pos;
+
     private bool On = false;
 
     void Update()

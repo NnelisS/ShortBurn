@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class ElevatorTrigger : MonoBehaviour
 {
+    public BoxCollider BoxCol;
+
     private Elevator elevator;
 
     private BoxCollider trigger;
-    public BoxCollider BoxCol;
 
     private void Start()
     {

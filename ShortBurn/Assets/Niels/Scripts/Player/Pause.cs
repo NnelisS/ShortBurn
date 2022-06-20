@@ -35,11 +35,11 @@ public class Pause : MonoBehaviour
 
     void Update()
     {
-        Bloom tmp;
+        Bloom _tmp;
 
-        if (Volume.profile.TryGet<Bloom>(out tmp))
+        if (Volume.profile.TryGet<Bloom>(out _tmp))
         {
-            Bloom = tmp;
+            Bloom = _tmp;
 
             if (Pausing)
                 Bloom.threshold.value = Mathf.MoveTowards(Bloom.threshold.value, Bloom.threshold.value = 0, 1 * Time.deltaTime);

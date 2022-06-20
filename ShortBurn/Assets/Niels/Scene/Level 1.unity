@@ -6835,12 +6835,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 478a3d60169a4b64d99e209a0cd28e57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BatteryIn: 0
-  childCol: {fileID: 0}
-  AnimationCell:
-  - {fileID: 1704635408}
-  - {fileID: 662139565}
-  - {fileID: 540727854}
 --- !u!64 &78083959
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -8576,12 +8570,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 478a3d60169a4b64d99e209a0cd28e57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BatteryIn: 0
-  childCol: {fileID: 0}
-  AnimationCell:
-  - {fileID: 194408712}
-  - {fileID: 71413511}
-  - {fileID: 662885485}
 --- !u!64 &133069501
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -11429,7 +11417,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3faee9870418844d9cc069823f13a80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  checkPoint: {fileID: 0}
+  CheckPoint: {fileID: 0}
   characterCont: {fileID: 3340701681223403462}
   playerL: {fileID: 3340701681223403472}
   player: {fileID: 3340701681223403470}
@@ -16823,7 +16811,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8efb0e135274774da62bbf02e488970, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  On: 0
 --- !u!64 &248212950
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -23203,12 +23190,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 478a3d60169a4b64d99e209a0cd28e57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BatteryIn: 0
-  childCol: {fileID: 0}
-  AnimationCell:
-  - {fileID: 1762109605}
-  - {fileID: 1024255887}
-  - {fileID: 1874630820}
 --- !u!64 &379806197
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -26504,13 +26485,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca8dacce6a8de1f4f8d359251ddfe5c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PressurePlates:
-  - {fileID: 558834945}
-  - {fileID: 1119067208}
-  - {fileID: 1779394300}
-  Platform: {fileID: 117938172}
-  Claw: {fileID: 1309135576}
-  Battery: {fileID: 133069498}
 --- !u!1001 &483274452
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28396,7 +28370,7 @@ Transform:
   m_LocalScale: {x: 0.1, y: 1.8320354, z: 0.1}
   m_Children: []
   m_Father: {fileID: 1473883701}
-  m_RootOrder: 74
+  m_RootOrder: 73
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 90}
 --- !u!114 &524409118
 MonoBehaviour:
@@ -28752,7 +28726,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097f7080894fe2e48bf962d0fe418232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Move: 0
 --- !u!64 &530385427
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -32084,7 +32057,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3e85cea08628ba43943b19b8495caa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Move: 0
 --- !u!64 &558834946
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -35648,9 +35620,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 478a3d60169a4b64d99e209a0cd28e57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BatteryIn: 0
-  childCol: {fileID: 1053189037}
-  AnimationCell: []
 --- !u!1 &584790022
 GameObject:
   m_ObjectHideFlags: 0
@@ -37615,6 +37584,7 @@ MonoBehaviour:
   - {fileID: 725444625}
   - {fileID: 145337668}
   - {fileID: 1834174413}
+  clawAnim: {fileID: 0}
 --- !u!95 &652731810
 Animator:
   serializedVersion: 3
@@ -38317,7 +38287,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh131324
+  m_Name: pb_Mesh586140
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -43440,12 +43410,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 478a3d60169a4b64d99e209a0cd28e57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BatteryIn: 0
-  childCol: {fileID: 0}
-  AnimationCell:
-  - {fileID: 194408712}
-  - {fileID: 71413511}
-  - {fileID: 662885485}
 --- !u!64 &846906332
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -46856,11 +46820,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2e56af8baf7aa4458e8a2a60990f39d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 1132851132}
-  animationName: Block_lift
-  animationNameBack: Block_lift_Back
-  animationDuration: 1
-  animationDurationBack: 1
 --- !u!64 &863174242
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -46887,7 +46846,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c92b26ffa854fe4eba218e1ab88feea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 3340701681223403470}
+  Player: {fileID: 0}
   ElevatorPos: {fileID: 0}
 --- !u!4 &864352325 stripped
 Transform:
@@ -46990,6 +46949,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8801603237443546208, guid: 283b6e01ac0a51a4c9cb70840f6825e1, type: 3}
   m_PrefabInstance: {fileID: 873337120}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &877261238 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5203225860134896194, guid: 9573b64753b8b1f48a78140067d5e4a6, type: 3}
+  m_PrefabInstance: {fileID: 6831185776649019919}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &877261239
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 877261238}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0244844, y: 3.6, z: 0.13756743}
+  m_Center: {x: -0.5000056, y: 1.8, z: 0}
 --- !u!1 &880671414
 GameObject:
   m_ObjectHideFlags: 0
@@ -54398,7 +54375,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3e85cea08628ba43943b19b8495caa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Move: 0
 --- !u!64 &1119067209
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -63459,7 +63435,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097f7080894fe2e48bf962d0fe418232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Move: 0
 --- !u!64 &1169626583
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -68240,7 +68215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3faee9870418844d9cc069823f13a80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  checkPoint: {fileID: 0}
+  CheckPoint: {fileID: 0}
   characterCont: {fileID: 3340701681223403462}
   playerL: {fileID: 3340701681223403472}
   player: {fileID: 3340701681223403470}
@@ -69285,7 +69260,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &1276777671
 Animator:
   serializedVersion: 3
@@ -69347,12 +69322,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6379f7fc684e9e4987fd4f4a37adf63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  On: 0
+  IsFinnished: 0
   UI: {fileID: 822697323}
   Pauser: {fileID: 3340701681223403471}
-  camRot: {fileID: 3340701680501986130}
-  capsule: {fileID: 3340701681736698805}
-  on: 0
-  isFinnished: 0
+  CamRot: {fileID: 0}
+  Capsule: {fileID: 0}
 --- !u!43 &1279070333
 Mesh:
   m_ObjectHideFlags: 0
@@ -73416,7 +73391,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097f7080894fe2e48bf962d0fe418232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Move: 0
 --- !u!64 &1437170963
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -77536,16 +77510,16 @@ Transform:
   - {fileID: 609339409}
   - {fileID: 563765784}
   - {fileID: 966102278}
-  - {fileID: 1136950306}
   - {fileID: 1810466387}
+  - {fileID: 1136950306}
   - {fileID: 2040743585}
   - {fileID: 779343338}
   - {fileID: 49273066}
   - {fileID: 800376520}
   - {fileID: 382506723}
   - {fileID: 1825608589}
-  - {fileID: 783759253}
   - {fileID: 524409117}
+  - {fileID: 783759253}
   m_Father: {fileID: 584790023}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -81199,7 +81173,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8efb0e135274774da62bbf02e488970, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  On: 0
 --- !u!64 &1568029786
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -85299,11 +85272,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dcf5b62bfbb46448a5ba0b357a4351d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChamberPressurePlates:
-  - {fileID: 248212949}
-  - {fileID: 1568029785}
-  Battery: {fileID: 379806194}
-  clawOpen: {fileID: 1256880057}
 --- !u!1001 &1605827459
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -93465,7 +93433,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3e85cea08628ba43943b19b8495caa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Move: 0
 --- !u!64 &1779394301
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -97121,7 +97088,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097f7080894fe2e48bf962d0fe418232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Move: 0
 --- !u!64 &1801064300
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -100668,7 +100634,7 @@ Transform:
   m_LocalScale: {x: 6.2224917, y: 0.1391256, z: 0.2362988}
   m_Children: []
   m_Father: {fileID: 1473883701}
-  m_RootOrder: 66
+  m_RootOrder: 65
   m_LocalEulerAnglesHint: {x: 0, y: 90.72, z: -180}
 --- !u!65 &1810466388
 BoxCollider:
@@ -106053,9 +106019,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 478a3d60169a4b64d99e209a0cd28e57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BatteryIn: 0
-  childCol: {fileID: 844686236}
-  AnimationCell: []
 --- !u!4 &1976682522 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3619941423744300133, guid: 54e54b49b3ae3644a8df4d886ae3e1b7, type: 3}
@@ -107106,18 +107069,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79b135e13e47bb04390ad9110f248fd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NormalPos: {fileID: 303577628}
-  BackPos: {fileID: 1898190366}
-  Block: {fileID: 733411072}
-  BlockPos: {fileID: 1479356203}
-  BlockPosBack: {fileID: 681741101}
-  PressurePlates:
-  - {fileID: 1437170962}
-  - {fileID: 530385426}
-  - {fileID: 1801064299}
-  - {fileID: 1169626582}
-  Battery: {fileID: 846906329}
-  Claw: {fileID: 1228449638}
 --- !u!65 &2036377647
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -111949,7 +111900,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3340701680501986131}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
   m_Name: 
@@ -112390,7 +112341,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 60
+  field of view: 40
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -112571,8 +112522,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3340701681279022879}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.7779298, z: 0}
+  m_LocalRotation: {x: 0.5694042, y: 0.3908627, z: 0.29471904, w: -0.6604135}
+  m_LocalPosition: {x: 2.844229, y: 0.15857142, z: -6.0488153}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3340701681343389848}
@@ -113406,12 +113357,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 478a3d60169a4b64d99e209a0cd28e57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BatteryIn: 0
-  childCol: {fileID: 0}
-  AnimationCell:
-  - {fileID: 907030700}
-  - {fileID: 1052953727}
-  - {fileID: 15436926}
 --- !u!64 &6182468818267425930
 MeshCollider:
   m_ObjectHideFlags: 0
