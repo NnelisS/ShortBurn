@@ -45,11 +45,11 @@ public class CharacterController : Mover
             }
         }
 
-        if (_inputs.TriggerJump)
+        /*if (_inputs.TriggerJump)
         {
             gravity.TriggerJump();
             Debug.Log("The Jump press has been received");
-        }
+        }*/
 
         //Character rotation
         if (IsClone)
