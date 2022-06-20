@@ -17,7 +17,7 @@ public class LiftDoorPlate : MonoBehaviour
             Plate.transform.position = Vector3.MoveTowards(Plate.transform.position, BackPos.position, 1 * Time.deltaTime);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         ReliableOnTriggerExit.NotifyTriggerEnter(other, gameObject, OnTriggerExit);
 
