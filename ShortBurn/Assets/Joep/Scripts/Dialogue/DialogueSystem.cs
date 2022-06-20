@@ -78,7 +78,7 @@ public class DialogueSystem : MonoBehaviour
                 if (!_isDone)
                 {
                     //Add the letter to the string and text
-                    if (!CheckCharacter(Messages.Text[_messageCount].Substring(i, 1), ""))
+                    if (!CheckCharacter(Messages.Text[_messageCount].Substring(0, i), ""))
                         AudioManager.instance.Play("Type");
                     currDialogue = Messages.Text[_messageCount].Substring(0, i);
                     dialogueText.text = currDialogue;
