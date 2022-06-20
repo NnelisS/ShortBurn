@@ -8,7 +8,7 @@ public class DialogueSystem : MonoBehaviour
     public DialogueSO Messages;
 
     public TextMeshProUGUI dialogueText;
-    
+
     [Header("Private")]
     private string currDialogue;
     private string oldString;
@@ -16,12 +16,6 @@ public class DialogueSystem : MonoBehaviour
     private void Start()
     {
         dialogueText.color = Messages.NormalColor;
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.T))
-            PlayRandomDialogue();
     }
 
     /// <summary>
@@ -48,6 +42,8 @@ public class DialogueSystem : MonoBehaviour
             //Type the remaining text
             for (int i = oldString.Length + 3; i < Messages.Text[_messageCount].Length; i++)
             {
+                if (!CheckCharacter(Messages.Text[_messageCount].Substring(i, 1), ""))
+                    AudioManager.instance.Play("Type");
                 currDialogue += Messages.Text[_messageCount].Substring(i, 1);
                 dialogueText.text = currDialogue;
                 yield return new WaitForSeconds(Messages.Delay);
@@ -66,7 +62,7 @@ public class DialogueSystem : MonoBehaviour
                 {
                     string _currChar = Messages.Text[_messageCount].Substring(i, 1);
 
-                    if (CheckCharacter(_currChar)) //Check the current character
+                    if (CheckCharacter(_currChar, "-")) //Check the current character
                     {
                         oldString = currDialogue;
 
@@ -82,6 +78,8 @@ public class DialogueSystem : MonoBehaviour
                 if (!_isDone)
                 {
                     //Add the letter to the string and text
+                    if (!CheckCharacter(Messages.Text[_messageCount].Substring(i, 1), ""))
+                        AudioManager.instance.Play("Type");
                     currDialogue = Messages.Text[_messageCount].Substring(0, i);
                     dialogueText.text = currDialogue;
                     yield return new WaitForSeconds(Messages.Delay);
@@ -111,6 +109,8 @@ public class DialogueSystem : MonoBehaviour
                 currDialogue = currDialogue.Remove(currDialogue.Length - 1);
 
             dialogueText.text = currDialogue;
+            if (!CheckCharacter(Messages.Text[_messageCount].Substring(i, 1), ""))
+                AudioManager.instance.Play("Type");
             yield return new WaitForSeconds(Messages.Delay / 2);
         }
 
@@ -123,9 +123,9 @@ public class DialogueSystem : MonoBehaviour
     /// <summary>
     /// Checks the given character and if its - return true
     /// </summary>
-    private bool CheckCharacter(string _character)
+    private bool CheckCharacter(string _character, string _check)
     {
-        if (_character == "-")
+        if (_character == _check)
             return true;
 
         return false;
