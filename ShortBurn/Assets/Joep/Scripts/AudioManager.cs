@@ -23,7 +23,8 @@ public class AudioManager : MonoBehaviour
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
-            s.source.spatialBlend = s.spacialBlend;
+            s.source.maxDistance = s.maxDistance;
+            s.source.spatialBlend = s.spatialBlend;
         }
     }
 
@@ -59,11 +60,13 @@ public class Sound
     [Range(0.1f, 3)]
     public float pitch;
 
-    [Range(0, 1)]
-    public float spacialBlend;
-
     public bool loop = false;
     public bool dontCheckPlaying;
+
+    [Range(0, 1), Header("3D settings")]
+    public float spatialBlend;
+    [Range(5, 100)]
+    public float maxDistance;
 
     [HideInInspector] public AudioSource source;
 }
