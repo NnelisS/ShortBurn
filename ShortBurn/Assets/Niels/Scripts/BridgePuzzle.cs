@@ -31,8 +31,11 @@ public class BridgePuzzle : MonoBehaviour
                 vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = 2f;
                 vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = 25f;
             }
-            Bridge.transform.localPosition = Vector3.MoveTowards(Bridge.transform.localPosition, GoTo.transform.localPosition, 1 * Time.deltaTime);
-            
+            if (ClonePuzzle)
+                Bridge.transform.localPosition = Vector3.MoveTowards(Bridge.transform.localPosition, GoTo.transform.localPosition, 0.3f * Time.deltaTime);
+            else
+                Bridge.transform.localPosition = Vector3.MoveTowards(Bridge.transform.localPosition, GoTo.transform.localPosition, 1 * Time.deltaTime);
+
             timer -= Time.deltaTime;
             if (timer <= 0 && ClonePuzzle == true)
             {
@@ -42,7 +45,10 @@ public class BridgePuzzle : MonoBehaviour
             }
         }
         else
-            Bridge.transform.localPosition = Vector3.MoveTowards(Bridge.transform.localPosition, GoToBack.transform.localPosition, 1 * Time.deltaTime);
+        {
+            if (ClonePuzzle == false)
+                Bridge.transform.localPosition = Vector3.MoveTowards(Bridge.transform.localPosition, GoToBack.transform.localPosition, 1 * Time.deltaTime);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
