@@ -29,8 +29,8 @@ public class Beginning : MonoBehaviour
     {
         if (IsFinnished)
         {
-            CamRot.rotation = Quaternion.Euler(0, 0, 0);
-            charCont.enabled = true;
+/*            CamRot.rotation = Quaternion.Euler(0, 0, 0);
+*/            charCont.enabled = true;
             charController.enabled = true;
             playerL.enabled = true;
             UI.SetActive(true);
