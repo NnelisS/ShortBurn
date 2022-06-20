@@ -26,19 +26,16 @@ public class PlateDown : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
-        {
             EffectManager.instance.ScreenShake(1.3f, 4f, .5f);
+
+        if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Clone") || other.gameObject.CompareTag("CubeNormal"))
             AudioManager.instance.Play("PressurePlate");
-        }
     }
 
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Clone") || other.gameObject.CompareTag("CubeNormal"))
-        {
-            AudioManager.instance.Play("PressurePlate");
             On = true;
-        }
     }
 
     private void OnTriggerExit(Collider other)
