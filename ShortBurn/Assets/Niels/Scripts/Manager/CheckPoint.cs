@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CheckPoint : MonoBehaviour
@@ -14,7 +12,7 @@ public class CheckPoint : MonoBehaviour
 
     private void Update()
     {
-        if (checkPointManager.checkPoint != this.spawnPos)
+        if (checkPointManager.CheckPoint != this.spawnPos)
             GetComponent<BoxCollider>().enabled = true;
     }
 

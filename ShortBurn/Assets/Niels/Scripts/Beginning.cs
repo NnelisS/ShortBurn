@@ -3,18 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Beginning : MonoBehaviour
-{
+{    
+    public bool On = false;
+    public bool IsFinnished = false;
+
     public GameObject UI;
     public Pause Pauser;
-    public Transform camRot;
-    public MeshRenderer capsule;
+    public Transform CamRot;
+    public MeshRenderer Capsule;
 
     private UnityEngine.CharacterController charCont;
     private CharacterController charController;
     private PlayerLook playerL;
 
-    public bool on = false;
-    public bool isFinnished = false;
 
     void Start()
     {
@@ -27,23 +28,23 @@ public class Beginning : MonoBehaviour
 
     void Update()
     {
-        if (on == false)
+        if (On == false)
         {
-            capsule.enabled = false;
+            Capsule.enabled = false;
             charCont.enabled = false;
             charController.enabled = false;
             playerL.enabled = false;
         }
-        else if (!isFinnished)
+        else if (!IsFinnished)
         {
-            capsule.enabled = true;
-            camRot.rotation = Quaternion.Euler(0, 0, 0);
+            Capsule.enabled = true;
+            CamRot.rotation = Quaternion.Euler(0, 0, 0);
             charCont.enabled = true;
             charController.enabled = true;
             playerL.enabled = true;
             UI.SetActive(true);
             Pauser.enabled = true;
-            isFinnished = true;
+            IsFinnished = true;
         }
     }
 }

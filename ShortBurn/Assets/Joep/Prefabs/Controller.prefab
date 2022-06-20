@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 481531763250708978}
   - component: {fileID: 481531763250708981}
+  - component: {fileID: 2327938197223394355}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -58,3 +59,15 @@ MonoBehaviour:
   clonePrefab: {fileID: 0}
   MaxRecordTime: 5
   clone: {fileID: 0}
+--- !u!114 &2327938197223394355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481531763250708980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ca9cb4166d6ca443b75fa38b1592a87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

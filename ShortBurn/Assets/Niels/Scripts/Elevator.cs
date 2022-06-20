@@ -5,7 +5,7 @@ using Cinemachine;
 
 public class Elevator : MonoBehaviour
 {
-    public GameObject player;
+    public GameObject Player;
     public Transform ElevatorPos;
 
     private UnityEngine.CharacterController characterCont;
@@ -29,7 +29,7 @@ public class Elevator : MonoBehaviour
         AudioManager.instance.Play("ElevatorMusic");
         vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = 8;
         characterCont.enabled = false;
-        player.transform.SetParent(this.transform);
+        Player.transform.SetParent(this.transform);
         yield return new WaitForSeconds(0.01f);
         if (ElevatorPos != null)
         {
@@ -37,7 +37,7 @@ public class Elevator : MonoBehaviour
             transform.rotation = ElevatorPos.rotation;
         }
         yield return new WaitForSeconds(0.01f);
-        player.transform.SetParent(null);
+        Player.transform.SetParent(null);
         characterCont.enabled = true;
         yield return new WaitForSeconds(10);
         vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = 1;
