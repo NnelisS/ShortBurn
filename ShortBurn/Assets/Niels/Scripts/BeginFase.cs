@@ -23,9 +23,7 @@ public class BeginFase : MonoBehaviour
             if (timer <= 0)
             {
                 Debug.Log("On");
-                Debug.Log(virtualCam.isActiveAndEnabled);
                 virtualCam.enabled = true;
-                Debug.Log(virtualCam.isActiveAndEnabled);
                 on = false;
             }
         }
