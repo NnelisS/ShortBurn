@@ -77,7 +77,11 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: PressurePlate
+<<<<<<< HEAD
     clip: {fileID: 8300000, guid: 0ce0624fe6bb7bc43a1ec99cd8c9f0bc, type: 3}
+=======
+    clip: {fileID: 8300000, guid: 9e2fe3e356c71c34aba4cc7bd16a46e0, type: 3}
+>>>>>>> main
     parent: {fileID: 0}
     volume: 0.3
     pitch: 1
@@ -108,3 +112,22 @@ MonoBehaviour:
     spacialBlend: 0
     loop: 0
     source: {fileID: 0}
+<<<<<<< HEAD
+=======
+  - name: ElevatorEnd
+    clip: {fileID: 8300000, guid: 9b133310eee999e4ab9d579744580fc1, type: 3}
+    parent: {fileID: 0}
+    volume: 0.3
+    pitch: 1
+    spacialBlend: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: ElevatorCrash
+    clip: {fileID: 8300000, guid: 9b95e1acafdf3ec4388e6f751ee9ce43, type: 3}
+    parent: {fileID: 0}
+    volume: 0.1
+    pitch: 1
+    spacialBlend: 0
+    loop: 0
+    source: {fileID: 0}
+>>>>>>> main

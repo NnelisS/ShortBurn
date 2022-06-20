@@ -24,12 +24,6 @@ public class CharacterController : Mover
         pickupScript = GetComponentInChildren<Pickup>();
     }
 
-    private void Update()
-    {
-        if (!IsClone)
-            Crouch();
-    }
-
     /// <summary>
     /// Use the character controller to move the player by getting the rotation and motion
     /// </summary>
@@ -38,13 +32,16 @@ public class CharacterController : Mover
         if (!IsClone)
             PlayerAudio();
 
-        if (IsClone && GetComponent<MeshRenderer>().enabled == false)
+        if (IsClone)
         {
-            GetComponent<MeshRenderer>().enabled = true;
-
-            for (int i = 0; i < transform.childCount; i++)
+            if (GetComponent<MeshRenderer>().enabled == false)
             {
-                transform.GetChild(i).gameObject.SetActive(true);
+                GetComponent<MeshRenderer>().enabled = true;
+
+                for (int i = 0; i < transform.childCount; i++)
+                {
+                    transform.GetChild(i).gameObject.SetActive(true);
+                }
             }
         }
 
@@ -78,7 +75,7 @@ public class CharacterController : Mover
             AudioManager.instance.Stop("Walk");
     }
 
-    private void Crouch()
+    /*private void Crouch()
     {
         if (CrouchUsable)
         {
@@ -107,7 +104,7 @@ public class CharacterController : Mover
                 }
             }
         }
-    }
+    }*/
 
     /// <summary>
     /// Reset input and enable charactercontroller
@@ -117,7 +114,7 @@ public class CharacterController : Mover
         _charCont.enabled = true;
     }
 
-    public void GoCrouch()
+    /*public void GoCrouch()
     {
         IsCrouched = true;
         if (pickupScript.IsThrowing == false)
@@ -138,5 +135,5 @@ public class CharacterController : Mover
             vCam.m_Lens.FieldOfView = Mathf.MoveTowards(vCam.m_Lens.FieldOfView, 60, 4 * Time.maximumDeltaTime);
             PlayerMovement.MoveSpeed = 0.03f;
         }
-    }
+    }*/
 }

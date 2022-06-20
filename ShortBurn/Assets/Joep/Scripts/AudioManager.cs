@@ -13,7 +13,11 @@ public class AudioManager : MonoBehaviour
 
         foreach (Sound s in sounds)
         {
-            s.source = s.parent.gameObject.AddComponent<AudioSource>();
+            if (s.parent != null)
+                s.source = s.parent.gameObject.AddComponent<AudioSource>();
+            else
+                s.source = gameObject.AddComponent<AudioSource>();
+
             s.source.clip = s.clip;
 
             s.source.volume = s.volume;
@@ -21,6 +25,11 @@ public class AudioManager : MonoBehaviour
             s.source.loop = s.loop;
             s.source.spatialBlend = s.spacialBlend;
         }
+    }
+
+    private void Start()
+    {
+        Play("Ambience");
     }
 
     public void Play(string name)

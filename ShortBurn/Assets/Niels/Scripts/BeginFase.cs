@@ -1,18 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class BeginFase : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public CinemachineVirtualCamera virtualCam;
+
+    private bool on = false;
+    private float timer = 23;
+
     void Start()
     {
-        
+        on = true;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (on)
+        {
+            timer -= Time.deltaTime;
+            if (timer <= 0)
+            {
+                virtualCam.enabled = true;
+                on = false;
+            }
+        }
     }
 }

@@ -11,9 +11,9 @@ public class PlayerLaser : MonoBehaviour
         checkPointManager = FindObjectOfType<CheckPointManager>();
     }
 
-    private void OnTriggerStay(Collider coll)
+    private void OnTriggerEnter(Collider other)
     {
-        if (coll.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
             checkPointManager.Respawn();
     }
 }

@@ -12,11 +12,11 @@ public class Elevator : MonoBehaviour
 
     private Animator elevatorAnim;
 
-    private CinemachineVirtualCamera vCam;
+    CinemachineVirtualCamera vCam;
 
     private void Start()
     {
-        vCam = FindObjectOfType<CinemachineVirtualCamera>();
+        vCam = FindObjectOfType<PlayerRecorder>().gameObject.GetComponentInChildren<CinemachineVirtualCamera>();
         characterCont = FindObjectOfType<UnityEngine.CharacterController>();
         elevatorAnim = GetComponentInChildren<Animator>();
     }
@@ -27,7 +27,11 @@ public class Elevator : MonoBehaviour
         elevatorAnim.Play("ElevatorClose");
         yield return new WaitForSeconds(2);
         AudioManager.instance.Play("ElevatorMusic");
+<<<<<<< HEAD
         vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = 6;
+=======
+        vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = 8;
+>>>>>>> main
         characterCont.enabled = false;
         player.transform.SetParent(this.transform);
         yield return new WaitForSeconds(0.01f);
