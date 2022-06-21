@@ -11,6 +11,9 @@ public class Pause : MonoBehaviour
     public Animator PanelAnim;
     public Animator CheckpointAnimBack;
 
+    public GameObject SettingPanel;
+    public bool inSettingM = false;
+
     private bool usable = true;
 
     [SerializeField] private GameObject blur;
@@ -35,11 +38,11 @@ public class Pause : MonoBehaviour
 
     void Update()
     {
-        Bloom tmp;
+        Bloom _tmp;
 
-        if (Volume.profile.TryGet<Bloom>(out tmp))
+        if (Volume.profile.TryGet<Bloom>(out _tmp))
         {
-            Bloom = tmp;
+            Bloom = _tmp;
 
             if (Pausing)
                 Bloom.threshold.value = Mathf.MoveTowards(Bloom.threshold.value, Bloom.threshold.value = 0, 1 * Time.deltaTime);
@@ -62,7 +65,7 @@ public class Pause : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape) && usable)
+        if (Input.GetKeyDown(KeyCode.Escape) && usable && inSettingM == false)
         {
             if (pausePanel.activeInHierarchy)
             {
@@ -79,6 +82,10 @@ public class Pause : MonoBehaviour
                 pausePanel.SetActive(true);
             }
         }
+
+        if (inSettingM)
+            if (Input.GetKeyDown(KeyCode.Escape))
+                OutSettings();
     }
 
     private IEnumerator PauseAnim()
@@ -124,6 +131,18 @@ public class Pause : MonoBehaviour
         StartCoroutine(PauseAnim());
         Pausing = false;
         pausePanel.SetActive(false);
+    }
+
+    public void Settings()
+    {
+        SettingPanel.SetActive(true);
+        inSettingM = true;
+    }
+
+    public void OutSettings()
+    {
+        SettingPanel.SetActive(false);
+        inSettingM = false;
     }
 
     public void Restart()

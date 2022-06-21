@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 using Cinemachine;
 
@@ -88,6 +87,8 @@ public class Pickup : MonoBehaviour
 
         if (heldObject != null)
         {
+            heldObject.GetComponentInChildren<PickupGlow>().On();
+
             line.positionCount = 2;
             line.SetPosition(0, middlePos.position);
             line.SetPosition(1, heldObject.transform.position);
@@ -125,7 +126,7 @@ public class Pickup : MonoBehaviour
                 RotateEnabled = false;
         }
         else if (heldObject == null)
-            playerL.movementOn = true;
+            playerL.movementOn = true;      
 
         // throw the object and throw fov back to default
         if (letGo)
@@ -144,6 +145,7 @@ public class Pickup : MonoBehaviour
                 if (RotateEnabled)
                     playerL.ChangeMovement();
 
+                heldObject.GetComponentInChildren<PickupGlow>().Off();
                 heldObject.GetComponent<Rigidbody>().mass += currentMass * 1.5f;
                 line.positionCount = 0;
                 letGo = true;
@@ -211,6 +213,7 @@ public class Pickup : MonoBehaviour
     /// </summary>
     private void ThrowObject()
     {
+        heldObject.GetComponentInChildren<PickupGlow>().Off();
         Rigidbody heldRig = heldObject.GetComponent<Rigidbody>();
         heldObject.GetComponent<Rigidbody>().useGravity = true;
         heldRig.drag = 1;
@@ -226,6 +229,7 @@ public class Pickup : MonoBehaviour
     /// </summary>
     private void DropObject()
     {
+        heldObject.GetComponentInChildren<PickupGlow>().Off();
         line.positionCount = 0;
         Rigidbody heldRig = heldObject.GetComponent<Rigidbody>();
         heldObject.GetComponent<Rigidbody>().useGravity = true;
@@ -241,6 +245,7 @@ public class Pickup : MonoBehaviour
 
     public void DropObj()
     {
+        heldObject.GetComponentInChildren<PickupGlow>().Off();
         line.positionCount = 0;
         heldObject.GetComponent<Rigidbody>().useGravity = true;
 

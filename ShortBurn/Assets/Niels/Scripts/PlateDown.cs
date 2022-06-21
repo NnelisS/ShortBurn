@@ -7,7 +7,7 @@ public class PlateDown : MonoBehaviour
     private Vector3 upPos;
     private Vector3 downPos;
 
-    private bool On = false;
+    public bool On = false;
 
     void Start()
     {
@@ -19,17 +19,23 @@ public class PlateDown : MonoBehaviour
     {
         if (On)
             transform.position = Vector3.Lerp(transform.position, downPos, 1 * Time.deltaTime);
-        else
+        else if (On == false)
             transform.position = Vector3.Lerp(transform.position, upPos, 1 * Time.deltaTime);
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.CompareTag("Player"))
+            EffectManager.instance.ScreenShake(1.3f, 4f, .5f);
+
         if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Clone") || other.gameObject.CompareTag("CubeNormal"))
-        {
             AudioManager.instance.Play("PressurePlate");
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Clone") || other.gameObject.CompareTag("CubeNormal"))
             On = true;
-        }
     }
 
     private void OnTriggerExit(Collider other)

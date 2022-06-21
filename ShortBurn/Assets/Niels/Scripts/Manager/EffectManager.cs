@@ -1,14 +1,20 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 public class EffectManager : MonoBehaviour
 {
+    public static EffectManager instance;
+
     private CinemachineVirtualCamera vCam;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     void Start()
     {
-        vCam = GetComponent<CinemachineVirtualCamera>();
+        vCam = FindObjectOfType<CinemachineVirtualCamera>();
     }
 
     public void ScreenShake(float _time, float _frequency, float _amplitude)
