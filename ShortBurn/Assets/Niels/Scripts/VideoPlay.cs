@@ -6,6 +6,9 @@ using UnityEngine.Video;
 public class VideoPlay : MonoBehaviour
 {
     public VideoPlayer VidStart;
+    public GameObject screen;
+
+    public Material White;
 
     private void Start()
     {
@@ -17,7 +20,7 @@ public class VideoPlay : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             VidStart.enabled = true;
-            VidStart.GetComponent<Material>().color = Color.white;
+            screen.GetComponent<MeshRenderer>().material = White;
         }
     }
 }
