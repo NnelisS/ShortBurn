@@ -8659,6 +8659,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a39a405f6371b0544a8e1d58d13f6e6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Impact: {fileID: 0}
 --- !u!114 &133069506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9404,6 +9405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a39a405f6371b0544a8e1d58d13f6e6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Impact: {fileID: 0}
 --- !u!54 &145337668
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -15418,8 +15420,8 @@ Transform:
   m_Father: {fileID: 584790023}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &193473215
-CapsuleCollider:
+--- !u!65 &193473215
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -15428,10 +15430,9 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  serializedVersion: 2
+  m_Size: {x: 4.032634, y: 1, z: 2.0194566}
+  m_Center: {x: 1.0275968, y: 0, z: 0.5097295}
 --- !u!1001 &193850171
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22376,6 +22377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a39a405f6371b0544a8e1d58d13f6e6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Impact: {fileID: 0}
 --- !u!54 &353293152
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -23367,6 +23369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a39a405f6371b0544a8e1d58d13f6e6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Impact: {fileID: 0}
 --- !u!114 &379806201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28032,6 +28035,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a39a405f6371b0544a8e1d58d13f6e6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Impact: {fileID: 0}
 --- !u!1001 &515556337
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38942,7 +38946,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NoiseProfile: {fileID: 0}
   m_PivotOffset: {x: 0, y: 0, z: 0}
-  m_AmplitudeGain: 1
+  m_AmplitudeGain: 0.3
   m_FrequencyGain: 1
   mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!114 &689794674
@@ -40202,6 +40206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a39a405f6371b0544a8e1d58d13f6e6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Impact: {fileID: 0}
 --- !u!54 &725444625
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -43772,6 +43777,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a39a405f6371b0544a8e1d58d13f6e6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Impact: {fileID: 0}
 --- !u!114 &846906336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69865,7 +69871,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6379f7fc684e9e4987fd4f4a37adf63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  On: 0
   IsFinnished: 0
   UI: {fileID: 822697323}
   Pauser: {fileID: 3340701681223403471}
@@ -87637,6 +87642,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a39a405f6371b0544a8e1d58d13f6e6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Impact: {fileID: 0}
 --- !u!54 &1656548083
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -102185,6 +102191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a39a405f6371b0544a8e1d58d13f6e6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Impact: {fileID: 0}
 --- !u!54 &1834174413
 Rigidbody:
   m_ObjectHideFlags: 0
