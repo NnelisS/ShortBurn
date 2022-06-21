@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Beginning : MonoBehaviour
 {    
-    public bool On = false;
     public bool IsFinnished = false;
+
+    public float test;
 
     public GameObject UI;
     public Pause Pauser;
@@ -15,7 +16,6 @@ public class Beginning : MonoBehaviour
     private CharacterController charController;
     private PlayerLook playerL;
 
-
     void Start()
     {
         UI.SetActive(false);
@@ -23,10 +23,16 @@ public class Beginning : MonoBehaviour
         charCont = FindObjectOfType<UnityEngine.CharacterController>();
         charController = FindObjectOfType<CharacterController>();
         playerL = FindObjectOfType<PlayerLook>();
+
+        charCont.enabled = false;
+        charController.enabled = false;
+        playerL.enabled = false;
     }
 
     void Update()
     {
+        Time.timeScale = test;
+
         if (IsFinnished)
         {
 /*            CamRot.rotation = Quaternion.Euler(0, 0, 0);
@@ -36,13 +42,6 @@ public class Beginning : MonoBehaviour
             UI.SetActive(true);
             Pauser.enabled = true;
             IsFinnished = true;
-        }
-        else if (On == false)
-        {
-            charCont.enabled = false;
-            charController.enabled = false;
-            playerL.enabled = false;
-        }
-       
+        }    
     }
 }
