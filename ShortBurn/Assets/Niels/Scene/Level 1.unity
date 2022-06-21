@@ -72081,7 +72081,7 @@ PrefabInstance:
     - target: {fileID: 3356741905531431564, guid: 349684e9f869dc74fbd8d7827a9bfb49, type: 3}
       propertyPath: m_VideoClip
       value: 
-      objectReference: {fileID: 32900000, guid: 0c2b13dcf59816d46a92ce0281feeb7b, type: 3}
+      objectReference: {fileID: 32900000, guid: e851c61b992107d44ae0edcaf92ba4f6, type: 3}
     - target: {fileID: 8452291662336459225, guid: 349684e9f869dc74fbd8d7827a9bfb49, type: 3}
       propertyPath: m_Name
       value: Screens (1)
@@ -104258,7 +104258,7 @@ PrefabInstance:
     - target: {fileID: 3356741905531431564, guid: 349684e9f869dc74fbd8d7827a9bfb49, type: 3}
       propertyPath: m_VideoClip
       value: 
-      objectReference: {fileID: 32900000, guid: f50cd3184e787d741ab1bbea7c39f609, type: 3}
+      objectReference: {fileID: 32900000, guid: 1fd3e7d09f86aa646aef486f908c96a0, type: 3}
     - target: {fileID: 8452291662336459225, guid: 349684e9f869dc74fbd8d7827a9bfb49, type: 3}
       propertyPath: m_Name
       value: Screens
@@ -111347,7 +111347,7 @@ PrefabInstance:
     - target: {fileID: 3356741905531431564, guid: 349684e9f869dc74fbd8d7827a9bfb49, type: 3}
       propertyPath: m_VideoClip
       value: 
-      objectReference: {fileID: 32900000, guid: 77668bcd7ce3a204cb5308bd4bafec60, type: 3}
+      objectReference: {fileID: 32900000, guid: 6ab6baa5d23717a4294be620307fcac7, type: 3}
     - target: {fileID: 8452291662336459225, guid: 349684e9f869dc74fbd8d7827a9bfb49, type: 3}
       propertyPath: m_Name
       value: Screens
