@@ -6,8 +6,6 @@ public class Beginning : MonoBehaviour
 {    
     public bool IsFinnished = false;
 
-    public float test;
-
     public GameObject UI;
     public Pause Pauser;
     public Transform CamRot;
@@ -31,8 +29,6 @@ public class Beginning : MonoBehaviour
 
     void Update()
     {
-        Time.timeScale = test;
-
         if (IsFinnished)
         {
 /*            CamRot.rotation = Quaternion.Euler(0, 0, 0);
