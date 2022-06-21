@@ -20123,7 +20123,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8697038942998844613, guid: 7c7d44cb3f9fbe747b3a872def7e23bb, type: 3}
       propertyPath: sounds.Array.size
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8697038942998844613, guid: 7c7d44cb3f9fbe747b3a872def7e23bb, type: 3}
       propertyPath: sounds.Array.data[1].clip
@@ -20156,14 +20156,14 @@ PrefabInstance:
     - target: {fileID: 8697038942998844613, guid: 7c7d44cb3f9fbe747b3a872def7e23bb, type: 3}
       propertyPath: sounds.Array.data[11].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 4b13e5d72b7d87842813625d4abf7b30, type: 3}
+      objectReference: {fileID: 8300000, guid: b5347df4ed08b4e4db9dd1c9e7effdfe, type: 3}
     - target: {fileID: 8697038942998844613, guid: 7c7d44cb3f9fbe747b3a872def7e23bb, type: 3}
       propertyPath: sounds.Array.data[11].loop
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8697038942998844613, guid: 7c7d44cb3f9fbe747b3a872def7e23bb, type: 3}
       propertyPath: sounds.Array.data[11].name
-      value: Type
+      value: RemoveText
       objectReference: {fileID: 0}
     - target: {fileID: 8697038942998844613, guid: 7c7d44cb3f9fbe747b3a872def7e23bb, type: 3}
       propertyPath: sounds.Array.data[0].parent

@@ -110,7 +110,7 @@ public class DialogueSystem : MonoBehaviour
 
             dialogueText.text = currDialogue;
             if (!CheckCharacter(Messages.Text[_messageCount].Substring(i, 1), ""))
-                AudioManager.instance.Play("Type");
+                AudioManager.instance.Play("RemoveText");
             yield return new WaitForSeconds(Messages.Delay / 2);
         }
 
