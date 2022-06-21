@@ -16,6 +16,8 @@ public class Beginning : MonoBehaviour
 
     void Start()
     {
+        CamRot.localRotation = Quaternion.Euler(0, 0, 0);
+
         UI.SetActive(false);
         Pauser.enabled = false;
         charCont = FindObjectOfType<UnityEngine.CharacterController>();
@@ -31,13 +33,11 @@ public class Beginning : MonoBehaviour
     {
         if (IsFinnished)
         {
-/*            CamRot.rotation = Quaternion.Euler(0, 0, 0);
-*/            charCont.enabled = true;
+            charCont.enabled = true;
             charController.enabled = true;
             playerL.enabled = true;
             UI.SetActive(true);
             Pauser.enabled = true;
-            IsFinnished = true;
         }    
     }
 }
