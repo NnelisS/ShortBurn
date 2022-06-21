@@ -72200,6 +72200,10 @@ PrefabInstance:
       propertyPath: m_VideoClip
       value: 
       objectReference: {fileID: 32900000, guid: e851c61b992107d44ae0edcaf92ba4f6, type: 3}
+    - target: {fileID: 3390253709746725867, guid: 349684e9f869dc74fbd8d7827a9bfb49, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0b38e71823e645f4ea27c2c0f8ff246e, type: 2}
     - target: {fileID: 8452291662336459225, guid: 349684e9f869dc74fbd8d7827a9bfb49, type: 3}
       propertyPath: m_Name
       value: Screens (1)
@@ -104382,6 +104386,10 @@ PrefabInstance:
       propertyPath: m_VideoClip
       value: 
       objectReference: {fileID: 32900000, guid: 1fd3e7d09f86aa646aef486f908c96a0, type: 3}
+    - target: {fileID: 3390253709746725867, guid: 349684e9f869dc74fbd8d7827a9bfb49, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0b38e71823e645f4ea27c2c0f8ff246e, type: 2}
     - target: {fileID: 8452291662336459225, guid: 349684e9f869dc74fbd8d7827a9bfb49, type: 3}
       propertyPath: m_Name
       value: Screens
@@ -111535,6 +111543,10 @@ PrefabInstance:
       propertyPath: m_VideoClip
       value: 
       objectReference: {fileID: 32900000, guid: 6ab6baa5d23717a4294be620307fcac7, type: 3}
+    - target: {fileID: 3390253709746725867, guid: 349684e9f869dc74fbd8d7827a9bfb49, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0b38e71823e645f4ea27c2c0f8ff246e, type: 2}
     - target: {fileID: 8452291662336459225, guid: 349684e9f869dc74fbd8d7827a9bfb49, type: 3}
       propertyPath: m_Name
       value: Screens
@@ -114186,8 +114198,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3340701681279022879}
-  m_LocalRotation: {x: -0.025344852, y: 0.5709905, z: -0.00017006975, w: -0.82056534}
-  m_LocalPosition: {x: -2.3234563, y: 1.3557142, z: -3.134495}
+  m_LocalRotation: {x: 0.5694042, y: 0.3908627, z: 0.29471904, w: -0.6604135}
+  m_LocalPosition: {x: 2.844229, y: 0.15857142, z: -6.0488153}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3340701681343389848}
