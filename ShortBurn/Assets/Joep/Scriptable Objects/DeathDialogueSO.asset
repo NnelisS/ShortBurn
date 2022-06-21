@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NormalColor: {r: 1, g: 1, b: 1, a: 1}
   Delay: 0.1
-  TimeTillRemove: 1
+  TimeTillRemove: 0.5
   Text:
   - You suck -5 tried.
   - You died.
