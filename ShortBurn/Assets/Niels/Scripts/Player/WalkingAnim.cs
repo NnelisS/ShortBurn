@@ -23,5 +23,7 @@ public class WalkingAnim : MonoBehaviour
             else
                 walkAnim.SetBool("IsWalking", false);
         }
+        else if (!charCont != isActiveAndEnabled)
+            walkAnim.SetBool("IsWalking", false);
     }
 }
