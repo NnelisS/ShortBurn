@@ -26163,9 +26163,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70068e7760821c64e89c73024a90c70e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Batteries:
-  - {fileID: 6182468818267425929}
-  - {fileID: 78083958}
 --- !u!64 &468155953
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -37898,15 +37895,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a52b6a7a8308364392e13395728e299, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Batteries:
-  - {fileID: 379806196}
-  - {fileID: 846906331}
-  - {fileID: 133069500}
-  RB:
-  - {fileID: 725444625}
-  - {fileID: 145337668}
-  - {fileID: 1834174413}
-  clawAnim: {fileID: 0}
 --- !u!95 &652731810
 Animator:
   serializedVersion: 3
@@ -38372,7 +38360,7 @@ Transform:
   m_LocalScale: {x: 3.5146, y: 3.5146, z: 3.5146}
   m_Children: []
   m_Father: {fileID: 6831185775963419911}
-  m_RootOrder: 189
+  m_RootOrder: 174
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
 --- !u!64 &681206024
 MeshCollider:
@@ -38609,7 +38597,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh93054
+  m_Name: pb_Mesh102172
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -69741,7 +69729,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &1276777671
 Animator:
   serializedVersion: 3
@@ -112959,7 +112947,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3340701680501986131}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
   m_Name: 
@@ -113400,7 +113388,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 60
+  field of view: 40
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -113581,8 +113569,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3340701681279022879}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.7779298, z: 0}
+  m_LocalRotation: {x: 0.5694042, y: 0.3908627, z: 0.29471904, w: -0.6604135}
+  m_LocalPosition: {x: 2.844229, y: 0.15857142, z: -6.0488153}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3340701681343389848}
@@ -115746,6 +115734,7 @@ Transform:
   - {fileID: 481223374}
   - {fileID: 622266675}
   - {fileID: 572450851}
+  - {fileID: 681206023}
   - {fileID: 70999594}
   - {fileID: 220102167}
   - {fileID: 776801405}
@@ -115761,7 +115750,6 @@ Transform:
   - {fileID: 109751126}
   - {fileID: 317569007}
   - {fileID: 993600479}
-  - {fileID: 681206023}
   - {fileID: 1198466056}
   - {fileID: 2090834214}
   - {fileID: 1876942539}
