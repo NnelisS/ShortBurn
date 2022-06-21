@@ -47,7 +47,7 @@ public class CheckPointManager : MonoBehaviour
         characterCont.enabled = false;
         characterController.enabled = false;
         fade.Play("Eyes");
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
         kill = false;
         cam.transform.localRotation = Quaternion.Euler(0, 0, 0);
         player.transform.position = CheckPoint.position;
