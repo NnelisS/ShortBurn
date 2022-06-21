@@ -8664,6 +8664,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a39a405f6371b0544a8e1d58d13f6e6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Impact: {fileID: 0}
 --- !u!114 &133069506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9410,6 +9411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a39a405f6371b0544a8e1d58d13f6e6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Impact: {fileID: 0}
 --- !u!54 &145337668
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9560,8 +9562,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 145559633}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -19.19, y: 12.49, z: 17.76}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -19.19, y: 12.49, z: 16.87}
+  m_LocalScale: {x: 1.3462, y: 1.3462, z: 1.3462}
   m_Children: []
   m_Father: {fileID: 1419174355}
   m_RootOrder: 32
@@ -9575,7 +9577,7 @@ MeshCollider:
   m_GameObject: {fileID: 145559633}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
@@ -22166,7 +22168,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6831185775963419911}
-  m_RootOrder: 97
+  m_RootOrder: 95
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &336776310
 GameObject:
@@ -22386,6 +22388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a39a405f6371b0544a8e1d58d13f6e6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Impact: {fileID: 0}
 --- !u!54 &353293152
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -23377,6 +23380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a39a405f6371b0544a8e1d58d13f6e6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Impact: {fileID: 0}
 --- !u!114 &379806201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38368,7 +38372,7 @@ Transform:
   m_LocalScale: {x: 3.5146, y: 3.5146, z: 3.5146}
   m_Children: []
   m_Father: {fileID: 6831185775963419911}
-  m_RootOrder: 196
+  m_RootOrder: 189
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
 --- !u!64 &681206024
 MeshCollider:
@@ -38605,7 +38609,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh38226
+  m_Name: pb_Mesh93054
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -40238,6 +40242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a39a405f6371b0544a8e1d58d13f6e6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Impact: {fileID: 0}
 --- !u!54 &725444625
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -43808,6 +43813,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a39a405f6371b0544a8e1d58d13f6e6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Impact: {fileID: 0}
 --- !u!114 &846906336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69797,7 +69803,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6379f7fc684e9e4987fd4f4a37adf63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  On: 0
   IsFinnished: 0
   UI: {fileID: 822697323}
   Pauser: {fileID: 3340701681223403471}
@@ -77767,7 +77772,7 @@ MeshCollider:
   m_GameObject: {fileID: 1469817558}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
@@ -87469,6 +87474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a39a405f6371b0544a8e1d58d13f6e6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Impact: {fileID: 0}
 --- !u!54 &1656548083
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -102060,6 +102066,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a39a405f6371b0544a8e1d58d13f6e6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Impact: {fileID: 0}
 --- !u!54 &1834174413
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -115660,9 +115667,9 @@ Transform:
   - {fileID: 251273059}
   - {fileID: 190651355}
   - {fileID: 352069044}
+  - {fileID: 336554369}
   - {fileID: 1719588542}
   - {fileID: 682866902}
-  - {fileID: 336554369}
   - {fileID: 62825688}
   - {fileID: 1139813965}
   - {fileID: 366576579}
@@ -115754,6 +115761,7 @@ Transform:
   - {fileID: 109751126}
   - {fileID: 317569007}
   - {fileID: 993600479}
+  - {fileID: 681206023}
   - {fileID: 1198466056}
   - {fileID: 2090834214}
   - {fileID: 1876942539}
@@ -115761,7 +115769,6 @@ Transform:
   - {fileID: 1733621247}
   - {fileID: 1555631785}
   - {fileID: 628212508}
-  - {fileID: 681206023}
   - {fileID: 1176783701}
   - {fileID: 1806916971}
   - {fileID: 1574848365}
