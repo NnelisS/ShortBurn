@@ -11,6 +11,9 @@ public class Pause : MonoBehaviour
     public Animator PanelAnim;
     public Animator CheckpointAnimBack;
 
+    public GameObject SettingPanel;
+    private bool inSettingM = false;
+
     private bool usable = true;
 
     [SerializeField] private GameObject blur;
@@ -35,6 +38,10 @@ public class Pause : MonoBehaviour
 
     void Update()
     {
+        if (inSettingM)
+            if (Input.GetKeyDown(KeyCode.Escape))
+                OutSettings();
+
         Bloom _tmp;
 
         if (Volume.profile.TryGet<Bloom>(out _tmp))
@@ -124,6 +131,18 @@ public class Pause : MonoBehaviour
         StartCoroutine(PauseAnim());
         Pausing = false;
         pausePanel.SetActive(false);
+    }
+
+    public void Settings()
+    {
+        SettingPanel.SetActive(true);
+        inSettingM = true;
+    }
+
+    public void OutSettings()
+    {
+        SettingPanel.SetActive(false);
+        inSettingM = false;
     }
 
     public void Restart()
