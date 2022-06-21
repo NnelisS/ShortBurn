@@ -50,7 +50,7 @@ Material:
     - Vector1_16570005d2e14023987d58c33ebae683: 0
     - Vector1_18e423665f714d53a0141bf4969cbdea: 0.23
     - Vector1_266f36a73f5d433b84fc34f3126f05a8: 0.844
-    - Vector1_3534fc0c69664f539c006eea0c30771a: 0
+    - Vector1_3534fc0c69664f539c006eea0c30771a: -0.41
     - Vector1_46b5f313140942a3a8db12bfcb701c61: 100
     - Vector1_555fba3984c24c6e97bcd24e483c1057: 1
     - Vector1_5767630befaa445b824ab98ac91a8126: -432.1
@@ -107,9 +107,9 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 0
     m_Colors:
-    - Color_1b453d9f900d41318cb9971c7b3a7f6f: {r: 0.25943398, g: 0.503585, b: 1, a: 1}
-    - Color_66baf3b93b4041b7897144e2b7180e64: {r: 0.40094337, g: 0.9251179, b: 1, a: 0.4745098}
-    - Color_7b92a655759a46418f4242867c783a84: {r: 0.82547176, g: 0.9718359, b: 1, a: 0.15686275}
+    - Color_1b453d9f900d41318cb9971c7b3a7f6f: {r: 0.41709682, g: 0.5618926, b: 0.8584906, a: 1}
+    - Color_66baf3b93b4041b7897144e2b7180e64: {r: 0.37864897, g: 0.5926535, b: 0.6320754, a: 0.43137255}
+    - Color_7b92a655759a46418f4242867c783a84: {r: 0.51372534, g: 0.8196079, b: 0.8588236, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: 1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
