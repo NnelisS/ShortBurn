@@ -15,6 +15,6 @@ public class VideoPlay : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
-            VidStart.enabled = false;
+            VidStart.enabled = true;
     }
 }
