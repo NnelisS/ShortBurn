@@ -15,6 +15,9 @@ public class VideoPlay : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
+        {
             VidStart.enabled = true;
+            VidStart.GetComponent<Material>().color = Color.white;
+        }
     }
 }
