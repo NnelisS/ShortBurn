@@ -26,6 +26,8 @@ public class Controller : MonoBehaviour
     private bool isRecording = false, isCloning = false;
     private Pickup pickup;
     private float oldTime;
+    private bool canClone = false;
+    [HideInInspector] public bool canRecord = false;
 
     private void Start()
     {
@@ -52,13 +54,14 @@ public class Controller : MonoBehaviour
                 isCloning = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.R) && pickup.heldObject == null)
+        if (Input.GetKeyDown(KeyCode.R) && pickup.heldObject == null && canRecord)
         {
             if (!isRecording)
             {
                 PropTimer = 0;
                 oldTime = 0;
                 isRecording = true;
+                canClone = true;
 
                 if (currentClones < maxClones)
                 {
@@ -76,7 +79,7 @@ public class Controller : MonoBehaviour
                 SafeState();
             }
         }
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.C) && canClone)
         {
             SelectedPlayer.gameObject.GetComponent<CloneSpawn>().ResetClone();
 
@@ -84,7 +87,7 @@ public class Controller : MonoBehaviour
             SafeState();
             StartPlayback();
         }
-        if (Input.GetKeyDown(KeyCode.P) && !isCloning)
+        if (Input.GetKeyDown(KeyCode.P) && !isCloning && canClone)
         {
             if (oldTime != 0)
                 PropTimer = oldTime;

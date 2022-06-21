@@ -22,6 +22,7 @@ public class BeginFase : MonoBehaviour
             timer -= Time.deltaTime;
             if (timer <= 0)
             {
+                FindObjectOfType<Controller>().canRecord = true;
                 virtualCam.enabled = true;
                 on = false;
             }
