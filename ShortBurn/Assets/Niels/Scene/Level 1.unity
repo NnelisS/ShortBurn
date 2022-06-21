@@ -50602,6 +50602,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7245241444538032305, guid: b7b7b6420c601254aa973c82c39058c0, type: 3}
   m_PrefabInstance: {fileID: 1005544594}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1007731656 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8989752016182804185, guid: 896b925c19ae64e4b9c9e7b2341a00c3, type: 3}
+  m_PrefabInstance: {fileID: 2122853743}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1009463416
 Mesh:
   m_ObjectHideFlags: 0
@@ -70009,7 +70014,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &1276777671
 Animator:
   serializedVersion: 3
@@ -111900,6 +111905,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 822697324}
     m_Modifications:
+    - target: {fileID: 622446102611304765, guid: 896b925c19ae64e4b9c9e7b2341a00c3, type: 3}
+      propertyPath: m_Color.a
+      value: 0.6117647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2286799720875610342, guid: 896b925c19ae64e4b9c9e7b2341a00c3, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2286799720875610342, guid: 896b925c19ae64e4b9c9e7b2341a00c3, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2286799720875610342, guid: 896b925c19ae64e4b9c9e7b2341a00c3, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2286799720875610342, guid: 896b925c19ae64e4b9c9e7b2341a00c3, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3075728221562338512, guid: 896b925c19ae64e4b9c9e7b2341a00c3, type: 3}
       propertyPath: m_Color.b
       value: 0
@@ -112083,6 +112108,18 @@ PrefabInstance:
     - target: {fileID: 3075728223439907417, guid: 896b925c19ae64e4b9c9e7b2341a00c3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Quit
+      objectReference: {fileID: 0}
+    - target: {fileID: 3696079414083310392, guid: 896b925c19ae64e4b9c9e7b2341a00c3, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.6615798
+      objectReference: {fileID: 0}
+    - target: {fileID: 5883907381863491635, guid: 896b925c19ae64e4b9c9e7b2341a00c3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3340701681223403471}
+    - target: {fileID: 5883907381863491635, guid: 896b925c19ae64e4b9c9e7b2341a00c3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Settings
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 896b925c19ae64e4b9c9e7b2341a00c3, type: 3}
@@ -113333,7 +113370,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3340701680501986131}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
   m_Name: 
@@ -113732,6 +113769,8 @@ MonoBehaviour:
   Pausing: 0
   PanelAnim: {fileID: 144913492}
   CheckpointAnimBack: {fileID: 1140490800}
+  SettingPanel: {fileID: 1007731656}
+  inSettingM: 0
   blur: {fileID: 1880989274}
   pausePanel: {fileID: 2141918374}
 --- !u!114 &3340701681223403472
@@ -113774,7 +113813,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 40
+  field of view: 60
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -113955,8 +113994,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3340701681279022879}
-  m_LocalRotation: {x: 0.5694042, y: 0.3908627, z: 0.29471904, w: -0.6604135}
-  m_LocalPosition: {x: 2.844229, y: 0.15857142, z: -6.0488153}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.7779298, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3340701681343389848}

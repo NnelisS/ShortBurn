@@ -12,7 +12,7 @@ public class Pause : MonoBehaviour
     public Animator CheckpointAnimBack;
 
     public GameObject SettingPanel;
-    private bool inSettingM = false;
+    public bool inSettingM = false;
 
     private bool usable = true;
 
@@ -38,10 +38,6 @@ public class Pause : MonoBehaviour
 
     void Update()
     {
-        if (inSettingM)
-            if (Input.GetKeyDown(KeyCode.Escape))
-                OutSettings();
-
         Bloom _tmp;
 
         if (Volume.profile.TryGet<Bloom>(out _tmp))
@@ -69,7 +65,7 @@ public class Pause : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape) && usable)
+        if (Input.GetKeyDown(KeyCode.Escape) && usable && inSettingM == false)
         {
             if (pausePanel.activeInHierarchy)
             {
@@ -86,6 +82,10 @@ public class Pause : MonoBehaviour
                 pausePanel.SetActive(true);
             }
         }
+
+        if (inSettingM)
+            if (Input.GetKeyDown(KeyCode.Escape))
+                OutSettings();
     }
 
     private IEnumerator PauseAnim()
