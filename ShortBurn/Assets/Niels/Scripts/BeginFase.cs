@@ -8,7 +8,7 @@ public class BeginFase : MonoBehaviour
     public CinemachineVirtualCamera virtualCam;
 
     private bool on = false;
-    private float timer = 34;
+    private float timer = 23;
 
     void Start()
     {
