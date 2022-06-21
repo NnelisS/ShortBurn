@@ -27,7 +27,7 @@ public class Controller : MonoBehaviour
     private Pickup pickup;
     private float oldTime;
     private bool canClone = false;
-    [HideInInspector] public bool canRecord = false;
+    public bool canRecord = false;
 
     private void Start()
     {
@@ -120,7 +120,8 @@ public class Controller : MonoBehaviour
     public void DestroyClone()
     {
         ResetPlayer();
-        clone.SetActive(false);
+        if (clone != null)
+            clone.SetActive(false);
     }
 
     private void Timer(bool revert)
