@@ -25,7 +25,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3137436120005713588}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -9.407413, y: 0.059, z: 9.939}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 20d5dfbdefa4daa4c812a3289a3787f0, type: 2}
+  - {fileID: 2100000, guid: 73c176f402d2c2f4d929aa5da7585d17, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -209,12 +209,12 @@ HingeJoint:
   m_Anchor: {x: 0, y: 2.1976504, z: 0}
   m_Axis: {x: 0, y: 0.2, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -10.326412, y: 2.2566504, z: 9.9470005}
+  m_ConnectedAnchor: {x: -10.592488, y: 2.2632442, z: 9.970785}
   m_UseSpring: 1
   m_Spring:
     spring: 2
     damper: 1
-    targetPosition: 85
+    targetPosition: 0
   m_UseMotor: 0
   m_Motor:
     targetVelocity: 0
