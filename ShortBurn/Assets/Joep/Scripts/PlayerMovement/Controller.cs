@@ -80,7 +80,7 @@ public class Controller : MonoBehaviour
                 SafeState();
             }
         }
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.C) && !isCloning)
         {
             if (!canClone)
             {
@@ -94,6 +94,10 @@ public class Controller : MonoBehaviour
             }
 
             isCloning = true;
+
+            if (oldTime != 0)
+                PropTimer = oldTime;
+            
             SafeState();
             StartPlayback();
         }
