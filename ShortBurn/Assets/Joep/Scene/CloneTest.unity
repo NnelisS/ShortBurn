@@ -1901,6 +1901,8 @@ MonoBehaviour:
   Pausing: 0
   PanelAnim: {fileID: 0}
   CheckpointAnimBack: {fileID: 0}
+  SettingPanel: {fileID: 0}
+  inSettingM: 0
   blur: {fileID: 0}
   pausePanel: {fileID: 0}
 --- !u!114 &1099794820
@@ -3880,6 +3882,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e25bf1b180aac347a56d7251a813b1a, type: 3}
+--- !u!1001 &3208512847553906668
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4246707191347727824, guid: d936656551333324899b7b16b5cfae4a, type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4246707191347727824, guid: d936656551333324899b7b16b5cfae4a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.2233148
+      objectReference: {fileID: 0}
+    - target: {fileID: 4246707191347727824, guid: d936656551333324899b7b16b5cfae4a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 4246707191347727824, guid: d936656551333324899b7b16b5cfae4a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 12.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 4246707191347727824, guid: d936656551333324899b7b16b5cfae4a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4246707191347727824, guid: d936656551333324899b7b16b5cfae4a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4246707191347727824, guid: d936656551333324899b7b16b5cfae4a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4246707191347727824, guid: d936656551333324899b7b16b5cfae4a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4246707191347727824, guid: d936656551333324899b7b16b5cfae4a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4246707191347727824, guid: d936656551333324899b7b16b5cfae4a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4246707191347727824, guid: d936656551333324899b7b16b5cfae4a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4319320679039065709, guid: d936656551333324899b7b16b5cfae4a, type: 3}
+      propertyPath: m_Name
+      value: CloneExplosion
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d936656551333324899b7b16b5cfae4a, type: 3}
 --- !u!136 &3340701680624285002
 CapsuleCollider:
   m_ObjectHideFlags: 0

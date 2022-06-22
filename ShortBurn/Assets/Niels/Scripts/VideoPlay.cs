@@ -6,6 +6,9 @@ using UnityEngine.Video;
 public class VideoPlay : MonoBehaviour
 {
     public VideoPlayer VidStart;
+    public GameObject screen;
+
+    public Material White;
 
     private void Start()
     {
@@ -15,6 +18,9 @@ public class VideoPlay : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
-            VidStart.enabled = false;
+        {
+            VidStart.enabled = true;
+            screen.GetComponent<MeshRenderer>().material = White;
+        }
     }
 }

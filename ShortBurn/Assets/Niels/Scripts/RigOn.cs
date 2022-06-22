@@ -6,6 +6,8 @@ public class RigOn : MonoBehaviour
 {
     public Rigidbody rb;
 
+    public ObjectRespawn Cube;
+
     void Start()
     {
         rb.useGravity = false;
@@ -14,6 +16,11 @@ public class RigOn : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Clone") || other.gameObject.CompareTag("CubeNormal"))
-            rb.useGravity = true;
+        {
+            Cube.ResetObject();
+
+            if (rb.useGravity == false)
+                rb.useGravity = true;
+        }
     }
 }
