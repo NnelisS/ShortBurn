@@ -87,6 +87,9 @@ public class Controller : MonoBehaviour
             SafeState();
             StartPlayback();
         }
+        else
+            AudioManager.instance.Play("CantPlay");
+
         if (Input.GetKeyDown(KeyCode.P) && !isCloning && canClone)
         {
             if (oldTime != 0)
@@ -96,6 +99,8 @@ public class Controller : MonoBehaviour
             SafeState();
             StartPlayback();
         }
+        else
+            AudioManager.instance.Play("CantPlay");
     }
 
     public void startRecording()
