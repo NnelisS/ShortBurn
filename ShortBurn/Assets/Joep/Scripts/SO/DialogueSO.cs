@@ -12,4 +12,11 @@ public class DialogueSO : ScriptableObject
 
     [TextArea(2, 4)]
     public string[] Text;
+
+    public Test[] tests;
+}
+
+public class Test
+{
+    public float textSPeed;
 }

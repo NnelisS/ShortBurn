@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EndDialogue : MonoBehaviour
 {
-    public DialogueSystem diaSys;
+    public DialogueSystemOld diaSys;
 
     void Start()
     {

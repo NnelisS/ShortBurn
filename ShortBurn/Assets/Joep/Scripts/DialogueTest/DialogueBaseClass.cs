@@ -6,12 +6,16 @@ namespace DialogueSystem
 {
     public class DialogueBaseClass : MonoBehaviour
     {
-        private IEnumerator WriteText(string _input, TextMeshProUGUI _textHolder)
+        protected IEnumerator WriteText(string _input, TextMeshProUGUI _textHolder, Color _textColor, TMP_FontAsset _font, float _delay, AudioClip _sound)
         {
+            _textHolder.font = _font;
+            _textHolder.color = _textColor;
+
             for (int i = 0; i < _input.Length; i++)
             {
                 _textHolder.text += _input[i];
-                yield return new WaitForSeconds(0.1f);
+                SoundManager.instance.PlaySound(_sound);
+                yield return new WaitForSeconds(_delay);
             }
         }
     }
