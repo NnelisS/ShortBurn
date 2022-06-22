@@ -809,6 +809,16 @@ MonoBehaviour:
     spatialBlend: 0
     maxDistance: 0
     source: {fileID: 0}
+  - name: CantPlay
+    clip: {fileID: 8300000, guid: 741538ba5574c564c96dd231419bc6bc, type: 3}
+    parent: {fileID: 0}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    dontCheckPlaying: 0
+    spatialBlend: 0
+    maxDistance: 0
+    source: {fileID: 0}
 --- !u!1 &8767410975662909349
 GameObject:
   m_ObjectHideFlags: 0
