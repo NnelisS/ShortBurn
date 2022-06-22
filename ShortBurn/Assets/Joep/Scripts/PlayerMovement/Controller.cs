@@ -17,6 +17,7 @@ public class Controller : MonoBehaviour
     [Header("Clone Info")]
     [SerializeField] private int maxClones = 1;
     [SerializeField] private GameObject clonePrefab;
+    [SerializeField] private ParticleSystem cloneExplosion;
 
     public float PropTimer { get; private set; }
     public float MaxRecordTime;
@@ -79,19 +80,35 @@ public class Controller : MonoBehaviour
                 SafeState();
             }
         }
-        if (Input.GetKeyDown(KeyCode.C) && canClone)
+        if (Input.GetKeyDown(KeyCode.C) && !isCloning)
         {
-            SelectedPlayer.gameObject.GetComponent<CloneSpawn>().ResetClone();
+            if (!canClone)
+            {
+                AudioManager.instance.Play("CantPlay");
+                return;
+            }
+
+            if (clone != null)
+            {
+                SelectedPlayer.gameObject.GetComponent<CloneSpawn>().ResetClone();
+            }
 
             isCloning = true;
+
+            if (oldTime != 0)
+                PropTimer = oldTime;
+            
             SafeState();
             StartPlayback();
         }
-        else
-            AudioManager.instance.Play("CantPlay");
-
-        if (Input.GetKeyDown(KeyCode.P) && !isCloning && canClone)
+        else if (Input.GetKeyDown(KeyCode.P) && !isCloning)
         {
+            if (!canClone)
+            {
+                AudioManager.instance.Play("CantPlay");
+                return;
+            }
+
             if (oldTime != 0)
                 PropTimer = oldTime;
 
@@ -99,8 +116,6 @@ public class Controller : MonoBehaviour
             SafeState();
             StartPlayback();
         }
-        else
-            AudioManager.instance.Play("CantPlay");
     }
 
     public void startRecording()
@@ -126,7 +141,12 @@ public class Controller : MonoBehaviour
     {
         ResetPlayer();
         if (clone != null)
+        {
             clone.SetActive(false);
+            AudioManager.instance.Play("Electricity");
+            cloneExplosion.transform.position = clone.transform.position;
+            cloneExplosion.Play();
+        }
     }
 
     private void Timer(bool revert)

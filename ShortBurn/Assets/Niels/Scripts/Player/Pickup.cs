@@ -240,7 +240,10 @@ public class Pickup : MonoBehaviour
         heldObject = null;
 
         if (RotateEnabled)
+        {
             playerL.ChangeMovement();
+            RotateEnabled = false;
+        }
     }
 
     public void DropObj()
