@@ -3,7 +3,7 @@ using UnityEngine;
 using TMPro;
 using System;
 
-public class DialogueSystem : MonoBehaviour
+public class DialogueSystemOld : MonoBehaviour
 {
     public DialogueSO Messages;
 
