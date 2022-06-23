@@ -12,9 +12,6 @@ public class Beginning : MonoBehaviour
     private CharacterController charController;
     private PlayerLook playerL;
 
-    public GameObject Recordin;
-    public GameObject CloneSpawn;
-
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -31,9 +28,6 @@ public class Beginning : MonoBehaviour
         charCont.enabled = false;
         charController.enabled = false;
         playerL.enabled = false;
-
-        Recordin.SetActive(false);
-        CloneSpawn.SetActive(false);
     }
 
     public void TurnOnComponents()
@@ -44,7 +38,5 @@ public class Beginning : MonoBehaviour
         UI.SetActive(true);
         Pauser.enabled = true;
         charController.SoundOn = true;
-        Recordin.SetActive(true);
-        CloneSpawn.SetActive(true);
     }
 }
