@@ -819,6 +819,26 @@ MonoBehaviour:
     spatialBlend: 0
     maxDistance: 0
     source: {fileID: 0}
+  - name: Menu Music
+    clip: {fileID: 8300000, guid: 761493d69a2c81342b4bf15ad300e03e, type: 3}
+    parent: {fileID: 0}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    dontCheckPlaying: 0
+    spatialBlend: 0
+    maxDistance: 0
+    source: {fileID: 0}
+  - name: Pc On
+    clip: {fileID: 8300000, guid: 1b1aacbff6307fc4daefe652fd8f90f0, type: 3}
+    parent: {fileID: 0}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    dontCheckPlaying: 0
+    spatialBlend: 0
+    maxDistance: 0
+    source: {fileID: 0}
 --- !u!1 &8767410975662909349
 GameObject:
   m_ObjectHideFlags: 0

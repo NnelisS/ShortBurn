@@ -8,6 +8,7 @@ public class CharacterController : Mover
     public bool IsCrouched = false;
     public bool CrouchUsable = true;
     public bool InCrouch = false;
+    public bool SoundOn = false;
 
     [HideInInspector] public GameObject Player;
 
@@ -29,7 +30,7 @@ public class CharacterController : Mover
     /// </summary>
     public void Move(PlayerInputStruct _inputs)
     {
-        if (!IsClone)
+        if (!IsClone && SoundOn)
             PlayerAudio();
 
         if (IsClone)

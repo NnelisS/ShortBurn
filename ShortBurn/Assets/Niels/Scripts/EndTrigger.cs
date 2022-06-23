@@ -46,6 +46,7 @@ public class EndTrigger : MonoBehaviour
             anim.enabled = true;
             UI.SetActive(false);
             Pauser.enabled = false;
+            charController.SoundOn = false;
         }
     }
 
