@@ -27,14 +27,17 @@ public class AudioManager : MonoBehaviour
             s.source.maxDistance = s.maxDistance;
             s.source.spatialBlend = s.spatialBlend;
 
-            if (s.lerpUp)
-                StartCoroutine(LerpUp(s.source, s.volume));
-            if (s.lerpDown)
-                StartCoroutine(LerpDown(s.source, s.StartLerpAt));
+            if (!s.lerpOnStart)
+            {
+                if (s.lerpUp)
+                    StartCoroutine(LerpUp(s.source, s.volume));
+                if (s.lerpDown)
+                    StartCoroutine(LerpDown(s.source, s.StartLerpAt));
+            }
         }
     }
 
-    private IEnumerator LerpDown(AudioSource _source, float _waitTime)
+    public IEnumerator LerpDown(AudioSource _source, float _waitTime)
     {
         yield return new WaitForSeconds(_waitTime);
 
@@ -44,7 +47,8 @@ public class AudioManager : MonoBehaviour
             yield return null;
         }
     }
-    private IEnumerator LerpUp(AudioSource _source, float _startVolume)
+
+    public IEnumerator LerpUp(AudioSource _source, float _startVolume)
     {
         _source.volume = 0;
 
@@ -58,6 +62,12 @@ public class AudioManager : MonoBehaviour
     public void Play(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
+
+        if (s.lerpOnStart)
+        {
+            StartCoroutine(LerpUp(s.source, s.volume));
+            StartCoroutine(LerpDown(s.source, s.StartLerpAt));
+        }
 
         if (s.dontCheckPlaying && s != null || !s.source.isPlaying && s != null)
             s.source.Play();
@@ -97,6 +107,7 @@ public class Sound
 
     [HideInInspector] public AudioSource source;
 
+    public bool lerpOnStart;
     public bool lerpUp;
     public bool lerpDown;
     public float StartLerpAt;
