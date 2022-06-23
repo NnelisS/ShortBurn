@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 7243776421869766420}
   - component: {fileID: 5992263413729511601}
   - component: {fileID: 8416168437482142843}
+  - component: {fileID: 3413162998103286831}
+  - component: {fileID: 3126721527416098440}
   m_Layer: 0
   m_Name: SM_Grond_04 (1)
   m_TagString: Untagged
@@ -82,3 +84,29 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3413162998103286831
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8056025946111974830}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5418403, y: 0.8432282, z: 1.6143166}
+  m_Center: {x: -0.7709204, y: -0.4216141, z: -0.80715805}
+--- !u!65 &3126721527416098440
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8056025946111974830}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.95660114, y: 0.8432282, z: 1.0107139}
+  m_Center: {x: -2.0216994, y: -0.4216141, z: -0.5053567}

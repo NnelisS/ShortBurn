@@ -17,7 +17,7 @@ public class CloneSpawn : MonoBehaviour
 
     private void InitializeClone(GameObject _player)
     {
-        clone.GetComponent<MeshRenderer>().enabled = false;
+        clone.GetComponentInChildren<MeshRenderer>().enabled = false;
         clone.GetComponent<CharacterController>().Player = _player;
 
         for (int i = 0; i < clone.transform.childCount; i++)

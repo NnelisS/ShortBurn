@@ -13,13 +13,18 @@ public class AudioManager : MonoBehaviour
 
         foreach (Sound s in sounds)
         {
-            s.source = s.parent.gameObject.AddComponent<AudioSource>();
+            if (s.parent != null)
+                s.source = s.parent.gameObject.AddComponent<AudioSource>();
+            else
+                s.source = gameObject.AddComponent<AudioSource>();
+
             s.source.clip = s.clip;
 
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
-            s.source.spatialBlend = s.spacialBlend;
+            s.source.maxDistance = s.maxDistance;
+            s.source.spatialBlend = s.spatialBlend;
         }
     }
 
@@ -27,7 +32,7 @@ public class AudioManager : MonoBehaviour
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
 
-        if (!s.source.isPlaying && s != null)
+        if (s.dontCheckPlaying && s != null || !s.source.isPlaying && s != null)
             s.source.Play();
     }
 
@@ -55,10 +60,13 @@ public class Sound
     [Range(0.1f, 3)]
     public float pitch;
 
-    [Range(0, 1)]
-    public float spacialBlend;
-
     public bool loop = false;
+    public bool dontCheckPlaying;
+
+    [Range(0, 1), Header("3D settings")]
+    public float spatialBlend;
+    [Range(5, 100)]
+    public float maxDistance;
 
     [HideInInspector] public AudioSource source;
 }

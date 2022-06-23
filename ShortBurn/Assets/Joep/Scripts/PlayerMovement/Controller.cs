@@ -17,6 +17,7 @@ public class Controller : MonoBehaviour
     [Header("Clone Info")]
     [SerializeField] private int maxClones = 1;
     [SerializeField] private GameObject clonePrefab;
+    [SerializeField] private ParticleSystem cloneExplosion;
 
     public float PropTimer { get; private set; }
     public float MaxRecordTime;
@@ -26,6 +27,8 @@ public class Controller : MonoBehaviour
     private bool isRecording = false, isCloning = false;
     private Pickup pickup;
     private float oldTime;
+    private bool canClone = false;
+    public bool canRecord = false;
 
     private void Start()
     {
@@ -52,13 +55,14 @@ public class Controller : MonoBehaviour
                 isCloning = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.R) && pickup.heldObject == null)
+        if (Input.GetKeyDown(KeyCode.R) && pickup.heldObject == null && canRecord)
         {
             if (!isRecording)
             {
                 PropTimer = 0;
                 oldTime = 0;
                 isRecording = true;
+                canClone = true;
 
                 if (currentClones < maxClones)
                 {
@@ -71,18 +75,40 @@ public class Controller : MonoBehaviour
                 startRecording();
             }
             else
+            {
+                OnSave?.Invoke();
                 SafeState();
+            }
         }
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.C) && !isCloning)
         {
-            SelectedPlayer.gameObject.GetComponent<CloneSpawn>().ResetClone();
+            if (!canClone)
+            {
+                AudioManager.instance.Play("CantPlay");
+                return;
+            }
+
+            if (clone != null)
+            {
+                SelectedPlayer.gameObject.GetComponent<CloneSpawn>().ResetClone();
+            }
 
             isCloning = true;
+
+            if (oldTime != 0)
+                PropTimer = oldTime;
+            
             SafeState();
             StartPlayback();
         }
-        if (Input.GetKeyDown(KeyCode.P) && !isCloning)
+        else if (Input.GetKeyDown(KeyCode.P) && !isCloning)
         {
+            if (!canClone)
+            {
+                AudioManager.instance.Play("CantPlay");
+                return;
+            }
+
             if (oldTime != 0)
                 PropTimer = oldTime;
 
@@ -114,7 +140,13 @@ public class Controller : MonoBehaviour
     public void DestroyClone()
     {
         ResetPlayer();
-        clone.SetActive(false);
+        if (clone != null)
+        {
+            clone.SetActive(false);
+            AudioManager.instance.Play("Electricity");
+            cloneExplosion.transform.position = clone.transform.position;
+            cloneExplosion.Play();
+        }
     }
 
     private void Timer(bool revert)
@@ -130,7 +162,6 @@ public class Controller : MonoBehaviour
 
     private void SafeState()
     {
-        OnSave?.Invoke();
         ResetPlayer();
         isRecording = false;
         oldTime = PropTimer;

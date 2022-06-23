@@ -5,9 +5,11 @@ using UnityEngine;
 public class Kill : MonoBehaviour
 {
     private CheckPointManager checkPointManager;
+    private Controller cont;
 
     void Start()
     {
+        cont = FindObjectOfType<Controller>();
         checkPointManager = FindObjectOfType<CheckPointManager>();    
     }
 
@@ -15,5 +17,8 @@ public class Kill : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
             checkPointManager.Respawn();
+
+        if (other.gameObject.CompareTag("Clone"))
+            cont.DestroyClone();
     }
 }

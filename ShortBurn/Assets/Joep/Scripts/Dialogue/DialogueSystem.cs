@@ -8,7 +8,7 @@ public class DialogueSystem : MonoBehaviour
     public DialogueSO Messages;
 
     public TextMeshProUGUI dialogueText;
-    
+
     [Header("Private")]
     private string currDialogue;
     private string oldString;
@@ -16,12 +16,6 @@ public class DialogueSystem : MonoBehaviour
     private void Start()
     {
         dialogueText.color = Messages.NormalColor;
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.T))
-            PlayRandomDialogue();
     }
 
     /// <summary>
@@ -33,7 +27,7 @@ public class DialogueSystem : MonoBehaviour
         currDialogue = "";
         dialogueText.text = currDialogue;
 
-        StartCoroutine(TypeText(UnityEngine.Random.Range(0, Messages.Dialogues.Length)));
+        StartCoroutine(TypeText(UnityEngine.Random.Range(0, Messages.Text.Length)));
     }
 
     /// <summary>
@@ -46,9 +40,11 @@ public class DialogueSystem : MonoBehaviour
         if (currDialogue != "") //If there already is dialogue
         {
             //Type the remaining text
-            for (int i = oldString.Length + 3; i < Messages.Dialogues[_messageCount].Text.Length; i++)
+            for (int i = oldString.Length + 3; i < Messages.Text[_messageCount].Length; i++)
             {
-                currDialogue += Messages.Dialogues[_messageCount].Text.Substring(i, 1);
+                if (!CheckCharacter(Messages.Text[_messageCount].Substring(i, 1), ""))
+                    AudioManager.instance.Play("Type");
+                currDialogue += Messages.Text[_messageCount].Substring(i, 1);
                 dialogueText.text = currDialogue;
                 yield return new WaitForSeconds(Messages.Delay);
             }
@@ -60,21 +56,21 @@ public class DialogueSystem : MonoBehaviour
         }
         else
         {
-            for (int i = 0; i < Messages.Dialogues[_messageCount].Text.Length + 1; i++)
+            for (int i = 0; i < Messages.Text[_messageCount].Length + 1; i++)
             {
-                if (i != Messages.Dialogues[_messageCount].Text.Length)
+                if (i != Messages.Text[_messageCount].Length)
                 {
-                    string _currChar = Messages.Dialogues[_messageCount].Text.Substring(i, 1);
+                    string _currChar = Messages.Text[_messageCount].Substring(i, 1);
 
-                    if (CheckCharacter(_currChar)) //Check the current character
+                    if (CheckCharacter(_currChar, "-")) //Check the current character
                     {
                         oldString = currDialogue;
 
-                        string _removeAmount = Messages.Dialogues[_messageCount].Text.Substring(i + 1, 1);
+                        string _removeAmount = Messages.Text[_messageCount].Substring(i + 1, 1);
 
                         StartCoroutine(RemoveText(_messageCount, Int32.Parse(_removeAmount.ToString())));
 
-                        i = Messages.Dialogues[_messageCount].Text.Length + 1;
+                        i = Messages.Text[_messageCount].Length + 1;
                         _isDone = true;
                     }
                 }
@@ -82,7 +78,9 @@ public class DialogueSystem : MonoBehaviour
                 if (!_isDone)
                 {
                     //Add the letter to the string and text
-                    currDialogue = Messages.Dialogues[_messageCount].Text.Substring(0, i);
+                    if (!CheckCharacter(Messages.Text[_messageCount].Substring(0, i), ""))
+                        AudioManager.instance.Play("Type");
+                    currDialogue = Messages.Text[_messageCount].Substring(0, i);
                     dialogueText.text = currDialogue;
                     yield return new WaitForSeconds(Messages.Delay);
                 }
@@ -103,7 +101,7 @@ public class DialogueSystem : MonoBehaviour
     private IEnumerator RemoveText(int _messageCount, int _removeCount = 0)
     {
         if (_removeCount == 0)
-            _removeCount = Messages.Dialogues[_messageCount].Text.Length;
+            _removeCount = Messages.Text[_messageCount].Length;
 
         for (int i = 0; i < _removeCount; i++) //Remove the giving amount of letters
         {
@@ -111,10 +109,12 @@ public class DialogueSystem : MonoBehaviour
                 currDialogue = currDialogue.Remove(currDialogue.Length - 1);
 
             dialogueText.text = currDialogue;
+            if (!CheckCharacter(Messages.Text[_messageCount].Substring(i, 1), ""))
+                AudioManager.instance.Play("RemoveText");
             yield return new WaitForSeconds(Messages.Delay / 2);
         }
 
-        if (_removeCount != Messages.Dialogues[_messageCount].Text.Length) //Start typing if there is still text
+        if (_removeCount != Messages.Text[_messageCount].Length) //Start typing if there is still text
             StartCoroutine(TypeText(_messageCount));
 
         yield return new WaitForSeconds(Messages.Delay);
@@ -123,9 +123,9 @@ public class DialogueSystem : MonoBehaviour
     /// <summary>
     /// Checks the given character and if its - return true
     /// </summary>
-    private bool CheckCharacter(string _character)
+    private bool CheckCharacter(string _character, string _check)
     {
-        if (_character == "-")
+        if (_character == _check)
             return true;
 
         return false;

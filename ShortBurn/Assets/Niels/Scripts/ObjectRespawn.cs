@@ -15,8 +15,13 @@ public class ObjectRespawn : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Water"))
         {
-            transform.position = backPos;
-            GetComponent<Rigidbody>().velocity = Vector3.zero;
+            ResetObject();
         }
+    }
+
+    public void ResetObject()
+    {
+        transform.position = backPos;
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
     }
 }
