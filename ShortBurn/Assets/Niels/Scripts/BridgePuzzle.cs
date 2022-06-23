@@ -26,23 +26,10 @@ public class BridgePuzzle : MonoBehaviour
     {
         if (activated)
         {
-            if (timer > 0.1f && ClonePuzzle == true)
-            {
-                vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = 2f;
-                vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = 25f;
-            }
             if (ClonePuzzle)
                 Bridge.transform.localPosition = Vector3.MoveTowards(Bridge.transform.localPosition, GoTo.transform.localPosition, 0.3f * Time.deltaTime);
             else
                 Bridge.transform.localPosition = Vector3.MoveTowards(Bridge.transform.localPosition, GoTo.transform.localPosition, 1 * Time.deltaTime);
-
-            timer -= Time.deltaTime;
-            if (timer <= 0 && ClonePuzzle == true)
-            {
-                timer = 0;
-                vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = 0.7f;
-                vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = 0.5f;
-            }
         }
         else
         {
@@ -58,10 +45,7 @@ public class BridgePuzzle : MonoBehaviour
             if (other.gameObject.CompareTag("Clone"))
             {
                 if (ClonePuzzle)
-                {
-                    if (!Ending.isPlaying)
-                        Ending.Play(0);
-                }
+                    Ending.enabled = true;
             }
         }
     }

@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Beginning : MonoBehaviour
 {    
-    public bool IsFinnished = false;
-
     public GameObject UI;
     public Pause Pauser;
     public Transform CamRot;
@@ -16,6 +14,9 @@ public class Beginning : MonoBehaviour
 
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
         CamRot.localRotation = Quaternion.Euler(0, 0, 0);
 
         UI.SetActive(false);
@@ -29,15 +30,13 @@ public class Beginning : MonoBehaviour
         playerL.enabled = false;
     }
 
-    void Update()
+    public void TurnOnComponents()
     {
-        if (IsFinnished)
-        {
-            charCont.enabled = true;
-            charController.enabled = true;
-            playerL.enabled = true;
-            UI.SetActive(true);
-            Pauser.enabled = true;
-        }    
+        charCont.enabled = true;
+        charController.enabled = true;
+        playerL.enabled = true;
+        UI.SetActive(true);
+        Pauser.enabled = true;
+        charController.SoundOn = true;
     }
 }
