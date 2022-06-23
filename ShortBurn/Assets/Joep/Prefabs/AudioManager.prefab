@@ -424,7 +424,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 35370ad9f4b38a2468e0c0f447976b85, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -550,7 +550,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d8bec14c75f71d94c81602439346dea2, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 5df90fa4bac1b2547bc09e7b16a0b2f4, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.1
   m_Pitch: 1
@@ -719,6 +719,10 @@ MonoBehaviour:
     spatialBlend: 0
     maxDistance: 0
     source: {fileID: 0}
+    lerpOnStart: 0
+    lerpUp: 0
+    lerpDown: 0
+    StartLerpAt: 0
   - name: Record
     clip: {fileID: 8300000, guid: a58491e148b72944d86e065a64e2645c, type: 3}
     parent: {fileID: 0}
@@ -729,6 +733,10 @@ MonoBehaviour:
     spatialBlend: 0
     maxDistance: 0
     source: {fileID: 0}
+    lerpOnStart: 0
+    lerpUp: 0
+    lerpDown: 0
+    StartLerpAt: 0
   - name: StartRecording
     clip: {fileID: 8300000, guid: 15b8878712d59434ba2abf94688b3392, type: 3}
     parent: {fileID: 0}
@@ -739,6 +747,10 @@ MonoBehaviour:
     spatialBlend: 0
     maxDistance: 0
     source: {fileID: 0}
+    lerpOnStart: 0
+    lerpUp: 0
+    lerpDown: 0
+    StartLerpAt: 0
   - name: StopRecording
     clip: {fileID: 8300000, guid: f98f5bba59226e94aaf56080feed1993, type: 3}
     parent: {fileID: 0}
@@ -749,6 +761,10 @@ MonoBehaviour:
     spatialBlend: 0
     maxDistance: 0
     source: {fileID: 0}
+    lerpOnStart: 0
+    lerpUp: 0
+    lerpDown: 0
+    StartLerpAt: 0
   - name: PressurePlate
     clip: {fileID: 8300000, guid: 9e2fe3e356c71c34aba4cc7bd16a46e0, type: 3}
     parent: {fileID: 0}
@@ -759,6 +775,10 @@ MonoBehaviour:
     spatialBlend: 0
     maxDistance: 0
     source: {fileID: 0}
+    lerpOnStart: 0
+    lerpUp: 0
+    lerpDown: 0
+    StartLerpAt: 0
   - name: ElevatorOpen
     clip: {fileID: 8300000, guid: 761ba364d6f3f05438a211d2b478867a, type: 3}
     parent: {fileID: 0}
@@ -769,6 +789,10 @@ MonoBehaviour:
     spatialBlend: 0
     maxDistance: 0
     source: {fileID: 0}
+    lerpOnStart: 0
+    lerpUp: 0
+    lerpDown: 0
+    StartLerpAt: 0
   - name: ElevatorMusic
     clip: {fileID: 8300000, guid: 05688691edb2172498bb29ee2f2a246e, type: 3}
     parent: {fileID: 0}
@@ -779,6 +803,10 @@ MonoBehaviour:
     spatialBlend: 0
     maxDistance: 0
     source: {fileID: 0}
+    lerpOnStart: 0
+    lerpUp: 0
+    lerpDown: 0
+    StartLerpAt: 0
   - name: ElevatorEnd
     clip: {fileID: 8300000, guid: 9b133310eee999e4ab9d579744580fc1, type: 3}
     parent: {fileID: 0}
@@ -789,6 +817,10 @@ MonoBehaviour:
     spatialBlend: 0
     maxDistance: 0
     source: {fileID: 0}
+    lerpOnStart: 0
+    lerpUp: 0
+    lerpDown: 0
+    StartLerpAt: 0
   - name: ElevatorEnd
     clip: {fileID: 8300000, guid: 9b133310eee999e4ab9d579744580fc1, type: 3}
     parent: {fileID: 0}
@@ -799,6 +831,10 @@ MonoBehaviour:
     spatialBlend: 0
     maxDistance: 0
     source: {fileID: 0}
+    lerpOnStart: 0
+    lerpUp: 0
+    lerpDown: 0
+    StartLerpAt: 0
   - name: ElevatorCrash
     clip: {fileID: 8300000, guid: 9b95e1acafdf3ec4388e6f751ee9ce43, type: 3}
     parent: {fileID: 0}
@@ -809,6 +845,10 @@ MonoBehaviour:
     spatialBlend: 0
     maxDistance: 0
     source: {fileID: 0}
+    lerpOnStart: 0
+    lerpUp: 0
+    lerpDown: 0
+    StartLerpAt: 0
   - name: CantPlay
     clip: {fileID: 8300000, guid: 741538ba5574c564c96dd231419bc6bc, type: 3}
     parent: {fileID: 0}
@@ -819,6 +859,10 @@ MonoBehaviour:
     spatialBlend: 0
     maxDistance: 0
     source: {fileID: 0}
+    lerpOnStart: 0
+    lerpUp: 0
+    lerpDown: 0
+    StartLerpAt: 0
   - name: Menu Music
     clip: {fileID: 8300000, guid: 761493d69a2c81342b4bf15ad300e03e, type: 3}
     parent: {fileID: 0}
@@ -829,6 +873,10 @@ MonoBehaviour:
     spatialBlend: 0
     maxDistance: 0
     source: {fileID: 0}
+    lerpOnStart: 0
+    lerpUp: 0
+    lerpDown: 0
+    StartLerpAt: 0
   - name: Pc On
     clip: {fileID: 8300000, guid: 1b1aacbff6307fc4daefe652fd8f90f0, type: 3}
     parent: {fileID: 0}
@@ -839,6 +887,10 @@ MonoBehaviour:
     spatialBlend: 0
     maxDistance: 0
     source: {fileID: 0}
+    lerpOnStart: 0
+    lerpUp: 0
+    lerpDown: 0
+    StartLerpAt: 0
 --- !u!1 &8767410975662909349
 GameObject:
   m_ObjectHideFlags: 0
