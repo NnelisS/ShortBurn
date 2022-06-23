@@ -43,8 +43,8 @@ public class AudioManager : MonoBehaviour
 
         while (_source.volume > 0)
         {
-            _source.volume -= Time.deltaTime * 0.3f;
-            yield return null;
+            _source.volume -= .005f;
+            yield return new WaitForSeconds(0.1f);
         }
     }
 
@@ -54,8 +54,8 @@ public class AudioManager : MonoBehaviour
 
         while (_source.volume < _startVolume)
         {
-            _source.volume += Time.deltaTime * 0.3f;
-            yield return null;
+            _source.volume += .005f;
+            yield return new WaitForSeconds(0.1f);
         }
     }
 
