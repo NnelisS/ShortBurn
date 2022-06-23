@@ -69666,6 +69666,7 @@ GameObject:
   - component: {fileID: 1276777671}
   - component: {fileID: 1276777673}
   - component: {fileID: 1276777674}
+  - component: {fileID: 1276777675}
   m_Layer: 0
   m_Name: Begin Wake Up
   m_TagString: Untagged
@@ -69738,6 +69739,18 @@ MonoBehaviour:
   UI: {fileID: 822697323}
   Pauser: {fileID: 3340701681223403471}
   CamRot: {fileID: 3340701680501986130}
+--- !u!114 &1276777675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1276777670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2362746b423f8db4ba98d7c566f48de0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &1279070333
 Mesh:
   m_ObjectHideFlags: 0
