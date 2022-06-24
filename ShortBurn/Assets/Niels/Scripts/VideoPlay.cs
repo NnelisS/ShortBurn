@@ -31,11 +31,8 @@ public class VideoPlay : MonoBehaviour
             VidStart.enabled = true;
             screen.GetComponent<MeshRenderer>().material = White;
 
-            if (Recordin != isActiveAndEnabled && CloneSpawn != isActiveAndEnabled)
-            {
-                Recordin.SetActive(true);
-                CloneSpawn.SetActive(true);
-            }
+            Recordin.SetActive(true);
+            CloneSpawn.SetActive(true);
         }
     }
 }
