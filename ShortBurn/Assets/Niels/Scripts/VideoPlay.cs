@@ -16,8 +16,12 @@ public class VideoPlay : MonoBehaviour
     private void Start()
     {
         VidStart.enabled = false;
-        Recordin.SetActive(false);
-        CloneSpawn.SetActive(false);
+
+        if (Recordin != isActiveAndEnabled && CloneSpawn != isActiveAndEnabled)
+        {
+            Recordin.SetActive(false);
+            CloneSpawn.SetActive(false);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -26,8 +30,12 @@ public class VideoPlay : MonoBehaviour
         {
             VidStart.enabled = true;
             screen.GetComponent<MeshRenderer>().material = White;
-            Recordin.SetActive(true);
-            CloneSpawn.SetActive(true);
+
+            if (Recordin != isActiveAndEnabled && CloneSpawn != isActiveAndEnabled)
+            {
+                Recordin.SetActive(true);
+                CloneSpawn.SetActive(true);
+            }
         }
     }
 }

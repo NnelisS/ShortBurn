@@ -17,7 +17,7 @@ public class EndTrigger : MonoBehaviour
 
     public bool on = false;
 
-    private float time = 21;
+    private float time = 34;
 
     private void Start()
     {

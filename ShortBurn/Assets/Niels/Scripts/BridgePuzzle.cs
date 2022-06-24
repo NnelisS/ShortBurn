@@ -19,7 +19,7 @@ public class BridgePuzzle : MonoBehaviour
         if (activated)
         {
             if (ClonePuzzle)
-                Bridge.transform.localPosition = Vector3.MoveTowards(Bridge.transform.localPosition, GoTo.transform.localPosition, 0.3f * Time.deltaTime);
+                Bridge.transform.localPosition = Vector3.MoveTowards(Bridge.transform.localPosition, GoTo.transform.localPosition, 0.5f * Time.deltaTime);
             else
                 Bridge.transform.localPosition = Vector3.MoveTowards(Bridge.transform.localPosition, GoTo.transform.localPosition, 1 * Time.deltaTime);
         }
