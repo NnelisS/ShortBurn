@@ -10,17 +10,9 @@ public class BridgePuzzle : MonoBehaviour
     public Transform GoToBack;
     public bool ClonePuzzle = false;
 
-    private float timer = 2;
-    private CinemachineVirtualCamera vCam;
-
     private bool activated = false;
 
     public AudioSource Ending;
-
-    private void Start()
-    {
-        vCam = FindObjectOfType<CinemachineVirtualCamera>();
-    }
 
     private void Update()
     {
